@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/06/hello-world/"/>
+  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/13/倒立摆的建模仿真与控制（二）/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,20 +31,22 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>Hello World - 纸葱の小站</title>
-  <meta name="keywords" content="null">
-  <meta desc name="description" content="基于Hexo构建的博客 - Paper_Scallion - 纸葱の小站">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <title>倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱の小站</title>
+  <meta name="keywords" content="自动控制原理,null">
+  <meta desc name="description" content="编码器的原理及使用
+对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。 - Paper_Scallion - 纸葱の小站">
+  <meta name="description" content="编码器的原理及使用 对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://paper-scallion.github.io/2022/10/06/hello-world/index.html">
+<meta property="og:title" content="倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制">
+<meta property="og:url" content="https://paper-scallion.github.io/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name" content="纸葱の小站">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="编码器的原理及使用 对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-10-06T06:06:16.987Z">
-<meta property="article:modified_time" content="2022-10-06T07:53:05.747Z">
+<meta property="article:published_time" content="2022-10-13T06:19:49.424Z">
+<meta property="article:modified_time" content="2022-10-13T07:12:23.482Z">
 <meta property="article:author" content="Paper_Scallion">
+<meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -1905,7 +1907,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665639173309),
+    lastupdate: new Date(1665646088791),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2679,7 +2681,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/06/hello-world/">
+  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/13/倒立摆的建模仿真与控制（二）/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="纸葱の小站">
   </span>
@@ -2700,7 +2702,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        Hello World
+        倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制
       </h1>
       <div class='new-meta-box'>
         
@@ -2717,14 +2719,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">课程实验</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" itemprop="url"><span itemprop="name">课程实验</span></a>
+      </span>
+    
+  </div>
+
 
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-06T14:06:16+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-13T14:19:49+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年10月6日</p>
+    <p>发布于：2022年10月13日</p>
   </a>
 </div>
 
@@ -2739,7 +2751,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <p>
       <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
       
-      <span id="lc-pv" data-title="Hello World" data-path="/2022/10/06/hello-world/">
+      <span id="lc-pv" data-title="倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制" data-path="/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/">
         <span id='number'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
       </span>
       
@@ -2761,29 +2773,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <h2 id="编码器的原理及使用">编码器的原理及使用</h2>
+<p>对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。</p>
+<span id="more"></span>
 
   </div>
   
@@ -2808,10 +2800,10 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-06T15:53:05+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-13T15:12:23+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年10月6日</p>
+    <p>更新于：2022年10月13日</p>
   </a>
 </div>
 
@@ -2819,6 +2811,10 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>自动控制原理</p></a></div>
+  <span hidden itemprop="keywords">自动控制原理</span>
+
 
         
       
@@ -2830,7 +2826,8 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/06/hello-world/&title=Hello World - 纸葱の小站&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱の小站&summary=编码器的原理及使用
+对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。"
           
           >
           
@@ -2842,7 +2839,8 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/06/hello-world/&title=Hello World - 纸葱の小站&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱の小站&summary=编码器的原理及使用
+对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。"
           
           >
           
@@ -2854,7 +2852,8 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/06/hello-world/&title=Hello World - 纸葱の小站&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱の小站&summary=编码器的原理及使用
+对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。"
           
           >
           
@@ -2868,7 +2867,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
         <div class='hoverbox'>
           <a class='share'><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADuklEQVR42u3aSXLDMAwEQP//08kLXMKAkIU4zZtTEpemD2Mgrx+jNV4IwIEDB84AB24J3Ks53k588Xx1nrGDXqyfnhccOHDgwIEDB24bXHcjVyBXfz99vzr/1HnBgQMHDhw4cOC2wqUbmt5w9WKq66QXdvk8OHDgwIEDBw7cl8JNFRZPC5G3rQ8OHDhw4MCBA/dlcGkQng6qKRQ4cODAgQMHDty3wd21kbQAeQV9tb/0Qj/eyQcHDhw4cODAgRuCS8dpA/jpz+3zggMHDhw4cODALYE7HSlwNeieNp7vGuDAgQMHDhw4cFvgpgqRaUGxWsBMC51TFwQOHDhw4MCBA/fX4U6Db7XRm15ktcE8tQ44cODAgQMHDtw2uE8VLNPnuvOm88TrgQMHDhw4cODALYPrFhy7708VJrv76AZ1cODAgQMHDhy4bXDdAuBUUL6rofwaGuDAgQMHDhw4cNvg0mCavtcd3Ubz1Bfg7XzgwIEDBw4cOHBL4E6DYnejaeM6/dwNxscNaXDgwIEDBw4cuA/BnS6cAnUb0+kFdWEu5wcHDhw4cODAgVsCd/fBpxvadzWyy6DgwIEDBw4cOHBL4K4evCvwVtftXnBaMG3/cgAHDhw4cODAgVsG1y1wdjfcDaTVoNv9olw2pMGBAwcOHDhw4B6Gq34+DarVIJvOc1oYLe8PHDhw4MCBAwduKVy3MXzakO4G06lAXl4fHDhw4MCBAwduCVx1492g3IV+NcdUEAcHDhw4cODAgdsOdxo80wLlVKN6KmjHFwoOHDhw4MCBA7cU7u4DVWFPLy5tVJffAwcOHDhw4MCBWwKXFiqrwN0G8af3E88LDhw4cODAgQO3BG4qyHYD72ljOm0oV4PxcUMaHDhw4MCBAwfuQ3DVoJgepNsYngqw3YZ0OQCDAwcOHDhw4MAtgesGw7SBPAWaBvPTxjY4cODAgQMHDtxWuNMDnzaUu43q6fF2PXDgwIEDBw4cuCVw0w3cbrBMA2r3QtOg/DYAgwMHDhw4cODAPQx3GhC7B043nBZAT4N5+ZcDOHDgwIEDBw7cw3DTgfe0EZwG4G4jPQ7a4MCBAwcOHDhwS+HiBm2zcZ0G5Oq+xhvQ4MCBAwcOHDhw/wSu+3xawOwWQG8rZIIDBw4cOHDgwP1RuOoG08Jkt0Hd/YfGy3OAAwcOHDhw4MAthes2eKcC6Om6acCOgzc4cODAgQMHDtwyuOlGcDdoppB3rV8OwODAgQMHDhw4cA/BGWHBEwE4cODAGeDAPTt+AR4agJdQASKrAAAAAElFTkSuQmCC">
+            <img src="data:image/png;base64,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">
           </div>
         </div>
       
@@ -2876,7 +2875,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
           
-            target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/06/hello-world/&text=Hello World - 纸葱の小站"
+            target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/&text=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱の小站"
           
           >
           
@@ -2905,12 +2904,12 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>倒立摆的建模仿真与控制（一）倒立摆系统的建模</p>
+      
+        <a class='next' href='/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/'>
+          <p class='title'>倒立摆的建模仿真与控制（一）倒立摆系统的建模<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>倒立摆的建模
 对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统...</p>
         </a>
-      
       
     </div>
   
@@ -2925,7 +2924,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/10/06/hello-world/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2967,7 +2966,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#quick-start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="toc-text">编码器的原理及使用</span></a></li></ol>
     </div>
   </section>
 
@@ -3754,7 +3753,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
   function pjax_giscus() {
     const HEAD = check_giscus();
     if (!HEAD) return;
-    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"}},pdata.commentConfig)
+    let cfg = Object.assign({"theme":{"light":"light","dark":"dark"},"repo":"Paper-Scallion/comments","repo-id":"R_kgDOINMCGQ","category":"Announcements","category-id":"DIC_kwDOINMCGc4CR9EB","mapping":"pathname","reactions-enabled":"1","emit-metadata":"0","lang":"zh-CN"},pdata.commentConfig)
     const script = document.createElement('script');
     script.setAttribute('src', 'https://giscus.app/client.js');
     Object.keys(cfg).forEach(k=>{
@@ -4129,6 +4128,60 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 <!-- pjax 标签必须存在于所有页面 否则 pjax error -->
 <pjax>
 
+        <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = "https://unpkg.com/volantis-static@0.0.1654736714924/libs/mathjax/es5/tex-mml-chtml.js";
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typesetPromise();
+  }
+</script>
+
+
+
 </pjax>
 
 <script>
@@ -4260,7 +4313,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱の小站"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/06/hello-world/","name":"Hello World"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱の小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hello World","description":"基于Hexo构建的博客","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/06/hello-world/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱の小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/06/hello-world/","wordCount":0,"datePublished":"2022-10-06T06:06:16.987Z","dateModified":"2022-10-06T07:53:05.747Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱の小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/13/倒立摆的建模仿真与控制（二）/","name":"倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱の小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制","description":"编码器的原理及使用\r\n对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱の小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89/","wordCount":107,"datePublished":"2022-10-13T06:19:49.424Z","dateModified":"2022-10-13T07:12:23.482Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
