@@ -5,8 +5,8 @@
   <meta name="Volantis" content="5.7.6">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://paper-scallion.github.io/"/>
+  
+  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -31,18 +31,22 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>纸葱の小站</title>
-  <meta name="keywords" content="">
-  <meta desc name="description" content="基于Hexo构建的博客 - Paper_Scallion - 纸葱の小站">
-  
-<meta property="og:type" content="website">
-<meta property="og:title" content="纸葱の小站">
-<meta property="og:url" content="https://paper-scallion.github.io/index.html">
+  <title>倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站</title>
+  <meta name="keywords" content="自动控制原理,null">
+  <meta desc name="description" content="根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就... - Paper_Scallion - 纸葱の小站">
+  <meta name="description" content="根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就可以将闭环极点移到需要的位置，如果只调节增益不能满足所需要的性能时，就需要设计校正器，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="倒立摆的建模仿真与控制（三）根轨迹和频率响应实验">
+<meta property="og:url" content="https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/index.html">
 <meta property="og:site_name" content="纸葱の小站">
-<meta property="og:description" content="基于Hexo构建的博客">
+<meta property="og:description" content="根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就可以将闭环极点移到需要的位置，如果只调节增益不能满足所需要的性能时，就需要设计校正器，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-10-14T02:29:33.736Z">
+<meta property="article:modified_time" content="2022-10-14T03:35:08.286Z">
 <meta property="article:author" content="Paper_Scallion">
+<meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2332,7 +2336,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2601,7 +2605,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="full" class='cover-wrapper  dock' style="display: ;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/海風_70042542_1080p.jpg"></div>
 
@@ -2666,7 +2670,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 </div>
 
-        <div id="scroll-down" style="display: ;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
       </div>
     
   
@@ -2676,25 +2680,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-  
-  <section class="post-list">
-    
-      
-        
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
   <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="纸葱の小站">
@@ -2704,185 +2690,254 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="基于Hexo构建的博客">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/"  itemprop="url">
+    
+    
+      <h1 class="title" itemprop="name headline">
         倒立摆的建模仿真与控制（三）根轨迹和频率响应实验
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">纸葱</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">课程实验</a>
     
-      <p><a
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" itemprop="url"><span itemprop="name">课程实验</span></a>
+      </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-14T10:29:33+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年10月14日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="lc-pv" data-title="倒立摆的建模仿真与控制（三）根轨迹和频率响应实验" data-path="/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/">
+        <span id='number'><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+      </span>
+      
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p><a
 target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/根軌跡圖">根轨迹</a>反映了闭环特征根随<span
 class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。</p>
 <p>闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就可以将闭环极点移到需要的位置，如果只调节增益不能满足所需要的性能时，就需要设计校正器，常见的校正器有超前校正、滞后校正以及超前滞后校正等。</p>
-    
+<span id="more"></span>
+<h2 id="根轨迹和频率响应实验">根轨迹和频率响应实验</h2>
+
   </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-14T10:29:33+08:00">2022-10-14</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">课程实验</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" itemprop="url"><span itemprop="name">课程实验</span></a>
-            </span>
-          
-        
-      </div>
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
       
-        <div>
-          <a class='readmore' href='/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-14T11:35:08+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年10月14日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/13/倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="纸葱の小站">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="纸葱の小站">
-    <meta itemprop="description" content="基于Hexo构建的博客">
-  </span>
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>自动控制原理</p></a></div>
+  <span hidden itemprop="keywords">自动控制原理</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就可以将闭环极点移到需要的位置，如果只调节增益不能满足所需要的性能时，就需要设计校正器，常见的校正器有超前校正、滞后校正以及超前滞后校正等。"
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就可以将闭环极点移到需要的位置，如果只调节增益不能满足所需要的性能时，就需要设计校正器，常见的校正器有超前校正、滞后校正以及超前滞后校正等。"
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就可以将闭环极点移到需要的位置，如果只调节增益不能满足所需要的性能时，就需要设计校正器，常见的校正器有超前校正、滞后校正以及超前滞后校正等。"
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
+          <div class='target'>
+            <img src="data:image/png;base64,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">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
+          
+            target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&text=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站"
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
   
   
+
   
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/'>
+          <p class='title'>倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="discussionUrl" content="/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/index.html#comments">
     </span>
-  
-  
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/"  itemprop="url">
-        倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-13T14:19:49+08:00">2022-10-13</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">课程实验</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" itemprop="url"><span itemprop="name">课程实验</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
+    <div id="layoutHelper-comments"></div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="纸葱の小站">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="纸葱の小站">
-    <meta itemprop="description" content="基于Hexo构建的博客">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/"  itemprop="url">
-        倒立摆的建模仿真与控制（一）倒立摆系统的建模
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <p>对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-10-12T14:59:10+08:00">2022-10-12</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">课程实验</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" itemprop="url"><span itemprop="name">课程实验</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+  </article>
 
-</div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+
+
 
 
 </div>
@@ -2893,134 +2948,48 @@ class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根�
     
     
       
-<section class="widget blogger desktop mobile pjax">
-  <div class='content'>
     
-      
-        <a class='avatar flat-box circle' href='/'>
-          <img no-lazy src='https://gcore.jsdelivr.net/gh/Paper-Scallion/img/775c2cda21ef6eee4008a0f6d7ce1e323eca8806.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">纸葱の小站</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://space.bilibili.com/2098394/"
-              class="social fa-brands fa-bilibili flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:zhichong233@gmail.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/Paper-Scallion/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-    
-  
-
-  
-    
-    
-      
-  
-  <section class="widget category desktop pjax">
-    
-  <header>
-    
-      <a href='/blog/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/"
-            active-action="action-categoriesE8AFBEE7A88BE5AE9EE9AA8C"
-            ><div class='name'>课程实验</div><div class='badge'>(3)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-    
-  
-
-  
-    
-    
-      
-  
-  <section class="widget tagcloud desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" style="font-size: 14px; color: #999">自动控制原理</a>
-    </div>
-  </section>
-
-
-    
-  
-
   
 
 
 <div class="widget-sticky pjax">
 
+  
+  
+
+
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C"><span class="toc-text">根轨迹和频率响应实验</span></a></li></ol>
+    </div>
+  </section>
+
+  
+
 </div>
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3055,7 +3024,7 @@ class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根�
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -3064,15 +3033,15 @@ class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根�
     // header
     var l_header=document.getElementById("l_header");
     
-    l_header.classList.remove("show");
+    l_header.classList.add("show");
     
     
       // cover
       var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
       var scroll_down=document.getElementById('scroll-down');
-      cover_wrapper.id="full";
-      cover_wrapper.style.display="";
-      scroll_down.style.display="";
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
+      scroll_down.style.display="none";
     
   
 </script>
@@ -4161,6 +4130,60 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 <!-- pjax 标签必须存在于所有页面 否则 pjax error -->
 <pjax>
 
+        <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = "https://unpkg.com/volantis-static@0.0.1654736714924/libs/mathjax/es5/tex-mml-chtml.js";
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typesetPromise();
+  }
+</script>
+
+
+
 </pjax>
 
 <script>
@@ -4292,7 +4315,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱の小站"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱の小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"基于Hexo构建的博客","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱の小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"wordCount":0,"image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱の小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/","name":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱の小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验","description":"根轨迹反映了闭环特征根随\\(K_r\\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。\r\n闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就可以将闭环极点移到需要的位置，如果只调节增益不能满足所需要的性能时，就需要设计校正器，常见的校正器有超前校正、滞后校正以及超前滞后校正等。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱の小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/","wordCount":226,"datePublished":"2022-10-14T02:29:33.736Z","dateModified":"2022-10-14T03:35:08.286Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
