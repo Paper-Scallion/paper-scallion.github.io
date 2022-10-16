@@ -33,17 +33,18 @@
   <!-- 页面元数据 -->
   <title>倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站</title>
   <meta name="keywords" content="自动控制原理,null">
-  <meta desc name="description" content="根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 - Paper_Scallion - 纸葱の小站">
-  
+  <meta desc name="description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程. - Paper_Scallion - 纸葱の小站">
+  <meta name="description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="倒立摆的建模仿真与控制（三）根轨迹和频率响应实验">
 <meta property="og:url" content="https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/index.html">
 <meta property="og:site_name" content="纸葱の小站">
-<meta property="og:description" content="根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。">
+<meta property="og:description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-10-14T02:29:33.736Z">
-<meta property="article:modified_time" content="2022-10-14T03:40:34.958Z">
+<meta property="article:modified_time" content="2022-10-14T09:36:58.426Z">
 <meta property="article:author" content="Paper_Scallion">
 <meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary">
@@ -1906,7 +1907,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1665719318830),
+    lastupdate: new Date(1665887832106),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2773,11 +2774,70 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <p><a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/根軌跡圖">根轨迹</a>反映了闭环特征根随<span
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/根軌跡圖">根轨迹图</a>反映了闭环特征根随<span
 class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。</p>
+<p><a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/频率响应">频率特性法</a>是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程.</p>
 <span id="more"></span>
 <h2 id="根轨迹和频率响应实验">根轨迹和频率响应实验</h2>
-<p>闭环系统瞬态响应的基本特性与闭环极点的位置紧密相关，如果系统具有可变的环路增益，则闭环极点的位置取决于所选择的环路增益，从设计的观点来看，对于有些系统，通过简单的增益调节就可以将闭环极点移到需要的位置，如果只调节增益不能满足所需要的性能时，就需要设计校正器，常见的校正器有超前校正、滞后校正以及超前滞后校正等。</p>
+<h3 id="直线一级倒立摆根轨迹控制实验">直线一级倒立摆根轨迹控制实验</h3>
+<h4 id="根轨迹分析">根轨迹分析</h4>
+<p>根据《倒立摆的建模仿真与控制（一）倒立摆系统的建模》中的<a
+href="2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/#建立系统传递函数模型">传递函数模型</a>，将以下实际系统参数代入：</p>
+<p>小车质量<span class="math inline">\(M=1.096kg\)</span></p>
+<p>摆杆质量<span class="math inline">\(m=0.109kg\)</span></p>
+<p>小车摩擦系数<span class="math inline">\(b=0.1N\cdot s/m\)</span></p>
+<p>摆杆转动轴心到杆质心的长度<span
+class="math inline">\(l=0.25m\)</span></p>
+<p>摆杆惯量<span class="math inline">\(I=0.0034kg\cdot m^2\)</span></p>
+<p>得到摆杆角度和小车加速度之间的传递函数为： <span
+class="math display">\[
+G(s)=\frac{\Phi(s)}{V(s)}=\frac{ml}{(I+ml^2)s^2-mgl}=\frac{0.02725}{0.0102125s^2-0.26705}
+\]</span> 在MATLAB中运行以下脚本：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">close all;</span><br><span class="line">clear all;</span><br><span class="line">num=[<span class="number">0.02725</span>]; </span><br><span class="line">den=[<span class="number">0.0102125</span> <span class="number">0</span> <span class="number">-0.26705</span>];</span><br><span class="line">z=roots(num)</span><br><span class="line">p=roots(den)</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)</span><br><span class="line">rlocus(num,den)</span><br></pre></td></tr></table></figure>
+<p>得到结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z =</span><br><span class="line">  空的 0×1 double 列向量</span><br><span class="line">p =</span><br><span class="line">    5.1136</span><br><span class="line">   -5.1136</span><br></pre></td></tr></table></figure>
+<p>可以看出，系统有两个零点，有两个极点，并且有一个极点为正。</p>
+<p>绘制的系统根轨迹如下图所示：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p>可以看出闭环传递函数的一个极点位于右半平面，并且有一条根轨迹起始于该极点，并沿着实轴向左跑到位于原点的零点处，这意味着无论增益如何变化，这条根轨迹总是位于右半平面，即系统总是不稳定的。</p>
+<h4 id="根轨迹校正及仿真">根轨迹校正及仿真</h4>
+<p>对于该系统，设计控制器，使得使得校正后系统的要求如下：</p>
+<p>调整时间<span class="math inline">\(t_s=0.5s(2\%)\)</span></p>
+<p>最大超调量<span class="math inline">\(M_p\le10\%\)</span></p>
+<p>根轨迹设计步骤如下：</p>
+<ol type="1">
+<li>确定闭环期望极点<span
+class="math inline">\(s_d\)</span>的位置，由最大超调量</li>
+</ol>
+<p><span class="math display">\[
+M_p=e^{-\frac{\pi\zeta}{\sqrt{1-\zeta^2}}}\times100\%\le10\%
+\]</span></p>
+<p>解得阻尼比<span
+class="math inline">\(\zeta\ge0.591155\)</span>，取最佳阻尼比<span
+class="math inline">\(\zeta=\frac{\sqrt
+2}{2}\approx0.707107\)</span>。</p>
+<p>由<span class="math inline">\(\zeta=\cos \theta\)</span>解得<span
+class="math inline">\(\theta=\frac{\pi}{4}\)</span>。（其中<span
+class="math inline">\(\theta\)</span>为位于第二象限的极点和<span
+class="math inline">\(O\)</span>点的连线与实轴负方向的夹角）</p>
+<p>又由： <span class="math display">\[
+t_s=\frac{4}{\zeta\omega_n}\le0.5 \ (2\%)
+\]</span> 解得固有频率<span
+class="math inline">\(\omega_n\ge11.31371rad/s\)</span>，取固有频率<span
+class="math inline">\(\omega_n=11.5 \ rad/s\)</span>。</p>
+<p>期望闭环极点： <span class="math display">\[
+p_{1,2}=\omega_n(-\cos\theta\pm j\sin\theta)=-8.131728\pm8.131728j
+\]</span></p>
+<ol start="2" type="1">
+<li>未校正系统的根轨迹在实轴和虚轴上，不通过闭环期望极点，因此需要对系统进行超前校正，使得根轨迹通过期望闭环极点，设控制器为：</li>
+</ol>
+<p><span class="math display">\[
+K(s)=a\frac{Ts+1}{aTs+1}=\frac{s-z_c}{s-p_c} \ (a\le1)
+\]</span></p>
+<ol start="3" type="1">
+<li></li>
+</ol>
 
   </div>
   
@@ -2802,7 +2862,7 @@ class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根�
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-14T11:40:34+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-14T17:36:58+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年10月14日</p>
@@ -2828,7 +2888,8 @@ class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根�
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程."
           
           >
           
@@ -2840,7 +2901,8 @@ class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根�
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程."
           
           >
           
@@ -2852,7 +2914,8 @@ class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根�
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱の小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程."
           
           >
           
@@ -2964,7 +3027,7 @@ class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C"><span class="toc-text">根轨迹和频率响应实验</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C"><span class="toc-text">根轨迹和频率响应实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF%E4%B8%80%E7%BA%A7%E5%80%92%E7%AB%8B%E6%91%86%E6%A0%B9%E8%BD%A8%E8%BF%B9%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-text">直线一级倒立摆根轨迹控制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%88%86%E6%9E%90"><span class="toc-text">根轨迹分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E6%A0%A1%E6%AD%A3%E5%8F%8A%E4%BB%BF%E7%9C%9F"><span class="toc-text">根轨迹校正及仿真</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -4311,7 +4374,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱の小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/","name":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱の小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验","description":"根轨迹反映了闭环特征根随\\(K_r\\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱の小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/","wordCount":69,"datePublished":"2022-10-14T02:29:33.736Z","dateModified":"2022-10-14T03:40:34.958Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱の小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/","name":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱の小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱の小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验","description":"根轨迹图反映了闭环特征根随\\(K_r\\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。\r\n频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程.","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱の小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/","wordCount":121,"datePublished":"2022-10-14T02:29:33.736Z","dateModified":"2022-10-14T09:36:58.426Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
