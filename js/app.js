@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   volantis.requestAnimationFrame(() => {
-    VolantisApp.init();
+    
     VolantisApp.subscribe();
     VolantisFancyBox.init();
     highlightKeyWords.startFromURL();
