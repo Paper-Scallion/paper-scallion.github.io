@@ -6924,7 +6924,7 @@ p,
 input,
 pre>span,
 textarea {
-  cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/text128.png"), text;
+  cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/text.png"), text;
 }
 .fancybox-container .fancybox-stage,
 .fancybox__carousel .is-draggable {
@@ -6940,7 +6940,7 @@ span.btn>a:not([href]):hover,
 .fancybox-button[disabled]:hover,
 .gt-container .gt-btn.is--disable,
 span.not-select {
-  cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/unavailiable128.png"), not-allowed;
+  cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/circle.png"), not-allowed;
 }
 html,
 a:not([href]),
@@ -6965,7 +6965,7 @@ kbd,
 p > img,
 p > svg,
 .fix-cursor-default {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png"), default;
+  cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/left_ptr.png"), default;
 }
 a,
 psw,
@@ -7026,18 +7026,18 @@ a.result.search-result-fix,
 .tk-action-icon,
 .fancybox,
 .fix-cursor-pointer {
-  cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/link128.png"), pointer;
+  cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/pointer.png"), pointer;
 }
 .cur-default {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png"), default !important;
+  cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/left_ptr.png"), default !important;
 }
 .cur-pointer,
 .carousel__button,
 .fancybox__slide {
-  cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/link128.png"), pointer !important;
+  cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/pointer.png"), pointer !important;
 }
 .cur-not-allowed {
-  cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/unavailiable128.png"), not-allowed !important;
+  cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/circle.png"), not-allowed !important;
 }
 .cur-zoom-in,
 .fancybox__carousel .fancybox__slide.can-zoom_in .fancybox__content,
@@ -7050,7 +7050,7 @@ a.result.search-result-fix,
   cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/zoom-out.png"), zoom-out !important;
 }
 .cur-text {
-  cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/text128.png"), text !important;
+  cursor: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/cursor/text.png"), text !important;
 }
 .common_read {
   z-index: auto !important;
