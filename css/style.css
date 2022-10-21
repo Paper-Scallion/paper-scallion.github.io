@@ -6965,7 +6965,7 @@ kbd,
 p > img,
 p > svg,
 .fix-cursor-default {
-  cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/pointer128.png"), default;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png"), default;
 }
 a,
 psw,
@@ -7029,7 +7029,7 @@ a.result.search-result-fix,
   cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/link128.png"), pointer;
 }
 .cur-default {
-  cursor: url("https://cdn.jsdelivr.net/gh/Paper-Scallion/assets@main/cursor/pointer128.png"), default !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png"), default !important;
 }
 .cur-pointer,
 .carousel__button,
