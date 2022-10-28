@@ -1906,7 +1906,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1666744344650),
+    lastupdate: new Date(1666972394289),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2696,9 +2696,73 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/27/倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="纸葱の小站">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="纸葱の小站">
+    <meta itemprop="description" content="基于Hexo构建的博客">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/"  itemprop="url">
+        倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      <p><a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/LQR控制器">LQR控制器</a>，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2022-10-27T22:48:19+08:00">2022-10-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">课程实验</a>
+          
+            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+              <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" itemprop="url"><span itemprop="name">课程实验</span></a>
+            </span>
+          
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/' itemprop="url">
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -2731,6 +2795,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <p>经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。<a
 target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/PID%E6%8E%A7%E5%88%B6%E5%99%A8">PID
 控制器</a>因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。</p>
+<p>经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型，现代控制理论主要是依据现代数学工具，将经典控制理论的概念扩展到多输入多输出系统。<a
+target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE/8783333">极点配置法</a>通过设计状态反馈控制器将多变量系统的闭环系统极点配置在期望的位置上，从而使系统满足瞬态和稳态性能指标。</p>
     
   </div>
   
@@ -3054,7 +3120,7 @@ target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/倒單擺"
           <li><a class="flat-box"
             title="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/"
             active-action="action-categoriesE8AFBEE7A88BE5AE9EE9AA8C"
-            ><div class='name'>课程实验</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>课程实验</div><div class='badge'>(5)</div></a></li>
         
       </ul>
     </div>
