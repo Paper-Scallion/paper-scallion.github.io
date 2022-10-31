@@ -47,7 +47,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-10-14T02:29:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T15:23:12.550Z">
+<meta property="article:modified_time" content="2022-10-31T05:41:38.796Z">
 <meta property="article:author" content="Paper_Scallion">
 <meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary">
@@ -1910,7 +1910,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1667058738414),
+    lastupdate: new Date(1667194915558),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2784,7 +2784,7 @@ G(s)=\frac{\Phi(s)}{V(s)}=\frac{ml}{(I+ml^2)s^2-mgl}=\frac{0.02725}{0.0102125s^2
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z =</span><br><span class="line">  空的 0×1 double 列向量</span><br><span class="line">p =</span><br><span class="line">    5.1136</span><br><span class="line">   -5.1136</span><br></pre></td></tr></table></figure>
 <p>可以看出，系统有两个零点，有两个极点，并且有一个极点为正。</p>
 <p>绘制的系统根轨迹如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
 <p>可以看出闭环传递函数的一个极点位于右半平面，并且有一条根轨迹起始于该极点，并沿着实轴向左跑到位于原点的零点处，这意味着无论增益如何变化，这条根轨迹总是位于右半平面，即系统总是不稳定的。</p>
 <h4 id="根轨迹校正及仿真">根轨迹校正及仿真</h4>
 <p>对于该系统，设计控制器，使得使得校正后系统的要求如下：</p>
@@ -2850,11 +2850,17 @@ G(s_0)&amp;=-[\pi-\tan^{-1}(\frac{\omega_n\sin\theta}{\omega_n\cos\theta-5.1136}
 <p><span class="math display">\[
 \gamma=\frac12(\pi-\theta-\phi_c)=0.4903
 \]</span></p>
+<p>各角度示意图如下：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302108037.png" /></p>
 <p>则超前校正装置零点： <span class="math display">\[
 z_c=-[\omega_n\cos\theta-\omega_n\sin\theta\tan(\frac{\pi}{4}-\gamma)]=-5.6599
 \]</span> 超前校正装置极点： <span class="math display">\[
 p_c=-(\omega_n\cos\theta+\omega_n\sin\theta\cot\gamma)=-23.3661
-\]</span> 校正后开环传递函数： <span class="math display">\[
+\]</span> 校正装置的零极点相对位置如下图所示：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302110204.png" /></p>
+<p>校正后开环传递函数： <span class="math display">\[
 Q(s)=G(s)K(s)=K\frac{s+5.6599}{s+23.3661}\frac{0.02725}{0.0102125s^2-0.26705}
 \]</span></p>
 <ol start="5" type="1">
@@ -2867,11 +2873,11 @@ class="math inline">\(K=102.6543\)</span>。</li>
 K(s)=\frac{102.6543(s+5.6599)}{s+23.3661}
 \]</span></p>
 <p>校正后系统根轨迹如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p2.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p2.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
 <p>闭环系统的阶跃响应曲线如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p3.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p3.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p3.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p3.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
 <p>闭环系统的脉冲响应曲线如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p4.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p4.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p4.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p4.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
 <h3
 id="直线一级倒立摆频率响应控制实验">直线一级倒立摆频率响应控制实验</h3>
 <h4 id="频率响应分析">频率响应分析</h4>
@@ -2879,12 +2885,19 @@ id="直线一级倒立摆频率响应控制实验">直线一级倒立摆频率�
 href="/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/#建立系统传递函数模型">传递函数模型</a>，得到摆杆角度和小车加速度之间的传递函数为：
 <span class="math display">\[
 G(s)=\frac{\Phi(s)}{V(s)}=\frac{0.02725}{0.0102125s^2-0.26705}
-\]</span> 在 MATLAB 下绘制系统的 Bode 图和Nyquist图。</p>
-<p>在MATLAB中运行以下脚本：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">close all</span><br><span class="line">clear all</span><br><span class="line"></span><br><span class="line">num=[<span class="number">0.02725</span>];</span><br><span class="line">den=[<span class="number">0.0102125</span> <span class="number">0</span> <span class="number">-0.26705</span>];</span><br><span class="line">z=roots(num)</span><br><span class="line">p=roots(den)</span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">bode(num,den)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">nyquist(num,den)</span><br><span class="line">xlim([<span class="number">-0.15</span>,<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+\]</span> 在<span class="math inline">\(MATLAB\)</span>下绘制系统的<span
+class="math inline">\(Bode\)</span>图和<span
+class="math inline">\(Nyquist\)</span>图。</p>
+<p>在<span class="math inline">\(MATLAB\)</span>中运行以下脚本：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">num=[<span class="number">0.02725</span>];</span><br><span class="line">den=[<span class="number">0.0102125</span> <span class="number">0</span> <span class="number">-0.26705</span>];</span><br><span class="line">z=roots(num)</span><br><span class="line">p=roots(den)</span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">bode(num,den)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">nyquist(num,den)</span><br><span class="line">xlim([<span class="number">-0.15</span>,<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
 <p>得到结果如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z =</span><br><span class="line">  空的 0×1 double 列向量</span><br><span class="line">p =</span><br><span class="line">    5.1136</span><br><span class="line">   -5.1136</span><br></pre></td></tr></table></figure>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p5.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p5.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p>系统的的<span class="math inline">\(Bode\)</span>图如下：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129941.png" /></p>
+<p>系统的的<span class="math inline">\(Nyquist\)</span>图如下：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129658.png" /></p>
 <p>可以得到，系统没有零点，但存在两个极点，其中一个极点位于右半<span
 class="math inline">\(S\)</span>平面，根据奈奎斯特稳定判据，闭环系统稳定的充分必要条件是：当<span
 class="math inline">\(\omega\)</span>从<span
@@ -2902,8 +2915,7 @@ class="math inline">\(1\)</span>圈，可以看出，系统的Nyquist图并没�
 class="math inline">\((-1,0)\)</span>点<span
 class="math inline">\(1\)</span>圈，因此系统不稳定，需要设计控制器来镇定系统。</p>
 <h4 id="超前校正的设计">超前校正的设计</h4>
-<p>对于该系统，设计控制器，使得使得校正后系统的要求如下：</p>
-<p>的静态位置误差常数为<span class="math inline">\(10\)</span></p>
+<p>稳态位置误差常数为<span class="math inline">\(10\)</span></p>
 <p>相位裕量为<span class="math inline">\(50^\circ\)</span></p>
 <p>增益裕量<span class="math inline">\(\ge10 \ dB\)</span></p>
 <p>控制器设计步骤如下：</p>
@@ -2931,12 +2943,13 @@ K_c=98
 G_1(s)=-\frac{0.02725\times98}{0.0102125s^2-0.26705}
 \]</span></p>
 <ol start="3" type="1">
-<li>在MATLAB中画出<span
-class="math inline">\(G_1(s)\)</span>的Bode图如下：</li>
+<li>在<span class="math inline">\(MATLAB\)</span>中画出<span
+class="math inline">\(G_1(s)\)</span>的<span
+class="math inline">\(Bode\)</span>图如下：</li>
 </ol>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p6.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p6.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
-<p>Nyquist图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p7.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p7.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p6.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p6.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
+<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p7.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p7.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
 <ol start="4" type="1">
 <li>可以看出，系统的相位裕量为<span
 class="math inline">\(0^\circ\)</span>，根据设计要求，系统的相位裕量为<span
@@ -2980,24 +2993,27 @@ K(s)&amp;=\alpha\frac{\frac{1}{\alpha T}+s}{\frac{1}{T}+s}\notag \\
 <p>校正后的开环传递函数为： <span class="math display">\[
 K_cK(s)G(s)=98\times10.0590\frac{s+8.9359}{s+89.8857}\times\frac{0.02725}{0.0102125s^2-0.26705}
 \]</span></p>
-<p>增加校正后系统的Bode图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p8.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p8.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
-<p>Nyquist图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p9.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p9.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
-<p>和根轨迹图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p10.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p10.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
-<p>观察Bode图可知，校正后的相位裕度为<span
+<p>增加校正后系统的<span class="math inline">\(Bode\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p8.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p8.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
+<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p9.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p9.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
+<p>根轨迹图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p10.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p10.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  /></p>
+<p>观察<span
+class="math inline">\(Bode\)</span>图可知，校正后的相位裕度为<span
 class="math inline">\(55.8^\circ\)</span>，达到要求的<span
 class="math inline">\(50^\circ\)</span></p>
 <p>系统的阶跃响应曲线如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p11.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p11.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341176.png" /></p>
 <p>系统的稳态值为<span
 class="math inline">\(1.12\)</span>，稳态误差大于<span
 class="math inline">\(0.1\)</span>，未满足题设要求，超调量<span
 class="math inline">\(\sigma\%=13.39%\)</span>，调节时间<span
 class="math inline">\(t_s=0.324s\)</span>。</p>
 <p>系统的冲激响应曲线如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p12.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p12.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom:50%;" /></p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341387.png" /></p>
 <p>可以看到，系统在遇到干扰后，可以在<span
 class="math inline">\(0.4s\)</span>内达到新的平衡，但是震荡幅度较大。</p>
 <h4 id="滞后-超前校正的设计">滞后-超前校正的设计</h4>
@@ -3013,14 +3029,15 @@ K(s)=\frac{(1+T_bs)(1+T_as)}{(1+\alpha T_bs)(1+\alpha^{-1}T_as)}
 class="math inline">\(K_cG(s)K(s)\)</span></p>
 <ol start="2" type="1">
 <li>根据稳态误差要求计算增益<span
-class="math inline">\(K_c\)</span>：</li>
+class="math inline">\(K_c\)</span>，为减小稳态误差，故选取更大的稳态位置误差常数<span
+class="math inline">\(K_p\)</span>：</li>
 </ol>
 <p><span class="math display">\[
-K_p=\lim_{s\to0}K_cK(s)G(s)=\lim_{s\to0}\frac{(1+T_bs)(1+T_as)}{(1+\alpha
-T_bs)(1+\alpha^{-1}T_as)}\times\frac{0.02725}{0.0102125s^2-0.26705}=10
+K_p=\lim_{s\to0}K_cK(s)G(s)=\lim_{s\to0}K_c\frac{(1+T_bs)(1+T_as)}{(1+\alpha
+T_bs)(1+\alpha^{-1}T_as)}\times\frac{0.02725}{0.0102125s^2-0.26705}=100
 \]</span></p>
 <p>可以得到： <span class="math display">\[
-K_c=98
+K_c=980
 \]</span></p>
 <ol start="3" type="1">
 <li>根据：</li>
@@ -3032,23 +3049,54 @@ K_c=98
 class="math inline">\(\phi_m=55^\circ\)</span>，计算得到：<span
 class="math inline">\(\alpha=10.0590\)</span></p>
 <ol start="4" type="1">
-<li>根据截止频率<span class="math inline">\(\omega_c=10 \
+<li>根据取截止频率<span class="math inline">\(\omega_c=28 \
 rad/s\)</span>，并且设<span
-class="math inline">\(T_a=0.1\)</span>，有：</li>
+class="math inline">\(T_a=0.1107\)</span>，有：</li>
 </ol>
 <p><span class="math display">\[
-20\lg K_c+20\lg|\frac{1+T_bj\omega_c}{1+\alpha
-T_bj\omega_c}|+20\lg|G(j\omega_c)|+20\lg|\frac{1+T_a
-j\omega_c}{1+\alpha^{-1} T_aj\omega_c}|=0
+20\lg K_c+20\lg|G(j\omega_c)|+20\lg|\frac{1+T_bj\omega_c}{1+\alpha
+T_bj\omega_c}|+20\lg|\frac{1+T_a j\omega_c}{1+\alpha^{-1}
+T_aj\omega_c}|=0
 \]</span></p>
-<p>解得：<span
-class="math inline">\(T_b=7.6403\times10^{-3}\)</span></p>
-<p>最终滞后-超前控制器为： <span class="math display">\[
-K(s)=\frac{(7.6403\times10^{-3}s+1)(1.0059s+1)}{(7.7853\times10^{-2}s+1)(0.1s+1)}
-\]</span> 且<span class="math inline">\(K_c=98\)</span></p>
+<p>解得：<span class="math inline">\(T_b=0.7054\)</span></p>
+<ol start="5" type="1">
+<li>最终滞后-超前控制器为：</li>
+</ol>
+<p><span class="math display">\[
+K(s)=\frac{(0.7054s+1)(0.1107s+1)}{(7.0956s+1)(1.1005\times10^{-2} s+1)}
+\]</span> 且<span class="math inline">\(K_c=980\)</span></p>
 <p>校正后的开环传递函数为： <span class="math display">\[
-K_cK(s)G(s)=98\times\frac{(7.6403\times10^{-3}s+1)(1.0059s+1)}{(7.7853\times10^{-2}s+1)(0.1s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
-\]</span></p>
+K_cK(s)G(s)=980\times\frac{(0.7054s+1)(0.1107s+1)}{(7.0956s+1)(1.1005\times10^{-2}
+s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
+\]</span> 增加校正后系统的<span
+class="math inline">\(Bode\)</span>图如下：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311328374.png" /></p>
+<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329739.png" /></p>
+<p>根轨迹图如下：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329871.png" /></p>
+<p>观察<span
+class="math inline">\(Bode\)</span>图可知，校正后的相位裕度为<span
+class="math inline">\(52.4^\circ\)</span>，达到要求的<span
+class="math inline">\(50^\circ\)</span>，增益裕量为<span
+class="math inline">\(17.7dB\)</span>，达到要求的<span
+class="math inline">\(10dB\)</span></p>
+<p>系统的阶跃响应曲线如下：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311330986.png" /></p>
+<p>系统的稳态值为<span
+class="math inline">\(1.01\)</span>，稳态误差小于<span
+class="math inline">\(0.1\)</span>，满足题设要求，超调量<span
+class="math inline">\(\sigma\%=30.69\%\)</span>，调节时间<span
+class="math inline">\(t_s=0.96s\)</span>。</p>
+<p>系统的冲激响应曲线如下：</p>
+<p><img
+src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311340274.png" /></p>
+<p>可以看到，系统在遇到干扰后，可以在<span
+class="math inline">\(0.4s\)</span>内达到新的平衡，但是震荡幅度较大。</p>
 
   </div>
   
@@ -3073,10 +3121,10 @@ K_cK(s)G(s)=98\times\frac{(7.6403\times10^{-3}s+1)(1.0059s+1)}{(7.7853\times10^{
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-29T23:23:12+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-31T13:41:38+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年10月29日</p>
+    <p>更新于：2022年10月31日</p>
   </a>
 </div>
 
@@ -3382,12 +3430,6 @@ id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i><
 人</span></p>
 </div>
         
-      
-    
-      
-        本站使用
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6" target="_blank" class="codename">Volantis</a>
-        作为主题
       
     
       
@@ -4602,7 +4644,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/","name":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验","description":"根轨迹图反映了闭环特征根随\\(K_r\\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。\r\n频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/","wordCount":121,"datePublished":"2022-10-14T02:29:00.000Z","dateModified":"2022-10-29T15:23:12.550Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/","name":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验","description":"根轨迹图反映了闭环特征根随\\(K_r\\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。\r\n频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/","wordCount":121,"datePublished":"2022-10-14T02:29:00.000Z","dateModified":"2022-10-31T05:41:38.796Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
