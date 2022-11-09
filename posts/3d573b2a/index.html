@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/">
+  <link rel="canonical" href="https://paper-scallion.github.io/posts/3d573b2a/">
   <!-- 渲染优化 -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
       <link rel="dns-prefetch" href="https://unpkg.com">
@@ -34,20 +34,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站</title>
+  <title>倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站</title>
   <meta name="keywords" content="自动控制原理,null">
-  <meta desc name="description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
-频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。 - Paper_Scallion - 纸葱de小站">
-  <meta name="description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
+  <meta desc name="description" content="LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。 - Paper_Scallion - 纸葱de小站">
+  
 <meta property="og:type" content="article">
-<meta property="og:title" content="倒立摆的建模仿真与控制（三）根轨迹和频率响应实验">
-<meta property="og:url" content="https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:title" content="倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验">
+<meta property="og:url" content="https://paper-scallion.github.io/posts/3d573b2a/index.html">
 <meta property="og:site_name" content="纸葱de小站">
-<meta property="og:description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
+<meta property="og:description" content="LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-10-14T02:29:00.000Z">
-<meta property="article:modified_time" content="2022-11-03T15:35:19.653Z">
+<meta property="article:published_time" content="2022-10-27T14:48:00.000Z">
+<meta property="article:modified_time" content="2022-11-09T14:29:08.870Z">
 <meta property="article:author" content="Paper_Scallion">
 <meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary">
@@ -1910,7 +1909,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1668004148684),
+    lastupdate: new Date(1668004402424),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2597,7 +2596,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/">
+  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/posts/3d573b2a/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="纸葱de小站">
   </span>
@@ -2618,7 +2617,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        倒立摆的建模仿真与控制（三）根轨迹和频率响应实验
+        倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验
       </h1>
       <div class="new-meta-box">
         
@@ -2649,10 +2648,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-14T10:29:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-27T22:48:00+08:00">
   <a class="notlink">
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年10月14日</p>
+    <p>发布于：2022年10月27日</p>
   </a>
 </div>
 
@@ -2668,257 +2667,149 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/zh-hans/根軌跡圖">根轨迹图</a>反映了闭环特征根随<span class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。</p>
-<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/wiki/频率响应">频率特性法</a>是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。</p>
+    <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/wiki/LQR控制器">LQR控制器</a>，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。</p>
 <span id="more"></span>
-<h2 id="根轨迹和频率响应实验">根轨迹和频率响应实验</h2>
-<h3 id="直线一级倒立摆根轨迹控制实验">直线一级倒立摆根轨迹控制实验</h3>
-<h4 id="根轨迹分析">根轨迹分析</h4>
-<p>根据《倒立摆的建模仿真与控制（一）倒立摆系统的建模》中的<a href="/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/#建立系统传递函数模型">传递函数模型</a>，将以下实际系统参数代入：</p>
-<p>小车质量<span class="math inline">\(M=1.096kg\)</span></p>
-<p>摆杆质量<span class="math inline">\(m=0.109kg\)</span></p>
-<p>小车摩擦系数<span class="math inline">\(b=0.1N\cdot s/m\)</span></p>
-<p>摆杆转动轴心到杆质心的长度<span class="math inline">\(l=0.25m\)</span></p>
-<p>摆杆惯量<span class="math inline">\(I=0.0034kg\cdot m^2\)</span></p>
-<p>得到摆杆角度和小车加速度之间的传递函数为： <span class="math display">\[
-G(s)=\frac{\Phi(s)}{V(s)}=\frac{ml}{(I+ml^2)s^2-mgl}=\frac{0.02725}{0.0102125s^2-0.26705}
-\]</span> 在MATLAB中运行以下脚本：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">close all;</span><br><span class="line">clear all;</span><br><span class="line">num=[<span class="number">0.02725</span>]; </span><br><span class="line">den=[<span class="number">0.0102125</span> <span class="number">0</span> <span class="number">-0.26705</span>];</span><br><span class="line">z=roots(num)</span><br><span class="line">p=roots(den)</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)</span><br><span class="line">rlocus(num,den)</span><br></pre></td></tr></table></figure>
-<p>得到结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z =</span><br><span class="line">  空的 0×1 double 列向量</span><br><span class="line">p =</span><br><span class="line">    5.1136</span><br><span class="line">   -5.1136</span><br></pre></td></tr></table></figure>
-<p>可以看出，系统有两个零点，有两个极点，并且有一个极点为正。</p>
-<p>绘制的系统根轨迹如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>可以看出闭环传递函数的一个极点位于右半平面，并且有一条根轨迹起始于该极点，并沿着实轴向左跑到位于原点的零点处，这意味着无论增益如何变化，这条根轨迹总是位于右半平面，即系统总是不稳定的。</p>
-<h4 id="根轨迹校正及仿真">根轨迹校正及仿真</h4>
-<p>对于该系统，设计控制器，使得使得校正后系统的要求如下：</p>
-<p>调整时间<span class="math inline">\(t_s=0.5s(2\%)\)</span></p>
-<p>最大超调量<span class="math inline">\(M_p\le10\%\)</span></p>
-<p>根轨迹设计步骤如下：</p>
-<ol type="1">
-<li>确定闭环期望极点<span class="math inline">\(s_d\)</span>的位置，由最大超调量</li>
-</ol>
-<p><span class="math display">\[
-M_p=e^{-\frac{\pi\zeta}{\sqrt{1-\zeta^2}}}\times100\%\le10\%
-\]</span></p>
-<p>解得阻尼比<span class="math inline">\(\zeta\ge0.591155\)</span>，为使系统振荡幅度小，取阻尼比<span class="math inline">\(\zeta=0.9\)</span>。</p>
-<p>由<span class="math inline">\(\zeta=\cos \theta\)</span>解得<span class="math inline">\(\theta=0.4510\)</span>。（其中<span class="math inline">\(\theta\)</span>为位于第二象限的极点和<span class="math inline">\(O\)</span>点的连线与实轴负方向的夹角）</p>
-<p>又由： <span class="math display">\[
-t_s=\frac{4}{\zeta\omega_n}\le0.5 \ (2\%)
-\]</span> 解得固有频率<span class="math inline">\(\omega_n\ge8.8889rad/s\)</span>，取固有频率<span class="math inline">\(\omega_n=11.5 \ rad/s\)</span>。</p>
-<p>期望闭环极点： <span class="math display">\[
-p_{1,2}=\omega_n(-\cos\theta\pm j\sin\theta)=-10.3500\pm5.0127j
-\]</span></p>
-<ol start="2" type="1">
-<li>未校正系统的根轨迹在实轴和虚轴上，不通过闭环期望极点，因此需要引入新的零极点，对系统进行校正，使得根轨迹通过期望闭环极点，设超前校正控制器为：</li>
-</ol>
-<p><span class="math display">\[
-K(s)=\alpha\frac{Ts+1}{\alpha Ts+1}=\frac{s-z_c}{s-p_c} \ (a\le1)
-\]</span></p>
-<ol start="3" type="1">
-<li>计算超前校正装置应提供的相角，已知根轨迹上点满足相角方程：</li>
-</ol>
-<p><span class="math display">\[
-\angle G(s_0)+\angle K(s_0)=(2k+1)\pi
-\]</span></p>
-<p>则有： <span class="math display">\[
-\phi_c=\angle K(s)=(2k+1)\pi-\angle G(s_0)
-\]</span> 取点<span class="math inline">\(s_0=-10.3500+5.0127j\)</span>，则有： <span class="math display">\[
-\begin{align}
-\angle
-G(s_0)&amp;=-[\pi-\tan^{-1}(\frac{\omega_n\sin\theta}{\omega_n\cos\theta-5.1136})]-[\pi-\tan^{-1}(\frac{\omega_n\sin\theta}{\omega_n\cos\theta+5.1136})]\notag
-\\
-&amp;=-5.2061\notag
-\end{align}
-\]</span> 则： <span class="math display">\[
-\begin{align}
-\phi_c&amp;=(2k+1)\pi-\angle G(s_0)\notag \\
-&amp;=(2k+1)\pi-(-5.2061)\notag \\
-&amp;=2.0645\notag
-\end{align}
-\]</span> 其中<span class="math inline">\(k=-1\)</span>。</p>
-<ol start="4" type="1">
-<li>设计超前校正装置：</li>
-</ol>
-<p><span class="math display">\[
-\gamma=\frac12(\pi-\theta-\phi_c)=0.3130
-\]</span></p>
-<p>各角度示意图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302108037.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302108037.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>则超前校正装置零点： <span class="math display">\[
-z_c=-[\omega_n\cos\theta-\omega_n\sin\theta\tan(\frac{\pi}{4}-\gamma)]=-5.1185
-\]</span> 超前校正装置极点： <span class="math display">\[
-p_c=-(\omega_n\cos\theta+\omega_n\sin\theta\cot\gamma)=-25.8379
-\]</span> 校正装置的零极点相对位置如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302110204.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302110204.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>校正后开环传递函数： <span class="math display">\[
-Q(s)=G(s)K(s)=K\frac{s+5.1185}{s+25.8379}\frac{0.02725}{0.0102125s^2-0.26705}
-\]</span></p>
-<ol start="5" type="1">
-<li>由幅值条件<span class="math inline">\(|G(s_0)K(s_0)|=1\)</span>，并设反馈为单位负反馈，解得<span class="math inline">\(K=99.2219\)</span>。</li>
-<li>最终系统控制器为：</li>
-</ol>
-<p><span class="math display">\[
-K(s)=\frac{99.2219(s+5.1185)}{s+25.8379}
-\]</span></p>
-<p>校正后系统根轨迹如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p2.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>闭环系统的阶跃响应曲线如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p3.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p3.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>闭环系统的脉冲响应曲线如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p4.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p4.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<h3 id="直线一级倒立摆频率响应控制实验">直线一级倒立摆频率响应控制实验</h3>
-<h4 id="频率响应分析">频率响应分析</h4>
-<p>根据《倒立摆的建模仿真与控制（一）倒立摆系统的建模》中的<a href="/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/#建立系统传递函数模型">传递函数模型</a>，得到摆杆角度和小车加速度之间的传递函数为：
+<h2 id="线性二次最优控制lqr控制实验">线性二次最优控制LQR控制实验</h2>
+<h3 id="线性二次最优控制理论分析">线性二次最优控制理论分析</h3>
+<p>线性二次最优控制<span class="math inline">\(LQR\)</span>基本原理为，对于线性时不变系统，由系统方程：
 <span class="math display">\[
-G(s)=\frac{\Phi(s)}{V(s)}=\frac{0.02725}{0.0102125s^2-0.26705}
-\]</span> 在<span class="math inline">\(MATLAB\)</span>下绘制系统的<span class="math inline">\(Bode\)</span>图和<span class="math inline">\(Nyquist\)</span>图。</p>
-<p>在<span class="math inline">\(MATLAB\)</span>中运行以下脚本：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">num=[<span class="number">0.02725</span>];</span><br><span class="line">den=[<span class="number">0.0102125</span> <span class="number">0</span> <span class="number">-0.26705</span>];</span><br><span class="line">z=roots(num)</span><br><span class="line">p=roots(den)</span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">bode(num,den)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">nyquist(num,den)</span><br><span class="line">xlim([<span class="number">-0.15</span>,<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<p>得到结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z =</span><br><span class="line">  空的 0×1 double 列向量</span><br><span class="line">p =</span><br><span class="line">    5.1136</span><br><span class="line">   -5.1136</span><br></pre></td></tr></table></figure>
-<p>系统的的<span class="math inline">\(Bode\)</span>图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129941.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129941.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>系统的的<span class="math inline">\(Nyquist\)</span>图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129658.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129658.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>可以得到，系统没有零点，但存在两个极点，其中一个极点位于右半<span class="math inline">\(S\)</span>平面，根据奈奎斯特稳定判据，闭环系统稳定的充分必要条件是：当<span class="math inline">\(\omega\)</span>从<span class="math inline">\(-\infty\)</span>到<span class="math inline">\(+\infty\)</span>变化时，开环传递函数<span class="math inline">\(G(j\omega)\)</span>沿逆时针方向包围<span class="math inline">\((-1,0)\)</span>点<span class="math inline">\(p\)</span>圈，其中<span class="math inline">\(p\)</span>为开环传递函数在右半<span class="math inline">\(S\)</span>平面内的极点数。对于直线一级倒立摆，由上图我们可以看出，开环传递函数在<span class="math inline">\(S\)</span>右半平面有一个极点，因此<span class="math inline">\(G(j\omega)\)</span>需要沿逆时针方向包围<span class="math inline">\((-1,0)\)</span>点<span class="math inline">\(1\)</span>圈，可以看出，系统的Nyquist图并没有逆时针绕<span class="math inline">\((-1,0)\)</span>点<span class="math inline">\(1\)</span>圈，因此系统不稳定，需要设计控制器来镇定系统。</p>
-<h4 id="超前校正的设计">超前校正的设计</h4>
-<p>稳态位置误差常数为<span class="math inline">\(10\)</span></p>
-<p>相位裕量为<span class="math inline">\(50^\circ\)</span></p>
-<p>增益裕量<span class="math inline">\(\ge10 \ dB\)</span></p>
-<p>控制器设计步骤如下：</p>
-<ol type="1">
-<li>选择控制器，上面我们已经得到了系统的 Bode
-图，可以看出，给系统增加一个超前校正就可以满足设计要求，设超前校正装置为：</li>
-</ol>
+\dot x(t)=A(t)x(t)+B(t)u(t) \\
+y(t)=C(t)x(t)+D(t)u(t) \\
+x(t_0)=x_0
+\]</span> 确定下列最佳控制向量的矩阵<span class="math inline">\(K\)</span>： <span class="math display">\[
+u(t)=-K(t)x(t)
+\]</span> 使得性能指标达到最小值，即： <span class="math display">\[
+J=\frac{1}{2}x^T(t_f)Px(t_f)+\frac{1}{2}\int_{t_0}^{t_f}[x^T(t)Q(t)x(t)+u^T(t)R(t)u(t)]dt
+\]</span> 式中：</p>
+<ul>
+<li><span class="math inline">\(Q\)</span>：正定(或正半定)厄米特或实对称阵</li>
+<li>R：为正定厄米特或实对称阵</li>
+</ul>
+<p>终端时间有限时连续系统的状态调节器问题，要求寻找最优控制<span class="math inline">\(u(t)\)</span>，使<span class="math inline">\(J\)</span>最小。这里<span class="math inline">\(u(t)\)</span>无约束。<span class="math inline">\(P\)</span>、<span class="math inline">\(Q(t)\)</span>为对称半正定阵，<span class="math inline">\(R(t)\)</span>为对称正定阵。终端时间<span class="math inline">\(t_f\)</span>为有限值。</p>
+<p>因<span class="math inline">\(u(t)\)</span>无约束，故等同于用经典变分法求解。取哈密顿函数为：
+<span class="math display">\[
+H=\frac{1}{2}[x(t)^TQ(t)x(t)+u^T(t)R(t)u(t)]+\lambda^T(t)[A(t)x(t)+B(t)u(t)]
+\]</span> 最优解的必要条件如下：</p>
+<ul>
+<li>协态方程为：</li>
+</ul>
 <p><span class="math display">\[
-K(s)=\frac{1+\alpha Ts}{1+Ts}=\alpha\frac{\frac{1}{\alpha
-T}+s}{\frac{1}{T}+s}
+\dot \lambda=-\frac{\partial H}{\partial x}=-[Q(t)x(t)+A^T(t)\lambda(t)]
 \]</span></p>
-<p>已校正系统具有开环传递函数<span class="math inline">\(K_cK(s)G(s)\)</span></p>
-<p>设： <span class="math display">\[
-G_1(s)=K_cG(s)=\frac{0.02725K_c}{0.0102125s^2-0.26705}
-\]</span> 2. 根据稳态误差要求计算增益<span class="math inline">\(K_c\)</span>：</p>
+<ul>
+<li>控制方程为：</li>
+</ul>
 <p><span class="math display">\[
-K_p=\lim_{s\to0}K_cK(s)G(s)=\lim_{s\to0}K_c\frac{1+\alpha
-Ts}{1+Ts}\times\frac{0.02725}{0.0102125s^2-0.26705}=10
+\frac{\partial H}{\partial u}=R(t)u(t)+B^T(t)\lambda(t)=0 \\
+u=-R^{-1}(t)B^T(t)\lambda(t)
 \]</span></p>
-<p>可以得到： <span class="math display">\[
-K_c=98
-\]</span> 于是有： <span class="math display">\[
-G_1(s)=-\frac{0.02725\times98}{0.0102125s^2-0.26705}
-\]</span></p>
-<ol start="3" type="1">
-<li>在<span class="math inline">\(MATLAB\)</span>中画出<span class="math inline">\(G_1(s)\)</span>的<span class="math inline">\(Bode\)</span>图如下：</li>
-</ol>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p6.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p6.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p7.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p7.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<ol start="4" type="1">
-<li>可以看出，系统的相位裕量为<span class="math inline">\(0^\circ\)</span>，根据设计要求，系统的相位裕量为<span class="math inline">\(50^\circ\)</span>，因此需要增加的相位裕量为<span class="math inline">\(50^\circ\)</span>，增加超前校正装置会改变Bode图的幅值曲线，这时增益交界频率会向右移动，必须对增益交界频率增加所造成的<span class="math inline">\(G_1(j\omega)\)</span>的相位滞后增量进行补偿，因此，假设需要的最大相位超前量<span class="math inline">\(\phi_m\)</span>近似等于<span class="math inline">\(55^\circ\)</span>。</li>
-</ol>
-<p>根据： <span class="math display">\[
-\sin\phi_m=\frac{\alpha-1}{\alpha+1}
-\]</span> 计算得到：<span class="math inline">\(\alpha=10.0590\)</span></p>
-<ol start="5" type="1">
-<li>此时<span class="math inline">\(\phi_m\)</span>所对应增加幅值为：</li>
-</ol>
+<p>因<span class="math inline">\(R(t)\)</span>正定，故<span class="math inline">\(R^{-1}(t)\)</span>存在，由上式可确定最优控制<span class="math inline">\(u(t)\)</span>。为寻求最优反馈控制律还需把<span class="math inline">\(u(t)\)</span>与状态<span class="math inline">\(x(t)\)</span>联系起来。</p>
+<ul>
+<li>横截条件为：</li>
+</ul>
 <p><span class="math display">\[
-10\lg a=10.0256 \ dB
+\lambda(t_f)=\frac{\partial\phi}{\partial
+x(t_f)}=\frac{\partial}{\partial
+x(t_f)}[\frac{1}{2}x^T(t_f)Px(t_f)]=Px(t_f)
 \]</span></p>
-<p>并且<span class="math inline">\(|G_1(j\omega_c)|=-10.0261 \
-dB\)</span>，即： <span class="math display">\[
-|G_1(j\omega_c)|=|-\frac{0.02725\times98}{-0.0102125\omega_c^2-0.26705}|=10^{-\frac{10.0256}{20}}
-\]</span> 解得：<span class="math inline">\(\omega_c=28.3409 \
-rad/s\)</span></p>
-<p>再根据超前校正： <span class="math display">\[
-\omega_c=\frac{1}{\sqrt{a}T}
-\]</span> 解得：<span class="math inline">\(\frac{1}{T}=89.8857\)</span>，<span class="math inline">\(\frac{1}{\alpha T}=8.9359\)</span></p>
-<ol start="6" type="1">
-<li>校正装置可以确定为：</li>
-</ol>
+<p>再一次遇到了两点边值问题（已知<span class="math inline">\(x(t_0)\)</span>和<span class="math inline">\(\lambda(t_f)\)</span>），如前所述，一般要试凑<span class="math inline">\(\lambda(t_0)\)</span>再积分协态方程使<span class="math inline">\(\lambda(t_f)\)</span>满足要求。</p>
+<p>但这里处理的是线性微分方程，可找到更简单的解法。从可见，协态<span class="math inline">\(\lambda(t)\)</span>和状态<span class="math inline">\(x(t)\)</span>在终端<span class="math inline">\(t_f\)</span>时刻成线性关系。记<span class="math inline">\(\lambda(t)=K(t)x(t)\)</span>。</p>
+<p>将线性关系代入横截条件方程得： <span class="math display">\[
+[\dot K(t)+K(t)A(t)-K(t)B(t)R^{-1}(t)B^T(t)K(t)+A^T(t)K(t)+Q(t)]x(t)=0
+\]</span> 上式对任意<span class="math inline">\(x(t)\)</span>都应成立，故方括号内的项应为零，这就得出：
+<span class="math display">\[
+\dot K(t)=-K(t)A(t)-A^T(t)K(t)+K(t)B(t)R^{-1}(t)B^T(t)K(t)-Q(t)
+\]</span> 再根据线性关系： <span class="math display">\[
+\lambda(t)=K(t)x(t) \\
+\dot x(t)=A(t)x(t)-B(t)R^{-1}(t)B^T(t)K(t)x(t)\\
+\dot\lambda(t)=\dot K(t)x(t)+K(t)\dot x(t)=-Q(t)x(t)-A^T(t)K(t)x(t)\\
+K(t_f)=P
+\]</span> 得到K满足含上述终值条件的如下<span class="math inline">\(Riccati\)</span>方程： <span class="math display">\[
+\dot K(t)=-K(t)-A^T(t)K(t)+K(t)B(t)R^{-1}(t)B^T(t)K(t)-Q(t)
+\]</span> 上式是<span class="math inline">\(K(t)\)</span>的非线性矩阵微分方程，称为黎卡提（<span class="math inline">\(Riccati\)</span>）矩阵微分方程。一般来说得不出<span class="math inline">\(K(t)\)</span>的解析表达式，但可用计算机程序算出<span class="math inline">\(K(t)\)</span>的数值解。为了求解，要知道它的边界条件<span class="math inline">\(K(t_f)=P\)</span>。</p>
+<p>因此可从<span class="math inline">\(t_f\)</span>到<span class="math inline">\(t_0\)</span>逆时间积分黎卡提微分方程，求出<span class="math inline">\(K(t)\)</span>。可构成最优反馈控制： <span class="math display">\[
+u(t)=-R^{-1}(t)B^T(t)K(t)X(t)=-G(t)x(t)
+\]</span> 其中，<span class="math inline">\(G(t)=R^{-1}(t)B^T(t)K(t)\)</span>，又称为最优反馈增益矩阵。</p>
+<p>即使系统是定常的，即系统矩阵<span class="math inline">\(A\)</span>，输入矩阵<span class="math inline">\(B\)</span>为常数阵，加权阵<span class="math inline">\(R\)</span>和<span class="math inline">\(Q\)</span>也是常数阵，但<span class="math inline">\(K(t)\)</span>仍为时变阵。</p>
+<p>这从<span class="math inline">\(K(t)\)</span>是黎卡提微分方程的解可看出。K(t)$时变时，反馈控制增益也时变，在实现时总是不太方便。</p>
+<p>对线性定常系统，若终端时间<span class="math inline">\(t_f\rightarrow\infty\)</span>，且系统满足一些附加条件时，<span class="math inline">\(K(t)\)</span>将变为常数阵<span class="math inline">\(K\)</span>。</p>
+<p>线性定常系统： <span class="math display">\[
+\dot x(t)=Ax(t)+Bu(t)
+\]</span> <span class="math inline">\(x\)</span>为<span class="math inline">\(n\)</span>维，<span class="math inline">\(u\)</span>为<span class="math inline">\(m\)</span>维，系统是可控的或至少是可稳的（可稳指不可控的状态是渐近稳定的）。性能指标为：
+<span class="math display">\[
+J=\frac{1}{2}\int_{0}^{\infty}[x(t)^TQx(t)+u(t)^TRu(t)]dt
+\]</span> 其中<span class="math inline">\(u(t)\)</span>不受约束，<span class="math inline">\(Q\)</span>和<span class="math inline">\(R\)</span>为常数对称正定阵。或者可将对<span class="math inline">\(Q\)</span>的要求改为对称半正定，<span class="math inline">\((A,Q_1)\)</span>可观测，或至少可检测（可检测指不可观测的状态是渐近稳定的），<span class="math inline">\(Q_1\)</span>是<span class="math inline">\(Q\)</span>的矩阵平方根。</p>
+<p>已经证明了：使<span class="math inline">\(J\)</span>为极小的最优控制是存在和唯一的，且可表示为：
+<span class="math display">\[
+u(t)=-R^{-1}B^TKx(t)=-Gx(t)
+\]</span></p>
+<h3 id="lqr控制参数调节及仿真">LQR控制参数调节及仿真</h3>
+<p>前面已经得到了直线一级倒立摆系统的系统状态方程： <span class="math display">\[
+\begin{bmatrix}
+    \dot x \\
+    \ddot x \\
+    \dot\phi \\
+    \ddot\phi \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 &amp; 1 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 1\\
+    0 &amp; 0 &amp; 29.4 &amp; 0\\
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    \dot x \\
+    \phi \\
+    \dot\phi \\
+\end{bmatrix}
++
+\begin{bmatrix}
+    0 \\
+    1 \\
+    0 \\
+    3 \\
+\end{bmatrix}
+u
+\]</span></p>
 <p><span class="math display">\[
-\begin{align}
-K(s)&amp;=\alpha\frac{\frac{1}{\alpha T}+s}{\frac{1}{T}+s}\notag \\
-&amp;=10.0590\frac{s+8.9359}{s+89.8857}\notag
-\end{align}
+y=
+\begin{bmatrix}
+    x \\
+    \phi
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 1 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    \dot x \\
+    \phi \\
+    \dot\phi \\
+\end{bmatrix}
 \]</span></p>
-<p>且<span class="math inline">\(K_c=98\)</span></p>
-<p>校正后的开环传递函数为： <span class="math display">\[
-K_cK(s)G(s)=98\times10.0590\frac{s+8.9359}{s+89.8857}\times\frac{0.02725}{0.0102125s^2-0.26705}
+<p>假设全状态反馈可以实现（四个状态量都可测），找出确定反馈控制规律的向量<span class="math inline">\(K\)</span>。在<span class="math inline">\(MATLAB\)</span>中得到最优控制器对应的<span class="math inline">\(K\)</span>。<span class="math inline">\(LQR\)</span>函数允许你选择两个参数——<span class="math inline">\(R\)</span>和<span class="math inline">\(Q\)</span>，这两个参数用来平衡输入量和状态量的权重。最简单的情况是假设<span class="math inline">\(R=1\)</span>，<span class="math inline">\(Q=C^′C\)</span>。当然，也可以通过改变<span class="math inline">\(Q\)</span>矩阵中的非零元素来调节控制器以得到期望的响应。</p>
+<p>取： <span class="math display">\[
+Q=
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}
+,
+R=1
+\]</span> 其中，<span class="math inline">\(Q_{1,1}\)</span>代表小车位置的权重，而<span class="math inline">\(Q_{3,3}\)</span>是摆杆角度的权重。使用<span class="math inline">\(Matlab\)</span>语句如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">29.4</span> <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">3</span>]&#x27;;</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>; </span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=[<span class="number">0</span> <span class="number">0</span>]&#x27;;</span><br><span class="line">Q=[<span class="number">1000</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">200</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>];</span><br><span class="line">R=<span class="number">1</span>;</span><br><span class="line">K=lqr(A,B,Q,R)</span><br></pre></td></tr></table></figure>
+<p>得到控制矩阵： <span class="math display">\[
+K=
+\begin{bmatrix}
+-31.6228 &amp; -20.1507 &amp; 72.7181 &amp; 13.1552
+\end{bmatrix}
 \]</span></p>
-<p>增加校正后系统的<span class="math inline">\(Bode\)</span>图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p8.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p8.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p9.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p9.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>根轨迹图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p10.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p10.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>观察<span class="math inline">\(Bode\)</span>图可知，校正后的相位裕度为<span class="math inline">\(55.8^\circ\)</span>，达到要求的<span class="math inline">\(50^\circ\)</span></p>
-<p>系统的阶跃响应曲线如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341176.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341176.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>系统的稳态值为<span class="math inline">\(1.12\)</span>，稳态误差大于<span class="math inline">\(0.1\)</span>，未满足题设要求，超调量<span class="math inline">\(\sigma\%=13.39\%\)</span>，调节时间<span class="math inline">\(t_s=0.324s\)</span>。</p>
-<p>系统的冲激响应曲线如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341387.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341387.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>可以看到，系统在遇到干扰后，可以在<span class="math inline">\(0.4s\)</span>内达到新的平衡，但是震荡幅度较大。</p>
-<h4 id="滞后-超前校正的设计">滞后-超前校正的设计</h4>
-<p>超前校正虽然使得系统迅速达到了平衡，但存在稳态误差，同时震荡幅度较大，因此需要引入滞后校正来改善系统响应，使得在稳态精度、快速性和震荡性达到较好的平衡。</p>
-<p>控制器设计步骤如下：</p>
-<ol type="1">
-<li>设滞后-超前校正装置为：</li>
-</ol>
-<p><span class="math display">\[
-K(s)=\frac{(1+T_bs)(1+T_as)}{(1+\alpha T_bs)(1+\alpha^{-1}T_as)}
-\]</span></p>
-<p>已校正系统具有开环传递函数<span class="math inline">\(K_cG(s)K(s)\)</span></p>
-<ol start="2" type="1">
-<li>根据稳态误差要求计算增益<span class="math inline">\(K_c\)</span>，为减小稳态误差，故选取更大的稳态位置误差常数<span class="math inline">\(K_p\)</span>：</li>
-</ol>
-<p><span class="math display">\[
-K_p=\lim_{s\to0}K_cK(s)G(s)=\lim_{s\to0}K_c\frac{(1+T_bs)(1+T_as)}{(1+\alpha
-T_bs)(1+\alpha^{-1}T_as)}\times\frac{0.02725}{0.0102125s^2-0.26705}=100
-\]</span></p>
-<p>可以得到： <span class="math display">\[
-K_c=980
-\]</span></p>
-<ol start="3" type="1">
-<li>根据：</li>
-</ol>
-<p><span class="math display">\[
-\sin\phi_m=\frac{\alpha-1}{\alpha+1}
-\]</span></p>
-<p>取<span class="math inline">\(\phi_m=55^\circ\)</span>，计算得到：<span class="math inline">\(\alpha=10.0590\)</span></p>
-<ol start="4" type="1">
-<li>根据取截止频率<span class="math inline">\(\omega_c=28 \
-rad/s\)</span>，并且设<span class="math inline">\(T_a=0.1107\)</span>，有：</li>
-</ol>
-<p><span class="math display">\[
-20\lg K_c+20\lg|G(j\omega_c)|+20\lg|\frac{1+T_bj\omega_c}{1+\alpha
-T_bj\omega_c}|+20\lg|\frac{1+T_a j\omega_c}{1+\alpha^{-1}
-T_aj\omega_c}|=0
-\]</span></p>
-<p>解得：<span class="math inline">\(T_b=0.7054\)</span></p>
-<ol start="5" type="1">
-<li>最终滞后-超前控制器为：</li>
-</ol>
-<p><span class="math display">\[
-K(s)=\frac{(0.7054s+1)(0.1107s+1)}{(7.0956s+1)(1.1005\times10^{-2} s+1)}
-\]</span> 且<span class="math inline">\(K_c=980\)</span></p>
-<p>校正后的开环传递函数为： <span class="math display">\[
-K_cK(s)G(s)=980\times\frac{(0.7054s+1)(0.1107s+1)}{(7.0956s+1)(1.1005\times10^{-2}
-s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
-\]</span> 增加校正后系统的<span class="math inline">\(Bode\)</span>图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311328374.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311328374.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329739.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329739.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>根轨迹图如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329871.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329871.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>观察<span class="math inline">\(Bode\)</span>图可知，校正后的相位裕度为<span class="math inline">\(52.4^\circ\)</span>，达到要求的<span class="math inline">\(50^\circ\)</span>，增益裕量为<span class="math inline">\(17.7dB\)</span>，达到要求的<span class="math inline">\(10dB\)</span></p>
-<p>系统的阶跃响应曲线如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311330986.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311330986.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>系统的稳态值为<span class="math inline">\(1.01\)</span>，稳态误差小于<span class="math inline">\(0.1\)</span>，满足题设要求，超调量<span class="math inline">\(\sigma\%=30.69\%\)</span>，调节时间<span class="math inline">\(t_s=0.96s\)</span>。</p>
-<p>系统的冲激响应曲线如下：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311340274.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311340274.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>可以看到，系统在遇到干扰后，可以在<span class="math inline">\(0.4s\)</span>内达到新的平衡，但是振荡幅度较大。</p>
 
   </div>
   
@@ -2943,10 +2834,10 @@ s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-03T23:35:19+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-09T22:29:08+08:00">
   <a class="notlink">
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年11月3日</p>
+    <p>更新于：2022年11月9日</p>
   </a>
 </div>
 
@@ -2967,8 +2858,7 @@ s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
-频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/posts/3d573b2a/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2976,8 +2866,7 @@ s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
       
     
       
-        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
-频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/posts/3d573b2a/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2985,8 +2874,7 @@ s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
       
     
       
-        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
-频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/posts/3d573b2a/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2998,13 +2886,13 @@ s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,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">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC+0lEQVR42u3aS5IbQQgFQN3/0vYFrBAPGGuQsnZS9KfI3ryAevyx/rkeCMCAAQMGDJgzMI/mil/44r70vdX/4+eCAQMGDBgwYM7BTAt89X8V+Fmh1f1M6wEDBgwYMGDA3IWpBqv0+uqGtwJeux4wYMCAAQMGzNfBVCG2G2NgwIABAwYMGDDbAW/7OSk8GDBgwIABA+b7YOIBVRjEugO4buB72yQSDBgwYMCAAfPfYLaD2rt/t+sBAwYMGDBgwJyBma5qw6h733QgF9cDBgwYMGDAgDkDs72RaVCcNqLG+wcDBgwYMGDAnIFJH1xtGKUBcdpgegU8blSBAQMGDBgwYH4tTPrArQM+1eemwN2DTmDAgAEDBgyYuzDdAdl0gLY1wJs23sCAAQMGDBgwd2CqAWhrIFZtdG0HvnKdYMCAAQMGDJhzMFsB7qcGa9PgVgYDAwYMGDBgwJyBSRtK3QC3ff3bBm5gwIABAwYMmF8L093gdGA3/UDdxhQYMGDAgAED5j5MWmB6XbcRlgbR6YAQDBgwYMCAAXMHptuQWtvIcOA2DXhgwIABAwYMmLsw1WC2DZYeROr+X30vGDBgwIABA+YeTLfg6sBs67p00NYOjmDAgAEDBgyYMzBpMJoe4EmD4fTgUty4AgMGDBgwYMCcgek2dNIAtn3w6KcaYGDAgAEDBgyYezBbQal6/zTQTQPj032CAQMGDBgwYD4WJt1I9yBS9+BStwEHBgwYMGDAgPkcmG5Q6w7etg8WpfsEAwYMGDBgwNyD2WoIpYWnhW69txzwwIABAwYMGDC/HubRXF2o7YZTXPir/YEBAwYMGDBgzsGkG6sGt+qBo2kjKoUEAwYMGDBgwHweTDdATQPguUkkGDBgwIABA+ZjYKYBMS2sXfir54IBAwYMGDBgvg5ma/AVD8iaz3364cCAAQMGDBgwZ2HSgNYNXNXGVveDtRtpYMCAAQMGDJhzMNOG0TQwTgdu6XVP7wMDBgwYMGDAnIGxwIABAwYMGDDH1l+2smdw0EDkYwAAAABJRU5ErkJggg==">
           </div>
         </div>
       
     
       
-        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/&text=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站">
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/posts/3d573b2a/&text=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3031,17 +2919,12 @@ s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
   
     <div class="prev-next">
       
-        <a class="prev" href="/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/">
-          <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>倒立摆的建模仿真与控制（四）PID和极点配置实验</p>
+      
+        <a class="next" href="/posts/9fb7a45/">
+          <p class="title">倒立摆的建模仿真与控制（四）PID和极点配置实验<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class="content">经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
 控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。
 经典控制...</p>
-        </a>
-      
-      
-        <a class="next" href="/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/">
-          <p class="title">倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class="content">本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控...</p>
         </a>
       
     </div>
@@ -3057,7 +2940,7 @@ s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/index.html#comments">
+      <meta itemprop="discussionUrl" content="/posts/3d573b2a/index.html#comments">
     </span>
     <p ct><i class="fa-solid fa-comments"></i> 评论</p>
     
@@ -3099,7 +2982,7 @@ s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C"><span class="toc-text">根轨迹和频率响应实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF%E4%B8%80%E7%BA%A7%E5%80%92%E7%AB%8B%E6%91%86%E6%A0%B9%E8%BD%A8%E8%BF%B9%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-text">直线一级倒立摆根轨迹控制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%88%86%E6%9E%90"><span class="toc-text">根轨迹分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E6%A0%A1%E6%AD%A3%E5%8F%8A%E4%BB%BF%E7%9C%9F"><span class="toc-text">根轨迹校正及仿真</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF%E4%B8%80%E7%BA%A7%E5%80%92%E7%AB%8B%E6%91%86%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-text">直线一级倒立摆频率响应控制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%88%86%E6%9E%90"><span class="toc-text">频率响应分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B6%85%E5%89%8D%E6%A0%A1%E6%AD%A3%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">超前校正的设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%9E%E5%90%8E-%E8%B6%85%E5%89%8D%E6%A0%A1%E6%AD%A3%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">滞后-超前校正的设计</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6lqr%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-text">线性二次最优控制LQR控制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-text">线性二次最优控制理论分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lqr%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0%E8%B0%83%E8%8A%82%E5%8F%8A%E4%BB%BF%E7%9C%9F"><span class="toc-text">LQR控制参数调节及仿真</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -4436,7 +4319,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/14/倒立摆的建模仿真与控制（三）根轨迹和频率响应实验/","name":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验","description":"根轨迹图反映了闭环特征根随\\(K_r\\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。\r\n频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/","wordCount":121,"datePublished":"2022-10-14T02:29:00.000Z","dateModified":"2022-11-03T15:35:19.653Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/posts/3d573b2a/","name":"倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验","description":"LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/posts/3d573b2a/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/posts/3d573b2a/","wordCount":132,"datePublished":"2022-10-27T14:48:00.000Z","dateModified":"2022-11-09T14:29:08.870Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

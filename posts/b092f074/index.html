@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/">
+  <link rel="canonical" href="https://paper-scallion.github.io/posts/b092f074/">
   <!-- 渲染优化 -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
       <link rel="dns-prefetch" href="https://unpkg.com">
@@ -34,19 +34,20 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>倒立摆的建模仿真与控制（一）倒立摆系统的建模 - 纸葱de小站</title>
+  <title>倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站</title>
   <meta name="keywords" content="自动控制原理,null">
-  <meta desc name="description" content="对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。 - Paper_Scallion - 纸葱de小站">
-  
+  <meta desc name="description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。 - Paper_Scallion - 纸葱de小站">
+  <meta name="description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="倒立摆的建模仿真与控制（一）倒立摆系统的建模">
-<meta property="og:url" content="https://paper-scallion.github.io/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/index.html">
+<meta property="og:title" content="倒立摆的建模仿真与控制（三）根轨迹和频率响应实验">
+<meta property="og:url" content="https://paper-scallion.github.io/posts/b092f074/index.html">
 <meta property="og:site_name" content="纸葱de小站">
-<meta property="og:description" content="对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。">
+<meta property="og:description" content="根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。 频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-10-12T06:59:00.000Z">
-<meta property="article:modified_time" content="2022-10-31T15:59:21.586Z">
+<meta property="article:published_time" content="2022-10-14T02:29:00.000Z">
+<meta property="article:modified_time" content="2022-11-09T14:29:08.860Z">
 <meta property="article:author" content="Paper_Scallion">
 <meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary">
@@ -1909,7 +1910,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1668004148684),
+    lastupdate: new Date(1668004402424),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2596,7 +2597,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/">
+  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/posts/b092f074/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="纸葱de小站">
   </span>
@@ -2617,7 +2618,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        倒立摆的建模仿真与控制（一）倒立摆系统的建模
+        倒立摆的建模仿真与控制（三）根轨迹和频率响应实验
       </h1>
       <div class="new-meta-box">
         
@@ -2648,10 +2649,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-12T14:59:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-14T10:29:00+08:00">
   <a class="notlink">
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年10月12日</p>
+    <p>发布于：2022年10月14日</p>
   </a>
 </div>
 
@@ -2667,360 +2668,257 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>对于<a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/zh-hans/倒單擺">倒立摆</a>系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。</p>
+    <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/zh-hans/根軌跡圖">根轨迹图</a>反映了闭环特征根随<span class="math inline">\(K_r\)</span>变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/wiki/频率响应">频率特性法</a>是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。</p>
 <span id="more"></span>
-<h2 id="倒立摆系统的建模">倒立摆系统的建模</h2>
-<p>可将倒立摆系统抽象成小车和匀质杆组成的系统， 如下图所示</p>
-<p>其中</p>
-<p><span class="math inline">\(M\)</span>：小车质量</p>
-<p><span class="math inline">\(m\)</span>：摆杆质量</p>
-<p><span class="math inline">\(b\)</span>：小车摩擦系数</p>
-<p><span class="math inline">\(l\)</span>：摆杆转动轴心到杆质心的长度（当杆均匀时，长度为<span class="math inline">\(2l\)</span>）</p>
-<p><span class="math inline">\(I\)</span>：摆杆转动惯量</p>
-<p><span class="math inline">\(F\)</span>：加在小车上的力</p>
-<p><span class="math inline">\(x\)</span>：小车位置</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/屏幕截图%202022-10-12%20160252.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/屏幕截图%202022-10-12%20160252.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>其中<span class="math inline">\(\phi\)</span>为摆杆与垂直向上方向的夹角，<span class="math inline">\(\theta\)</span>为摆杆与垂直向下方向的夹角（考虑到摆杆初始位置为竖直向下），有<span class="math inline">\(\theta=\phi+\pi\)</span>。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/屏幕截图%202022-10-12%20160302.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/屏幕截图%202022-10-12%20160302.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>分析小车水平方向所受的合力，可以得到以下方程： <span class="math display">\[
-M\ddot x=F-b\dot x-N \tag{1}
-\]</span> 由摆杆水平方向所受的合力，可以得到以下方程： <span class="math display">\[
-\begin{align}
-N&amp;=m\frac{d^2}{dt^2}(x+l\sin\theta)\notag \\
-&amp;=m\ddot x+ml\frac{d}{dt}(\dot\theta\cos\theta)\notag \\
-&amp;=m\ddot x+ml\ddot\theta\cos\theta-ml\dot\theta^2\sin\theta\tag{2}
-\end{align}
-\]</span> 合并(1)(2)得： <span class="math display">\[
-(M+m)\ddot x+b\dot
-x+ml(\ddot\theta\cos\theta-ml\dot\theta^2\sin\theta)=F\tag{3}
-\]</span> 对摆杆垂直方向上的合力进行分析，可以得到以下方程： <span class="math display">\[
-\begin{align}
-P-mg&amp;=-m\frac{d^2}{dt^2}(l\cos\theta)\notag \\
-&amp;=ml\frac{d}{dt}(\dot\theta\sin\theta)\notag \\
-&amp;=ml\ddot\theta\sin\theta+ml\dot\theta^2\cos\theta\tag{4}
-\end{align}
-\]</span> 力矩平衡方程如下： <span class="math display">\[
-\begin{align}
-Pl\sin\phi+Nl\cos\phi&amp;=I\ddot\theta\notag \\
--Pl\sin\theta-Nl\cos\theta&amp;=I\ddot\theta\tag{5}
-\end{align}
-\]</span> 联立(2)(4)(5)，消去<span class="math inline">\(N\)</span>和<span class="math inline">\(P\)</span>得： <span class="math display">\[
-(I+ml^2)\ddot\theta+mgl\sin\theta=-ml\ddot x\cos\theta\tag{6}
-\]</span> 根据<span class="math inline">\(\phi\)</span>和<span class="math inline">\(\theta\)</span>定义知<span class="math inline">\(\theta=\phi+\pi\)</span>，当摆杆处于竖直位置时，<span class="math inline">\(\phi\)</span>接近于<span class="math inline">\(0\)</span>，则有<span class="math inline">\(\cos\theta=-\cos\phi\approx-1\)</span>，<span class="math inline">\(\sin\theta=-\sin\phi\approx-\phi\)</span>，<span class="math inline">\(\dot\theta^2\approx0\)</span>，<span class="math inline">\(\ddot\theta=\ddot\phi\)</span>并使用<span class="math inline">\(u\)</span>来代表输入力<span class="math inline">\(F\)</span>，代入到(3)(6)，得线性化运动方程如下：
-<span class="math display">\[
-\begin{cases}
-(M+m)\ddot x+b\dot x-ml\ddot\phi=u \\
-(I+ml^2)\ddot\phi-mgl\phi=ml\ddot x
-\end{cases}\tag{7}
-\]</span></p>
-<h3 id="建立系统的状态空间模型">建立系统的状态空间模型</h3>
-<p>求解(7)，可得： <span class="math display">\[
-\begin{cases}
-\dot x=\dot x \\
-\ddot x=-\frac{(I+ml^2)b}{p}\dot
-x+\frac{m^2gl^2}{p}\phi+\frac{I+ml^2}{p}u \\
-\dot\phi=\dot\phi \\
-\ddot\phi=-\frac{mbl}{p}\dot x+\frac{mgl(M+m)}{p}\phi+\frac{ml}{p}u
-\end{cases}\tag{8}
-\]</span> 整理后得到系统状态空间方程： <span class="math display">\[
-\begin{bmatrix}
-    \dot x \\
-    \ddot x \\
-    \dot\phi \\
-    \ddot\phi \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 \\
-    0 &amp; -\frac{(I+ml^2)b}{p} &amp; \frac{m^2gl^2}{p} &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; -\frac{mbl}{p} &amp; \frac{mgl(M+m)}{p} &amp; 0\\
-\end{bmatrix}
-\begin{bmatrix}
-    x \\
-    \dot x \\
-    \phi \\
-    \dot\phi \\
-\end{bmatrix}
-+
-\begin{bmatrix}
-    0 \\
-    \frac{I+ml^2}{p} \\
-    0 \\
-    \frac{ml}{p} \\
-\end{bmatrix}
-u\tag{9}
-\]</span> 输出方程如下： <span class="math display">\[
-y=
-\begin{bmatrix}
-    x \\
-    \phi
-\end{bmatrix}
-=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 1 &amp; 0
-\end{bmatrix}
-\begin{bmatrix}
-    x \\
-    \dot x \\
-    \phi \\
-    \dot\phi \\
-\end{bmatrix}\tag{10}
-\]</span></p>
-<p>其中<span class="math inline">\(p=(M+m)I+Mml^2\)</span></p>
-<h3 id="建立系统简化的状态空间模型">建立系统简化的状态空间模型</h3>
-<p>在理想情况下，摆杆转动惯量<span class="math inline">\(I=\frac{1}{3}ml^2\)</span>，摩擦系数<span class="math inline">\(b=0\)</span>，小车质量<span class="math inline">\(M\)</span>远大于摆杆质量<span class="math inline">\(m\)</span>，即<span class="math inline">\(M\gg
-m\)</span>，代入到(9)(10)得到理想情况下的系统状态空间方程： <span class="math display">\[
-\begin{bmatrix}
-    \dot x \\
-    \ddot x \\
-    \dot\phi \\
-    \ddot\phi \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; 0 &amp; \frac{3g}{4l} &amp; 0\\
-\end{bmatrix}
-\begin{bmatrix}
-    x \\
-    \dot x \\
-    \phi \\
-    \dot\phi \\
-\end{bmatrix}
-+
-\begin{bmatrix}
-    0 \\
-    1 \\
-    0 \\
-    \frac{3}{4l} \\
-\end{bmatrix}
-u\tag{11}
-\]</span> 理想情况下的系统输出方程： <span class="math display">\[
-y=
-\begin{bmatrix}
-    x \\
-    \phi
-\end{bmatrix}
-=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 1 &amp; 0
-\end{bmatrix}
-\begin{bmatrix}
-    x \\
-    \dot x \\
-    \phi \\
-    \dot\phi \\
-\end{bmatrix}\tag{12}
-\]</span></p>
-<h3 id="建立系统传递函数模型">建立系统传递函数模型</h3>
-<p>对(7)进行拉普拉斯变换得： <span class="math display">\[
-\begin{cases}
-(M+m)X(s)s^2+bX(s)s-ml\Phi(s)s^2=U(s) \\
-(I+ml^2)\Phi(s)s^2-mgl\Phi(s)=mlX(s)s^2
-\end{cases}\tag{13}
-\]</span> <strong>注：推导传递函数时假设初始条件为<span class="math inline">\(0\)</span>。</strong></p>
-<p>整理(13)的第二个方程得： <span class="math display">\[
-\frac{\Phi(s)}{X(s)}=\frac{mls^2}{(I+ml^2)s^2-mgl}\tag{14}
-\]</span> 如果令<span class="math inline">\(v=\ddot x\)</span>，则有：
-<span class="math display">\[
-\frac{\Phi(s)}{V(s)}=\frac{ml}{(I+ml^2)s^2-mgl}\tag{15}
-\]</span></p>
-<p>将(14)代入(13)的第一个方程消去<span class="math inline">\(X(s)\)</span>，整理得： <span class="math display">\[
-\frac{\Phi(s)}{U(s)}=\frac{\frac{ml}{q}s}{s^3+\frac{b(I+ml^2)}{q}s^2-\frac{(M+m)mgl}{q}s-\frac{bmgl}{q}}\tag{16}
-\]</span> 将(16)代入(14)消去<span class="math inline">\(\Phi(s)\)</span>，整理得： <span class="math display">\[
-\frac{X(s)}{U(s)}=\frac{\frac{I+ml^2}{q}s^2-\frac{mgl}{q}}{s^4+\frac{b(I+ml^2)}{q}s^3-\frac{(M+m)mgl}{q}s^2-\frac{bmgl}{q}s}\tag{17}
-\]</span> 其中<span class="math inline">\(q=(M+m)(I+ml^2)-m^2l^2\)</span></p>
-<h3 id="系统可控性分析">系统可控性分析</h3>
-<h4 id="状态空间模型">状态空间模型</h4>
+<h2 id="根轨迹和频率响应实验">根轨迹和频率响应实验</h2>
+<h3 id="直线一级倒立摆根轨迹控制实验">直线一级倒立摆根轨迹控制实验</h3>
+<h4 id="根轨迹分析">根轨迹分析</h4>
+<p>根据《倒立摆的建模仿真与控制（一）倒立摆系统的建模》中的<a href="/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/#建立系统传递函数模型">传递函数模型</a>，将以下实际系统参数代入：</p>
+<p>小车质量<span class="math inline">\(M=1.096kg\)</span></p>
+<p>摆杆质量<span class="math inline">\(m=0.109kg\)</span></p>
+<p>小车摩擦系数<span class="math inline">\(b=0.1N\cdot s/m\)</span></p>
+<p>摆杆转动轴心到杆质心的长度<span class="math inline">\(l=0.25m\)</span></p>
+<p>摆杆惯量<span class="math inline">\(I=0.0034kg\cdot m^2\)</span></p>
+<p>得到摆杆角度和小车加速度之间的传递函数为： <span class="math display">\[
+G(s)=\frac{\Phi(s)}{V(s)}=\frac{ml}{(I+ml^2)s^2-mgl}=\frac{0.02725}{0.0102125s^2-0.26705}
+\]</span> 在MATLAB中运行以下脚本：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">close all;</span><br><span class="line">clear all;</span><br><span class="line">num=[<span class="number">0.02725</span>]; </span><br><span class="line">den=[<span class="number">0.0102125</span> <span class="number">0</span> <span class="number">-0.26705</span>];</span><br><span class="line">z=roots(num)</span><br><span class="line">p=roots(den)</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)</span><br><span class="line">rlocus(num,den)</span><br></pre></td></tr></table></figure>
+<p>得到结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z =</span><br><span class="line">  空的 0×1 double 列向量</span><br><span class="line">p =</span><br><span class="line">    5.1136</span><br><span class="line">   -5.1136</span><br></pre></td></tr></table></figure>
+<p>可以看出，系统有两个零点，有两个极点，并且有一个极点为正。</p>
+<p>绘制的系统根轨迹如下图所示：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>可以看出闭环传递函数的一个极点位于右半平面，并且有一条根轨迹起始于该极点，并沿着实轴向左跑到位于原点的零点处，这意味着无论增益如何变化，这条根轨迹总是位于右半平面，即系统总是不稳定的。</p>
+<h4 id="根轨迹校正及仿真">根轨迹校正及仿真</h4>
+<p>对于该系统，设计控制器，使得使得校正后系统的要求如下：</p>
+<p>调整时间<span class="math inline">\(t_s=0.5s(2\%)\)</span></p>
+<p>最大超调量<span class="math inline">\(M_p\le10\%\)</span></p>
+<p>根轨迹设计步骤如下：</p>
+<ol type="1">
+<li>确定闭环期望极点<span class="math inline">\(s_d\)</span>的位置，由最大超调量</li>
+</ol>
 <p><span class="math display">\[
-A=
-\begin{bmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 \\
-    0 &amp; -\frac{(I+ml^2)b}{p} &amp; \frac{m^2gl^2}{p} &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; -\frac{mbl}{p} &amp; \frac{mgl(M+m)}{p} &amp; 0\\
-\end{bmatrix}
-,
-B=
-\begin{bmatrix}
-    0 \\
-    \frac{I+ml^2}{p} \\
-    0 \\
-    \frac{ml}{p} \\
-\end{bmatrix}
-,
-C=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 1 &amp; 0
-\end{bmatrix}
+M_p=e^{-\frac{\pi\zeta}{\sqrt{1-\zeta^2}}}\times100\%\le10\%
 \]</span></p>
-<p>其中<span class="math inline">\(p=(M+m)I+Mml^2\)</span></p>
-<p>将实际参数：</p>
-<ul>
-<li><span class="math inline">\(M=1.096kg\)</span></li>
-<li><span class="math inline">\(m=0.109kg\)</span></li>
-<li><span class="math inline">\(b=0.1N\cdot s/m\)</span></li>
-<li><span class="math inline">\(l=0.25m\)</span></li>
-<li><span class="math inline">\(I=0.0034kg\cdot m^2\)</span></li>
-</ul>
-<p>代入得： <span class="math display">\[
-A=
-\begin{bmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 \\
-    0 &amp; -0.0883 &amp; 0.6293 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; -0.2357 &amp; 27.8285 &amp; 0\\
-\end{bmatrix}
-,
-B=
-\begin{bmatrix}
-    0 \\
-    0.8832 \\
-    0 \\
-    2.3566 \\
-\end{bmatrix}
-,
-C=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 1 &amp; 0
-\end{bmatrix}
-\]</span> 计算得到可控性矩阵： <span class="math display">\[
-S_1=
-\begin{bmatrix}
-    0 &amp; 0.8832 &amp; -0.0780 &amp; 1.4899 \\
-    0.8832 &amp; -0.0780 &amp; 1.4899 &amp; -0.2626 \\
-    0 &amp; 2.3566 &amp; -0.2081 &amp; 65.5978\\
-    2.3566 &amp; -0.2081 &amp; 65.5978 &amp; -6.1429\\
-\end{bmatrix}
-\]</span> 并且有<span class="math inline">\(rank(S_1)=4\)</span>，故该系统完全可控。</p>
-<p>计算得到可观测性矩阵： <span class="math display">\[
-V_1=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0\\
-    0 &amp; 0 &amp; 1 &amp; 0\\
-    0 &amp; 1 &amp; 0 &amp; 0\\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; -0.0883 &amp; 0.6293 &amp; 0\\
-    0 &amp; -0.2357 &amp; 27.8285 &amp; 0\\
-    0 &amp; 0.0078 &amp; -0.0556 &amp; 0.6293\\
-    0 &amp; 0.0208 &amp; -0.1483 &amp; 27.8285
-\end{bmatrix}
-\]</span> 并且有<span class="math inline">\(rank(V_1)=4\)</span>，故该系统完全可观测。</p>
-<p><span class="math inline">\(MATLAB\)</span>代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">M=<span class="number">1.096</span>;m=<span class="number">0.109</span>;b=<span class="number">0.1</span>;l=<span class="number">0.25</span>;I=<span class="number">0.0034</span>;g=<span class="number">9.8</span>;</span><br><span class="line"></span><br><span class="line">p=I*(M+m)+M*m*l^<span class="number">2</span>;</span><br><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> -(I+m*l^<span class="number">2</span>)*b/p m^<span class="number">2</span>*g*l^<span class="number">2</span>/p <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;<span class="number">0</span> -m*b*l/p m*g*l*(M+m)/p <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span>;(I+m*l^<span class="number">2</span>)/p;<span class="number">0</span>;m*l/p];</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=<span class="number">0</span>;</span><br><span class="line">sys=ss(A,B,C,D);</span><br><span class="line"></span><br><span class="line">S1 = ctrb(A,B);</span><br><span class="line">rS1 = rank(S1);</span><br><span class="line">V1 = obsv(A,C);</span><br><span class="line">rV1 = rank(V1);</span><br></pre></td></tr></table></figure>
-<h4 id="简化的状态空间模型">简化的状态空间模型</h4>
+<p>解得阻尼比<span class="math inline">\(\zeta\ge0.591155\)</span>，为使系统振荡幅度小，取阻尼比<span class="math inline">\(\zeta=0.9\)</span>。</p>
+<p>由<span class="math inline">\(\zeta=\cos \theta\)</span>解得<span class="math inline">\(\theta=0.4510\)</span>。（其中<span class="math inline">\(\theta\)</span>为位于第二象限的极点和<span class="math inline">\(O\)</span>点的连线与实轴负方向的夹角）</p>
+<p>又由： <span class="math display">\[
+t_s=\frac{4}{\zeta\omega_n}\le0.5 \ (2\%)
+\]</span> 解得固有频率<span class="math inline">\(\omega_n\ge8.8889rad/s\)</span>，取固有频率<span class="math inline">\(\omega_n=11.5 \ rad/s\)</span>。</p>
+<p>期望闭环极点： <span class="math display">\[
+p_{1,2}=\omega_n(-\cos\theta\pm j\sin\theta)=-10.3500\pm5.0127j
+\]</span></p>
+<ol start="2" type="1">
+<li>未校正系统的根轨迹在实轴和虚轴上，不通过闭环期望极点，因此需要引入新的零极点，对系统进行校正，使得根轨迹通过期望闭环极点，设超前校正控制器为：</li>
+</ol>
 <p><span class="math display">\[
-A=
-\begin{bmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; 0 &amp; \frac{3g}{4l} &amp; 0\\
-\end{bmatrix}
-,
-B=
-\begin{bmatrix}
-    0 \\
-    1 \\
-    0 \\
-    \frac{3}{4l} \\
-\end{bmatrix}
-,
-C=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 1 &amp; 0
-\end{bmatrix}
+K(s)=\alpha\frac{Ts+1}{\alpha Ts+1}=\frac{s-z_c}{s-p_c} \ (a\le1)
 \]</span></p>
-<p>将实际参数代入得： <span class="math display">\[
-A=
-\begin{bmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; 0 &amp; 29.4 &amp; 0\\
-\end{bmatrix}
-,
-B=
-\begin{bmatrix}
-    0 \\
-    1 \\
-    0 \\
-    3 \\
-\end{bmatrix}
-,
-C=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 1 &amp; 0
-\end{bmatrix}
-\]</span> 计算得到可控性矩阵： <span class="math display">\[
-S_2=
-\begin{bmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 \\
-    1 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 3 &amp; 0 &amp; 88.2\\
-    3 &amp; 0 &amp; 88.2 &amp; 0\\
-\end{bmatrix}
-\]</span> 并且有<span class="math inline">\(rank(S_2)=4\)</span>，故该系统完全可控。</p>
-<p>计算得到可观测性矩阵： <span class="math display">\[
-V_1=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0\\
-    0 &amp; 0 &amp; 1 &amp; 0\\
-    0 &amp; 1 &amp; 0 &amp; 0\\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; 0 &amp; 0 &amp; 0\\
-    0 &amp; 0 &amp; 29.4 &amp; 0\\
-    0 &amp; 0 &amp; 0 &amp; 0\\
-    0 &amp; 0 &amp; 0 &amp; 29.4
-\end{bmatrix}
-\]</span> 并且有<span class="math inline">\(rank(V_2)=4\)</span>，故该系统完全可观测。</p>
-<p><span class="math inline">\(MATLAB\)</span>代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">M=<span class="number">1.096</span>;m=<span class="number">0.109</span>;b=<span class="number">0.1</span>;l=<span class="number">0.25</span>;I=<span class="number">0.0034</span>;g=<span class="number">9.8</span>;</span><br><span class="line"></span><br><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">3</span>*g/(<span class="number">4</span>*l) <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span>;<span class="number">1</span>;<span class="number">0</span>;<span class="number">3</span>/(<span class="number">4</span>*l)];</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=<span class="number">0</span>;</span><br><span class="line">sys=ss(A,B,C,D);</span><br><span class="line"></span><br><span class="line">S2 = ctrb(A,B);</span><br><span class="line">rS2 = rank(S2);</span><br><span class="line">V2 = obsv(A,C);</span><br><span class="line">rV2 = rank(V2);</span><br></pre></td></tr></table></figure>
-<h3 id="开环系统在典型信号作用下的响应">开环系统在典型信号作用下的响应</h3>
-<h4 id="系统的状态空间模型">系统的状态空间模型</h4>
-<h5 id="单位阶跃响应">单位阶跃响应</h5>
-<p>系统的单位阶跃响应如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/p1.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/p1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(MATLAB\)</span>代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">M=<span class="number">1.096</span>;m=<span class="number">0.109</span>;b=<span class="number">0.1</span>;l=<span class="number">0.25</span>;I=<span class="number">0.0034</span>;g=<span class="number">9.8</span>;T=<span class="number">0.001</span>;</span><br><span class="line"></span><br><span class="line">p=I*(M+m)+M*m*l^<span class="number">2</span>;</span><br><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> -(I+m*l^<span class="number">2</span>)*b/p m^<span class="number">2</span>*g*l^<span class="number">2</span>/p <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;<span class="number">0</span> -m*b*l/p m*g*l*(M+m)/p <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span>;(I+m*l^<span class="number">2</span>)/p;<span class="number">0</span>;m*l/p];</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=<span class="number">0</span>;</span><br><span class="line">sys=ss(A,B,C,D);</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:T:<span class="number">5</span>;</span><br><span class="line">y=step(sys,t);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(t,y(:,<span class="number">1</span>),t,y(:,<span class="number">2</span>),<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">2</span> <span class="number">0</span> <span class="number">80</span>]);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&#x27;Car Position&#x27;</span>,<span class="string">&#x27;Pendulum Angle&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;通过状态方程求系统的开环阶跃响应&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<h5 id="单位冲激响应">单位冲激响应</h5>
-<p>系统的单位冲激响应如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292020402.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292020402.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(MATLAB\)</span>代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">M=<span class="number">1.096</span>;m=<span class="number">0.109</span>;b=<span class="number">0.1</span>;l=<span class="number">0.25</span>;I=<span class="number">0.0034</span>;g=<span class="number">9.8</span>;</span><br><span class="line"></span><br><span class="line">p=I*(M+m)+M*m*l^<span class="number">2</span>;</span><br><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> -(I+m*l^<span class="number">2</span>)*b/p m^<span class="number">2</span>*g*l^<span class="number">2</span>/p <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;<span class="number">0</span> -m*b*l/p m*g*l*(M+m)/p <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span>;(I+m*l^<span class="number">2</span>)/p;<span class="number">0</span>;m*l/p];</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=<span class="number">0</span>;</span><br><span class="line">sys=ss(A,B,C,D);</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:T:<span class="number">5</span>;</span><br><span class="line">y=impulse(sys,t);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(t,y(:,<span class="number">1</span>),t,y(:,<span class="number">2</span>),<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">2</span> <span class="number">0</span> <span class="number">80</span>]);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&#x27;Car Position&#x27;</span>,<span class="string">&#x27;Pendulum Angle&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;通过状态方程求系统的开环冲激响应&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="系统简化的状态空间模型">系统简化的状态空间模型</h4>
-<h5 id="单位阶跃响应-1">单位阶跃响应</h5>
-<p>系统的单位阶跃响应如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292116321.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292116321.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(MATLAB\)</span>代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">l=<span class="number">0.25</span>;g=<span class="number">9.8</span>;T=<span class="number">0.001</span>;</span><br><span class="line"></span><br><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">3</span>*g/(<span class="number">4</span>*l) <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span>;<span class="number">1</span>;<span class="number">0</span>;<span class="number">3</span>/(<span class="number">4</span>*l)];</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=<span class="number">0</span>;</span><br><span class="line">sys=ss(A,B,C,D);</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:T:<span class="number">5</span>;</span><br><span class="line">y=step(sys,t);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(t,y(:,<span class="number">1</span>),t,y(:,<span class="number">2</span>),<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">2</span> <span class="number">0</span> <span class="number">80</span>]);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&#x27;Car Position&#x27;</span>,<span class="string">&#x27;Pendulum Angle&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;通过状态方程求系统的开环阶跃响应&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<h5 id="单位冲激响应-1">单位冲激响应</h5>
-<p>系统的单位冲激响应如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292119610.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292119610.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(MATLAB\)</span>代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">l=<span class="number">0.25</span>;g=<span class="number">9.8</span>;T=<span class="number">0.001</span>;</span><br><span class="line"></span><br><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">3</span>*g/(<span class="number">4</span>*l) <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span>;<span class="number">1</span>;<span class="number">0</span>;<span class="number">3</span>/(<span class="number">4</span>*l)];</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;<span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=<span class="number">0</span>;</span><br><span class="line">sys=ss(A,B,C,D);</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:T:<span class="number">5</span>;</span><br><span class="line">y=impulse(sys,t);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(t,y(:,<span class="number">1</span>),t,y(:,<span class="number">2</span>),<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">2</span> <span class="number">0</span> <span class="number">80</span>]);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&#x27;Car Position&#x27;</span>,<span class="string">&#x27;Pendulum Angle&#x27;</span>);</span><br><span class="line">title(<span class="string">&#x27;通过状态方程求系统的开环冲激响应&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="系统的传递函数模型">系统的传递函数模型</h4>
-<h5 id="单位阶跃响应-2">单位阶跃响应</h5>
-<p>系统的单位阶跃响应如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292237829.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292237829.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(MATLAB\)</span>代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">M=<span class="number">1.096</span>;m=<span class="number">0.109</span>;b=<span class="number">0.1</span>;l=<span class="number">0.25</span>;I=<span class="number">0.0034</span>;g=<span class="number">9.8</span>;T=<span class="number">0.001</span>;</span><br><span class="line"></span><br><span class="line">q=(M+m)*(I+m*l^<span class="number">2</span>)-(m*l)^<span class="number">2</span>;</span><br><span class="line">num=[m*l/q <span class="number">0</span>];</span><br><span class="line">den=[<span class="number">1</span> b*(I+m*l^<span class="number">2</span>)/q -(M+m)*m*g*l/q -b*m*g*l/q];</span><br><span class="line">gs=tf(num,den);</span><br><span class="line"></span><br><span class="line">numpo=[(I+m*l^<span class="number">2</span>)/q <span class="number">0</span> -m*g*l/q];</span><br><span class="line">denpo=[<span class="number">1</span> b*(I+m*l^<span class="number">2</span>)/q -(M+m)*m*g*l/q -b*m*g*l/q <span class="number">0</span>];</span><br><span class="line">gspo=tf(numpo,denpo);</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:T:<span class="number">5</span>;</span><br><span class="line">y1=step(gs,t);</span><br><span class="line">y2=step(gspo,t);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(t,y2,<span class="string">&#x27;b&#x27;</span>,t,y1,<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">2.5</span> <span class="number">0</span> <span class="number">80</span>]);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&#x27;Car Position&#x27;</span>,<span class="string">&#x27;Pendulum Angle&#x27;</span>)</span><br><span class="line">title(<span class="string">&#x27;通过传递函数求系统的开环阶跃响应&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<h5 id="单位冲激响应-2">单位冲激响应</h5>
-<p>系统的单位冲激响应如下图所示：</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292237866.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210292237866.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p><span class="math inline">\(MATLAB\)</span>代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">M=<span class="number">1.096</span>;m=<span class="number">0.109</span>;b=<span class="number">0.1</span>;l=<span class="number">0.25</span>;I=<span class="number">0.0034</span>;g=<span class="number">9.8</span>;T=<span class="number">0.001</span>;</span><br><span class="line"></span><br><span class="line">q=(M+m)*(I+m*l^<span class="number">2</span>)-(m*l)^<span class="number">2</span>;</span><br><span class="line">num=[m*l/q <span class="number">0</span>];</span><br><span class="line">den=[<span class="number">1</span> b*(I+m*l^<span class="number">2</span>)/q -(M+m)*m*g*l/q -b*m*g*l/q];</span><br><span class="line">gs=tf(num,den);</span><br><span class="line"></span><br><span class="line">numpo=[(I+m*l^<span class="number">2</span>)/q <span class="number">0</span> -m*g*l/q];</span><br><span class="line">denpo=[<span class="number">1</span> b*(I+m*l^<span class="number">2</span>)/q -(M+m)*m*g*l/q -b*m*g*l/q <span class="number">0</span>];</span><br><span class="line">gspo=tf(numpo,denpo);</span><br><span class="line"></span><br><span class="line">t=<span class="number">0</span>:T:<span class="number">5</span>;</span><br><span class="line">y1=impulse(gs,t);</span><br><span class="line">y2=impulse(gspo,t);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line"><span class="built_in">plot</span>(t,y2,<span class="string">&#x27;b&#x27;</span>,t,y1,<span class="string">&#x27;r&#x27;</span>);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">2.5</span> <span class="number">0</span> <span class="number">80</span>]);</span><br><span class="line"><span class="built_in">legend</span>(<span class="string">&#x27;Car Position&#x27;</span>,<span class="string">&#x27;Pendulum Angle&#x27;</span>)</span><br><span class="line">title(<span class="string">&#x27;通过传递函数求系统的开环阶跃响应&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="结论">结论</h3>
-<p>通过对系统进行建模并进行理论分析和仿真可知，倒立摆系统在开环状态下不稳定，无法自行平衡，因此需要设计合适的控制器来对倒立摆系统进行控制，以达到期望的稳定控制效果。</p>
+<ol start="3" type="1">
+<li>计算超前校正装置应提供的相角，已知根轨迹上点满足相角方程：</li>
+</ol>
+<p><span class="math display">\[
+\angle G(s_0)+\angle K(s_0)=(2k+1)\pi
+\]</span></p>
+<p>则有： <span class="math display">\[
+\phi_c=\angle K(s)=(2k+1)\pi-\angle G(s_0)
+\]</span> 取点<span class="math inline">\(s_0=-10.3500+5.0127j\)</span>，则有： <span class="math display">\[
+\begin{align}
+\angle
+G(s_0)&amp;=-[\pi-\tan^{-1}(\frac{\omega_n\sin\theta}{\omega_n\cos\theta-5.1136})]-[\pi-\tan^{-1}(\frac{\omega_n\sin\theta}{\omega_n\cos\theta+5.1136})]\notag
+\\
+&amp;=-5.2061\notag
+\end{align}
+\]</span> 则： <span class="math display">\[
+\begin{align}
+\phi_c&amp;=(2k+1)\pi-\angle G(s_0)\notag \\
+&amp;=(2k+1)\pi-(-5.2061)\notag \\
+&amp;=2.0645\notag
+\end{align}
+\]</span> 其中<span class="math inline">\(k=-1\)</span>。</p>
+<ol start="4" type="1">
+<li>设计超前校正装置：</li>
+</ol>
+<p><span class="math display">\[
+\gamma=\frac12(\pi-\theta-\phi_c)=0.3130
+\]</span></p>
+<p>各角度示意图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302108037.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302108037.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>则超前校正装置零点： <span class="math display">\[
+z_c=-[\omega_n\cos\theta-\omega_n\sin\theta\tan(\frac{\pi}{4}-\gamma)]=-5.1185
+\]</span> 超前校正装置极点： <span class="math display">\[
+p_c=-(\omega_n\cos\theta+\omega_n\sin\theta\cot\gamma)=-25.8379
+\]</span> 校正装置的零极点相对位置如下图所示：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302110204.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302110204.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>校正后开环传递函数： <span class="math display">\[
+Q(s)=G(s)K(s)=K\frac{s+5.1185}{s+25.8379}\frac{0.02725}{0.0102125s^2-0.26705}
+\]</span></p>
+<ol start="5" type="1">
+<li>由幅值条件<span class="math inline">\(|G(s_0)K(s_0)|=1\)</span>，并设反馈为单位负反馈，解得<span class="math inline">\(K=99.2219\)</span>。</li>
+<li>最终系统控制器为：</li>
+</ol>
+<p><span class="math display">\[
+K(s)=\frac{99.2219(s+5.1185)}{s+25.8379}
+\]</span></p>
+<p>校正后系统根轨迹如下图所示：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p2.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>闭环系统的阶跃响应曲线如下图所示：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p3.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p3.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>闭环系统的脉冲响应曲线如下图所示：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p4.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p4.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<h3 id="直线一级倒立摆频率响应控制实验">直线一级倒立摆频率响应控制实验</h3>
+<h4 id="频率响应分析">频率响应分析</h4>
+<p>根据《倒立摆的建模仿真与控制（一）倒立摆系统的建模》中的<a href="/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/#建立系统传递函数模型">传递函数模型</a>，得到摆杆角度和小车加速度之间的传递函数为：
+<span class="math display">\[
+G(s)=\frac{\Phi(s)}{V(s)}=\frac{0.02725}{0.0102125s^2-0.26705}
+\]</span> 在<span class="math inline">\(MATLAB\)</span>下绘制系统的<span class="math inline">\(Bode\)</span>图和<span class="math inline">\(Nyquist\)</span>图。</p>
+<p>在<span class="math inline">\(MATLAB\)</span>中运行以下脚本：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">num=[<span class="number">0.02725</span>];</span><br><span class="line">den=[<span class="number">0.0102125</span> <span class="number">0</span> <span class="number">-0.26705</span>];</span><br><span class="line">z=roots(num)</span><br><span class="line">p=roots(den)</span><br><span class="line"></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">bode(num,den)</span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">nyquist(num,den)</span><br><span class="line">xlim([<span class="number">-0.15</span>,<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<p>得到结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">z =</span><br><span class="line">  空的 0×1 double 列向量</span><br><span class="line">p =</span><br><span class="line">    5.1136</span><br><span class="line">   -5.1136</span><br></pre></td></tr></table></figure>
+<p>系统的的<span class="math inline">\(Bode\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129941.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129941.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>系统的的<span class="math inline">\(Nyquist\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129658.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210302129658.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>可以得到，系统没有零点，但存在两个极点，其中一个极点位于右半<span class="math inline">\(S\)</span>平面，根据奈奎斯特稳定判据，闭环系统稳定的充分必要条件是：当<span class="math inline">\(\omega\)</span>从<span class="math inline">\(-\infty\)</span>到<span class="math inline">\(+\infty\)</span>变化时，开环传递函数<span class="math inline">\(G(j\omega)\)</span>沿逆时针方向包围<span class="math inline">\((-1,0)\)</span>点<span class="math inline">\(p\)</span>圈，其中<span class="math inline">\(p\)</span>为开环传递函数在右半<span class="math inline">\(S\)</span>平面内的极点数。对于直线一级倒立摆，由上图我们可以看出，开环传递函数在<span class="math inline">\(S\)</span>右半平面有一个极点，因此<span class="math inline">\(G(j\omega)\)</span>需要沿逆时针方向包围<span class="math inline">\((-1,0)\)</span>点<span class="math inline">\(1\)</span>圈，可以看出，系统的Nyquist图并没有逆时针绕<span class="math inline">\((-1,0)\)</span>点<span class="math inline">\(1\)</span>圈，因此系统不稳定，需要设计控制器来镇定系统。</p>
+<h4 id="超前校正的设计">超前校正的设计</h4>
+<p>稳态位置误差常数为<span class="math inline">\(10\)</span></p>
+<p>相位裕量为<span class="math inline">\(50^\circ\)</span></p>
+<p>增益裕量<span class="math inline">\(\ge10 \ dB\)</span></p>
+<p>控制器设计步骤如下：</p>
+<ol type="1">
+<li>选择控制器，上面我们已经得到了系统的 Bode
+图，可以看出，给系统增加一个超前校正就可以满足设计要求，设超前校正装置为：</li>
+</ol>
+<p><span class="math display">\[
+K(s)=\frac{1+\alpha Ts}{1+Ts}=\alpha\frac{\frac{1}{\alpha
+T}+s}{\frac{1}{T}+s}
+\]</span></p>
+<p>已校正系统具有开环传递函数<span class="math inline">\(K_cK(s)G(s)\)</span></p>
+<p>设： <span class="math display">\[
+G_1(s)=K_cG(s)=\frac{0.02725K_c}{0.0102125s^2-0.26705}
+\]</span> 2. 根据稳态误差要求计算增益<span class="math inline">\(K_c\)</span>：</p>
+<p><span class="math display">\[
+K_p=\lim_{s\to0}K_cK(s)G(s)=\lim_{s\to0}K_c\frac{1+\alpha
+Ts}{1+Ts}\times\frac{0.02725}{0.0102125s^2-0.26705}=10
+\]</span></p>
+<p>可以得到： <span class="math display">\[
+K_c=98
+\]</span> 于是有： <span class="math display">\[
+G_1(s)=-\frac{0.02725\times98}{0.0102125s^2-0.26705}
+\]</span></p>
+<ol start="3" type="1">
+<li>在<span class="math inline">\(MATLAB\)</span>中画出<span class="math inline">\(G_1(s)\)</span>的<span class="math inline">\(Bode\)</span>图如下：</li>
+</ol>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p6.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p6.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p7.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p7.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<ol start="4" type="1">
+<li>可以看出，系统的相位裕量为<span class="math inline">\(0^\circ\)</span>，根据设计要求，系统的相位裕量为<span class="math inline">\(50^\circ\)</span>，因此需要增加的相位裕量为<span class="math inline">\(50^\circ\)</span>，增加超前校正装置会改变Bode图的幅值曲线，这时增益交界频率会向右移动，必须对增益交界频率增加所造成的<span class="math inline">\(G_1(j\omega)\)</span>的相位滞后增量进行补偿，因此，假设需要的最大相位超前量<span class="math inline">\(\phi_m\)</span>近似等于<span class="math inline">\(55^\circ\)</span>。</li>
+</ol>
+<p>根据： <span class="math display">\[
+\sin\phi_m=\frac{\alpha-1}{\alpha+1}
+\]</span> 计算得到：<span class="math inline">\(\alpha=10.0590\)</span></p>
+<ol start="5" type="1">
+<li>此时<span class="math inline">\(\phi_m\)</span>所对应增加幅值为：</li>
+</ol>
+<p><span class="math display">\[
+10\lg a=10.0256 \ dB
+\]</span></p>
+<p>并且<span class="math inline">\(|G_1(j\omega_c)|=-10.0261 \
+dB\)</span>，即： <span class="math display">\[
+|G_1(j\omega_c)|=|-\frac{0.02725\times98}{-0.0102125\omega_c^2-0.26705}|=10^{-\frac{10.0256}{20}}
+\]</span> 解得：<span class="math inline">\(\omega_c=28.3409 \
+rad/s\)</span></p>
+<p>再根据超前校正： <span class="math display">\[
+\omega_c=\frac{1}{\sqrt{a}T}
+\]</span> 解得：<span class="math inline">\(\frac{1}{T}=89.8857\)</span>，<span class="math inline">\(\frac{1}{\alpha T}=8.9359\)</span></p>
+<ol start="6" type="1">
+<li>校正装置可以确定为：</li>
+</ol>
+<p><span class="math display">\[
+\begin{align}
+K(s)&amp;=\alpha\frac{\frac{1}{\alpha T}+s}{\frac{1}{T}+s}\notag \\
+&amp;=10.0590\frac{s+8.9359}{s+89.8857}\notag
+\end{align}
+\]</span></p>
+<p>且<span class="math inline">\(K_c=98\)</span></p>
+<p>校正后的开环传递函数为： <span class="math display">\[
+K_cK(s)G(s)=98\times10.0590\frac{s+8.9359}{s+89.8857}\times\frac{0.02725}{0.0102125s^2-0.26705}
+\]</span></p>
+<p>增加校正后系统的<span class="math inline">\(Bode\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p8.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p8.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p9.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p9.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>根轨迹图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p10.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/exp2_p10.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>观察<span class="math inline">\(Bode\)</span>图可知，校正后的相位裕度为<span class="math inline">\(55.8^\circ\)</span>，达到要求的<span class="math inline">\(50^\circ\)</span></p>
+<p>系统的阶跃响应曲线如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341176.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341176.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>系统的稳态值为<span class="math inline">\(1.12\)</span>，稳态误差大于<span class="math inline">\(0.1\)</span>，未满足题设要求，超调量<span class="math inline">\(\sigma\%=13.39\%\)</span>，调节时间<span class="math inline">\(t_s=0.324s\)</span>。</p>
+<p>系统的冲激响应曲线如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341387.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311341387.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>可以看到，系统在遇到干扰后，可以在<span class="math inline">\(0.4s\)</span>内达到新的平衡，但是震荡幅度较大。</p>
+<h4 id="滞后-超前校正的设计">滞后-超前校正的设计</h4>
+<p>超前校正虽然使得系统迅速达到了平衡，但存在稳态误差，同时震荡幅度较大，因此需要引入滞后校正来改善系统响应，使得在稳态精度、快速性和震荡性达到较好的平衡。</p>
+<p>控制器设计步骤如下：</p>
+<ol type="1">
+<li>设滞后-超前校正装置为：</li>
+</ol>
+<p><span class="math display">\[
+K(s)=\frac{(1+T_bs)(1+T_as)}{(1+\alpha T_bs)(1+\alpha^{-1}T_as)}
+\]</span></p>
+<p>已校正系统具有开环传递函数<span class="math inline">\(K_cG(s)K(s)\)</span></p>
+<ol start="2" type="1">
+<li>根据稳态误差要求计算增益<span class="math inline">\(K_c\)</span>，为减小稳态误差，故选取更大的稳态位置误差常数<span class="math inline">\(K_p\)</span>：</li>
+</ol>
+<p><span class="math display">\[
+K_p=\lim_{s\to0}K_cK(s)G(s)=\lim_{s\to0}K_c\frac{(1+T_bs)(1+T_as)}{(1+\alpha
+T_bs)(1+\alpha^{-1}T_as)}\times\frac{0.02725}{0.0102125s^2-0.26705}=100
+\]</span></p>
+<p>可以得到： <span class="math display">\[
+K_c=980
+\]</span></p>
+<ol start="3" type="1">
+<li>根据：</li>
+</ol>
+<p><span class="math display">\[
+\sin\phi_m=\frac{\alpha-1}{\alpha+1}
+\]</span></p>
+<p>取<span class="math inline">\(\phi_m=55^\circ\)</span>，计算得到：<span class="math inline">\(\alpha=10.0590\)</span></p>
+<ol start="4" type="1">
+<li>根据取截止频率<span class="math inline">\(\omega_c=28 \
+rad/s\)</span>，并且设<span class="math inline">\(T_a=0.1107\)</span>，有：</li>
+</ol>
+<p><span class="math display">\[
+20\lg K_c+20\lg|G(j\omega_c)|+20\lg|\frac{1+T_bj\omega_c}{1+\alpha
+T_bj\omega_c}|+20\lg|\frac{1+T_a j\omega_c}{1+\alpha^{-1}
+T_aj\omega_c}|=0
+\]</span></p>
+<p>解得：<span class="math inline">\(T_b=0.7054\)</span></p>
+<ol start="5" type="1">
+<li>最终滞后-超前控制器为：</li>
+</ol>
+<p><span class="math display">\[
+K(s)=\frac{(0.7054s+1)(0.1107s+1)}{(7.0956s+1)(1.1005\times10^{-2} s+1)}
+\]</span> 且<span class="math inline">\(K_c=980\)</span></p>
+<p>校正后的开环传递函数为： <span class="math display">\[
+K_cK(s)G(s)=980\times\frac{(0.7054s+1)(0.1107s+1)}{(7.0956s+1)(1.1005\times10^{-2}
+s+1)}\times\frac{0.02725}{0.0102125s^2-0.26705}
+\]</span> 增加校正后系统的<span class="math inline">\(Bode\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311328374.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311328374.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p><span class="math inline">\(Nyquist\)</span>图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329739.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329739.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>根轨迹图如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329871.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311329871.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>观察<span class="math inline">\(Bode\)</span>图可知，校正后的相位裕度为<span class="math inline">\(52.4^\circ\)</span>，达到要求的<span class="math inline">\(50^\circ\)</span>，增益裕量为<span class="math inline">\(17.7dB\)</span>，达到要求的<span class="math inline">\(10dB\)</span></p>
+<p>系统的阶跃响应曲线如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311330986.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311330986.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>系统的稳态值为<span class="math inline">\(1.01\)</span>，稳态误差小于<span class="math inline">\(0.1\)</span>，满足题设要求，超调量<span class="math inline">\(\sigma\%=30.69\%\)</span>，调节时间<span class="math inline">\(t_s=0.96s\)</span>。</p>
+<p>系统的冲激响应曲线如下：</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311340274.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/202210311340274.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>可以看到，系统在遇到干扰后，可以在<span class="math inline">\(0.4s\)</span>内达到新的平衡，但是振荡幅度较大。</p>
 
   </div>
   
@@ -3045,10 +2943,10 @@ V_1=
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-31T23:59:21+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-09T22:29:08+08:00">
   <a class="notlink">
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年10月31日</p>
+    <p>更新于：2022年11月9日</p>
   </a>
 </div>
 
@@ -3069,7 +2967,8 @@ V_1=
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/&title=倒立摆的建模仿真与控制（一）倒立摆系统的建模 - 纸葱de小站&summary=对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。">
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/posts/b092f074/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3077,7 +2976,8 @@ V_1=
       
     
       
-        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/&title=倒立摆的建模仿真与控制（一）倒立摆系统的建模 - 纸葱de小站&summary=对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。">
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/posts/b092f074/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3085,7 +2985,8 @@ V_1=
       
     
       
-        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/&title=倒立摆的建模仿真与控制（一）倒立摆系统的建模 - 纸葱de小站&summary=对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。">
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/posts/b092f074/&title=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站&summary=根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3097,13 +2998,13 @@ V_1=
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,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">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC8UlEQVR42u3aQXLCMAwFUO5/6XbfaSf+kqARPO+AxLGfWfyR8vgyfh0PBGDAgAEDBswamEdx/Lz/+MEX85zOdzpPvB8wYMCAAQMGzDqYdGOnv0/BPft5YMCAAQMGDJj9MNVAN3XfaVBLoU7XBQYMGDBgwID5HJirBVcLUikYGDBgwIABAwZM9cGnBa006KWBDwwYMGDAgAHzuTBTDa6pIJc+/zadSDBgwIABAwbMy2DSUV3oqz6X9wMGDBgwYMCAWQPTHWlhqHvdaeGrvB8wYMCAAQMGzBqY00JSGqDShVcDWXVd7QoeGDBgwIABA+Y2MM8OWN2NVxt0cQMQDBgwYMCAAbMG5tlA3e+rga48LxgwYMCAAQNmLcyrQKoBrQpzvA4wYMCAAQMGzBqYajCaKjBNH8zVei/BwIABAwYMGDDrYZ79wk76nG5APA6SYMCAAQMGDJi1MFWI7kbTglUa5OKGGxgwYMCAAQNmHcxU8OoCpYWmbgMODBgwYMCAAbMPZrowVQXvXhcHuauABwYMGDBgwIC5PUwagLoNs6lAFge304MHAwYMGDBgwKyBSQtD1YX/V2MuXjcYMGDAgAEDZh3MVENsqgA1dX36BwADBgwYMGDA7IOZCmrd76c2Wi6AgQEDBgwYMGDWwEwtfLpBljbQqgcKBgwYMGDAgNkLMzZhM4B15zkuRHVfHAIDBgwYMGDA3B4mLvAUG23dxl03WB433MCAAQMGDBgwt4NJIbqFrG7DrTviCh4YMGDAgAED5rYwU42vagCcBu7eBwYMGDBgwIDZAzMVlKYDWvVg2oESDBgwYMCAAbMOphvo0gJXtVDVbaiBAQMGDBgwYN4XJt1AtWCUbqD7wlE74IEBAwYMGDBg3g4mnWeqUJVCHR8QGDBgwIABA+ZjYdJgWJ13ah1gwIABAwYMmPeBmW64pS/ydOfvDjBgwIABAwbMPphu42o6EHYbbuWDAwMGDBgwYMCsgTH+CHgGGDBgwIABc9fxDYmWoJm0cQgMAAAAAElFTkSuQmCC">
           </div>
         </div>
       
     
       
-        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/&text=倒立摆的建模仿真与控制（一）倒立摆系统的建模 - 纸葱de小站">
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/posts/b092f074/&text=倒立摆的建模仿真与控制（三）根轨迹和频率响应实验 - 纸葱de小站">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3130,11 +3031,18 @@ V_1=
   
     <div class="prev-next">
       
-        <a class="prev" href="/2022/10/13/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%8C%EF%BC%89%E7%BC%96%E7%A0%81%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6/">
-          <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制</p>
-          <p class="content">本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控...</p>
+        <a class="prev" href="/posts/9fb7a45/">
+          <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>倒立摆的建模仿真与控制（四）PID和极点配置实验</p>
+          <p class="content">经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
+控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。
+经典控制...</p>
         </a>
       
+      
+        <a class="next" href="/posts/6b2f65a4/">
+          <p class="title">倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控...</p>
+        </a>
       
     </div>
   
@@ -3149,7 +3057,7 @@ V_1=
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/index.html#comments">
+      <meta itemprop="discussionUrl" content="/posts/b092f074/index.html#comments">
     </span>
     <p ct><i class="fa-solid fa-comments"></i> 评论</p>
     
@@ -3191,7 +3099,7 @@ V_1=
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1"><span class="toc-text">倒立摆系统的建模</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">建立系统的状态空间模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8C%96%E7%9A%84%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">建立系统简化的状态空间模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E7%B3%BB%E7%BB%9F%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E6%A8%A1%E5%9E%8B"><span class="toc-text">建立系统传递函数模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%8F%AF%E6%8E%A7%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-text">系统可控性分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">状态空间模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8C%96%E7%9A%84%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">简化的状态空间模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E7%8E%AF%E7%B3%BB%E7%BB%9F%E5%9C%A8%E5%85%B8%E5%9E%8B%E4%BF%A1%E5%8F%B7%E4%BD%9C%E7%94%A8%E4%B8%8B%E7%9A%84%E5%93%8D%E5%BA%94"><span class="toc-text">开环系统在典型信号作用下的响应</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">系统的状态空间模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94"><span class="toc-text">单位阶跃响应</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94"><span class="toc-text">单位冲激响应</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8C%96%E7%9A%84%E7%8A%B6%E6%80%81%E7%A9%BA%E9%97%B4%E6%A8%A1%E5%9E%8B"><span class="toc-text">系统简化的状态空间模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94-1"><span class="toc-text">单位阶跃响应</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94-1"><span class="toc-text">单位冲激响应</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BC%A0%E9%80%92%E5%87%BD%E6%95%B0%E6%A8%A1%E5%9E%8B"><span class="toc-text">系统的传递函数模型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E9%98%B6%E8%B7%83%E5%93%8D%E5%BA%94-2"><span class="toc-text">单位阶跃响应</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E4%BD%8D%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94-2"><span class="toc-text">单位冲激响应</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C"><span class="toc-text">根轨迹和频率响应实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF%E4%B8%80%E7%BA%A7%E5%80%92%E7%AB%8B%E6%91%86%E6%A0%B9%E8%BD%A8%E8%BF%B9%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-text">直线一级倒立摆根轨迹控制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%88%86%E6%9E%90"><span class="toc-text">根轨迹分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E8%BD%A8%E8%BF%B9%E6%A0%A1%E6%AD%A3%E5%8F%8A%E4%BB%BF%E7%9C%9F"><span class="toc-text">根轨迹校正及仿真</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E7%BA%BF%E4%B8%80%E7%BA%A7%E5%80%92%E7%AB%8B%E6%91%86%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-text">直线一级倒立摆频率响应控制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%88%86%E6%9E%90"><span class="toc-text">频率响应分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B6%85%E5%89%8D%E6%A0%A1%E6%AD%A3%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">超前校正的设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%9E%E5%90%8E-%E8%B6%85%E5%89%8D%E6%A0%A1%E6%AD%A3%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">滞后-超前校正的设计</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -4528,7 +4436,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/12/倒立摆的建模仿真与控制（一）倒立摆系统的建模/","name":"倒立摆的建模仿真与控制（一）倒立摆系统的建模"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（一）倒立摆系统的建模","description":"对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/12/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%80%EF%BC%89%E5%80%92%E7%AB%8B%E6%91%86%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BB%BA%E6%A8%A1/","wordCount":96,"datePublished":"2022-10-12T06:59:00.000Z","dateModified":"2022-10-31T15:59:21.586Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/posts/b092f074/","name":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（三）根轨迹和频率响应实验","description":"根轨迹图反映了闭环特征根随\\(K_r\\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。\r\n频率特性法是通过系统的开环频率特性的频域性能指标间接地表征系统瞬态响应的性能。系统性能的分析过程。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/posts/b092f074/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/posts/b092f074/","wordCount":121,"datePublished":"2022-10-14T02:29:00.000Z","dateModified":"2022-11-09T14:29:08.860Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

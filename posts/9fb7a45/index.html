@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/25/倒立摆的建模仿真与控制（四）pid和极点配置实验/">
+  <link rel="canonical" href="https://paper-scallion.github.io/posts/9fb7a45/">
   <!-- 渲染优化 -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
       <link rel="dns-prefetch" href="https://unpkg.com">
@@ -42,13 +42,13 @@
   <meta name="description" content="经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID 控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。 经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型，现代控制理论主要是依据现代数学工具，将经典控制理论的概念扩展到多输入多输出系统。极点配置法通过设计状态反馈控制器将多变量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="倒立摆的建模仿真与控制（四）PID和极点配置实验">
-<meta property="og:url" content="https://paper-scallion.github.io/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:url" content="https://paper-scallion.github.io/posts/9fb7a45/index.html">
 <meta property="og:site_name" content="纸葱de小站">
 <meta property="og:description" content="经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID 控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。 经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型，现代控制理论主要是依据现代数学工具，将经典控制理论的概念扩展到多输入多输出系统。极点配置法通过设计状态反馈控制器将多变量">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-10-25T14:37:00.000Z">
-<meta property="article:modified_time" content="2022-10-29T15:23:32.530Z">
+<meta property="article:modified_time" content="2022-11-09T14:29:08.873Z">
 <meta property="article:author" content="Paper_Scallion">
 <meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary">
@@ -1911,7 +1911,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1668004148684),
+    lastupdate: new Date(1668004402424),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2598,7 +2598,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/25/倒立摆的建模仿真与控制（四）PID和极点配置实验/">
+  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/posts/9fb7a45/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="纸葱de小站">
   </span>
@@ -2843,10 +2843,10 @@ x\)</span>响应曲线如下图所示：</p>
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-10-29T23:23:32+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-09T22:29:08+08:00">
   <a class="notlink">
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年10月29日</p>
+    <p>更新于：2022年11月9日</p>
   </a>
 </div>
 
@@ -2867,7 +2867,7 @@ x\)</span>响应曲线如下图所示：</p>
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（四）PID和极点配置实验 - 纸葱de小站&summary=经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/posts/9fb7a45/&title=倒立摆的建模仿真与控制（四）PID和极点配置实验 - 纸葱de小站&summary=经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
 控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。
 经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型，现代控制理论主要是依据现代数学工具，将经典控制理论的概念扩展到多输入多输出系统。极点配置法通过设计状态反馈控制器将多变量系统的闭环系统极点配置在期望的位置上，从而使系统满足瞬态和稳态性能指标。">
           
@@ -2877,7 +2877,7 @@ x\)</span>响应曲线如下图所示：</p>
       
     
       
-        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（四）PID和极点配置实验 - 纸葱de小站&summary=经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/posts/9fb7a45/&title=倒立摆的建模仿真与控制（四）PID和极点配置实验 - 纸葱de小站&summary=经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
 控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。
 经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型，现代控制理论主要是依据现代数学工具，将经典控制理论的概念扩展到多输入多输出系统。极点配置法通过设计状态反馈控制器将多变量系统的闭环系统极点配置在期望的位置上，从而使系统满足瞬态和稳态性能指标。">
           
@@ -2887,7 +2887,7 @@ x\)</span>响应曲线如下图所示：</p>
       
     
       
-        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（四）PID和极点配置实验 - 纸葱de小站&summary=经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/posts/9fb7a45/&title=倒立摆的建模仿真与控制（四）PID和极点配置实验 - 纸葱de小站&summary=经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
 控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。
 经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型，现代控制理论主要是依据现代数学工具，将经典控制理论的概念扩展到多输入多输出系统。极点配置法通过设计状态反馈控制器将多变量系统的闭环系统极点配置在期望的位置上，从而使系统满足瞬态和稳态性能指标。">
           
@@ -2901,13 +2901,13 @@ x\)</span>响应曲线如下图所示：</p>
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,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">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC+0lEQVR42u3aQXLcMAwEwP3/p5N7Ki5xAGh3ITdvtmWKbF2mALz+WP9dLwRgwIABAwbMGphXcf248T9/v3o+PcdPz0/dBwwYMGDAgAGzD+Y4AA3BpM9dQUzdBwwYMGDAgAGzF6Z6kKmDTwW88vnAgAEDBgwYML8e5qqwNR3UwIABAwYMGDBgujDVRloKui7ggQEDBgwYMGBuh6kGqHQwqNrISxt+H+tEggEDBgwYMGDeBlMNXt/6c/k+YMCAAQMGDJg1MN2VFq6qgfH0w7TvAwYMGDBgwIBZA3P3INBUI61a0DrdFwwYMGDAgAGzD6bbKEsPVr1Idb/0XGDAgAEDBgyYPTCnG9198TQoVgtZl/uAAQMGDBgwYNbBpIWj+IUhfBo0qx/yMuCBAQMGDBgwYL4eplzYuSkgHjfImh8WDBgwYMCAAbMfJh1M7ga/boFqqqAFBgwYMGDAgNkLUwXpDg6lF6kOOJUbbmDAgAEDBgyYNTDdRlYavKqNuSr0ceELDBgwYMCAAbMGphqg2kHqEKo7gJQ27MCAAQMGDBgw+2C6G7+r0dZt0F2+HwwYMGDAgAGzDubugFcNdN2BprhhCAYMGDBgwIB5DEw14N3dcEsD5nHjDgwYMGDAgAGzDqa6UbeBdhrcur8/BgUDBgwYMGDArINJC1fV57vBLG2gpb8HAwYMGDBgwDwXpnrwtEDV/TDpwBIYMGDAgAED5rkw1Rd1A+LUANLxBwIDBgwYMGDArIVJG1jpoE+34DU1IBQXqsCAAQMGDBgwXwfTXe2DDA0qpZBgwIABAwYMmP0wr+LqNr66A0qng0Pp+8GAAQMGDBgw+2C6B5wOcO/6fzBgwIABAwbMc2BOG2qnQWt6EOljnUgwYMCAAQMGzGNhqo26apCbbvCBAQMGDBgwYH4vTBrQuo27qfN8rFAFBgwYMGDAgBmHSYPZVGGp3SgL9wEDBgwYMGDAPAem2rhqB6pmQKye53hwCAwYMGDAgAHztTAWGDBgwIABA2bZ+gu67GpDae6FOgAAAABJRU5ErkJggg==">
           </div>
         </div>
       
     
       
-        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/&text=倒立摆的建模仿真与控制（四）PID和极点配置实验 - 纸葱de小站">
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/posts/9fb7a45/&text=倒立摆的建模仿真与控制（四）PID和极点配置实验 - 纸葱de小站">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2934,13 +2934,13 @@ x\)</span>响应曲线如下图所示：</p>
   
     <div class="prev-next">
       
-        <a class="prev" href="/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/">
+        <a class="prev" href="/posts/3d573b2a/">
           <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验</p>
           <p class="content">LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让...</p>
         </a>
       
       
-        <a class="next" href="/2022/10/14/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%B9%E8%BD%A8%E8%BF%B9%E5%92%8C%E9%A2%91%E7%8E%87%E5%93%8D%E5%BA%94%E5%AE%9E%E9%AA%8C/">
+        <a class="next" href="/posts/b092f074/">
           <p class="title">倒立摆的建模仿真与控制（三）根轨迹和频率响应实验<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class="content">根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
 频率特性法是通过系统的开环频率特性的频域性能指标间...</p>
@@ -2959,7 +2959,7 @@ x\)</span>响应曲线如下图所示：</p>
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/index.html#comments">
+      <meta itemprop="discussionUrl" content="/posts/9fb7a45/index.html#comments">
     </span>
     <p ct><i class="fa-solid fa-comments"></i> 评论</p>
     
@@ -4338,7 +4338,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/25/倒立摆的建模仿真与控制（四）PID和极点配置实验/","name":"倒立摆的建模仿真与控制（四）PID和极点配置实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（四）PID和极点配置实验","description":"经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID\r\n控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。\r\n经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型，现代控制理论主要是依据现代数学工具，将经典控制理论的概念扩展到多输入多输出系统。极点配置法通过设计状态反馈控制器将多变量系统的闭环系统极点配置在期望的位置上，从而使系统满足瞬态和稳态性能指标。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/","wordCount":236,"datePublished":"2022-10-25T14:37:00.000Z","dateModified":"2022-10-29T15:23:32.530Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/posts/9fb7a45/","name":"倒立摆的建模仿真与控制（四）PID和极点配置实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（四）PID和极点配置实验","description":"经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID\r\n控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。\r\n经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型，现代控制理论主要是依据现代数学工具，将经典控制理论的概念扩展到多输入多输出系统。极点配置法通过设计状态反馈控制器将多变量系统的闭环系统极点配置在期望的位置上，从而使系统满足瞬态和稳态性能指标。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/posts/9fb7a45/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/posts/9fb7a45/","wordCount":236,"datePublished":"2022-10-25T14:37:00.000Z","dateModified":"2022-11-09T14:29:08.873Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

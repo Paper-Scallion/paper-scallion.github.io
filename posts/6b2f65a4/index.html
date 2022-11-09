@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/27/倒立摆的建模仿真与控制（五）线性二次最优控制lqr控制实验/">
+  <link rel="canonical" href="https://paper-scallion.github.io/posts/6b2f65a4/">
   <!-- 渲染优化 -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
       <link rel="dns-prefetch" href="https://unpkg.com">
@@ -34,19 +34,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站</title>
+  <title>倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站</title>
   <meta name="keywords" content="自动控制原理,null">
-  <meta desc name="description" content="LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。 - Paper_Scallion - 纸葱de小站">
+  <meta desc name="description" content="本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。 - Paper_Scallion - 纸葱de小站">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验">
-<meta property="og:url" content="https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:title" content="倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制">
+<meta property="og:url" content="https://paper-scallion.github.io/posts/6b2f65a4/index.html">
 <meta property="og:site_name" content="纸葱de小站">
-<meta property="og:description" content="LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
+<meta property="og:description" content="本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-10-27T14:48:00.000Z">
-<meta property="article:modified_time" content="2022-11-09T13:45:44.227Z">
+<meta property="article:published_time" content="2022-10-13T06:19:00.000Z">
+<meta property="article:modified_time" content="2022-11-09T14:29:08.866Z">
 <meta property="article:author" content="Paper_Scallion">
 <meta property="article:tag" content="自动控制原理">
 <meta name="twitter:card" content="summary">
@@ -1909,7 +1909,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1668004148684),
+    lastupdate: new Date(1668004402424),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2596,7 +2596,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/27/倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验/">
+  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/posts/6b2f65a4/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="纸葱de小站">
   </span>
@@ -2617,7 +2617,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验
+        倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制
       </h1>
       <div class="new-meta-box">
         
@@ -2648,10 +2648,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-27T22:48:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-13T14:19:00+08:00">
   <a class="notlink">
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年10月27日</p>
+    <p>发布于：2022年10月13日</p>
   </a>
 </div>
 
@@ -2667,149 +2667,90 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/wiki/LQR控制器">LQR控制器</a>，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。</p>
+    <p>本实验的目的是让实验者熟悉<a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/wiki/%E6%97%8B%E8%BD%89%E7%B7%A8%E7%A2%BC%E5%99%A8">角度编码器</a>的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。</p>
 <span id="more"></span>
-<h2 id="线性二次最优控制lqr控制实验">线性二次最优控制LQR控制实验</h2>
-<h3 id="线性二次最优控制理论分析">线性二次最优控制理论分析</h3>
-<p>线性二次最优控制<span class="math inline">\(LQR\)</span>基本原理为，对于线性时不变系统，由系统方程：
+<h2 id="编码器原理及使用实验">编码器原理及使用实验</h2>
+<h3 id="编码器原理">编码器原理</h3>
+<p>旋转编码器是一种角位移传感器，它分为光电式、接触式和电磁感应式三种，其中光电式脉冲编码器是闭环控制系统中最常用的位置传感器。</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/屏幕截图%202022-10-13%20163943.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/屏幕截图%202022-10-13%20163943.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
+<p>旋转编码器有增量编码器和绝对编码器两种，上图为光电式增量编码器示意图，它由发光元件、光电码盘、光敏元件和信号处理电路组成。当码盘随工作轴一起转动时，光源透过光电码盘上的光栏板形成忽明忽暗的光信号，光敏元件把光信号转换成电信号，然后通过信号处理电路的整形、放大、分频、记数、译码后输出。为了测量出转向，使光栏板的两个狭缝比码盘两个狭缝距离小<span class="math inline">\(\frac{1}{4}\)</span>节距，这样两个光敏元件的输出信号就相差<span class="math inline">\(\frac{\pi}{2}\)</span>相位，将输出信号送入鉴向电路，即可判断码盘的旋转方向。</p>
+<p>光电式增量编码器的测量精度取决于它所能分辨的最小角度<span class="math inline">\(\alpha\)</span>(分辨角、分辨率)，而这与码盘圆周内所分狭缝的线数有关。
 <span class="math display">\[
-\dot x(t)=A(t)x(t)+B(t)u(t) \\
-y(t)=C(t)x(t)+D(t)u(t) \\
-x(t_0)=x_0
-\]</span> 确定下列最佳控制向量的矩阵<span class="math inline">\(K\)</span>： <span class="math display">\[
-u(t)=-K(t)x(t)
-\]</span> 使得性能指标达到最小值，即： <span class="math display">\[
-J=\frac{1}{2}x^T(t_f)Px(t_f)+\frac{1}{2}\int_{t_0}^{t_f}[x^T(t)Q(t)x(t)+u^T(t)R(t)u(t)]dt
-\]</span> 式中：</p>
-<ul>
-<li><span class="math inline">\(Q\)</span>：正定(或正半定)厄米特或实对称阵</li>
-<li>R：为正定厄米特或实对称阵</li>
-</ul>
-<p>终端时间有限时连续系统的状态调节器问题，要求寻找最优控制<span class="math inline">\(u(t)\)</span>，使<span class="math inline">\(J\)</span>最小。这里<span class="math inline">\(u(t)\)</span>无约束。<span class="math inline">\(P\)</span>、<span class="math inline">\(Q(t)\)</span>为对称半正定阵，<span class="math inline">\(R(t)\)</span>为对称正定阵。终端时间<span class="math inline">\(t_f\)</span>为有限值。</p>
-<p>因<span class="math inline">\(u(t)\)</span>无约束，故等同于用经典变分法求解。取哈密顿函数为：
+\alpha=\frac{360^\circ}{n}
+\]</span> 其中<span class="math inline">\(n\)</span>为编码器线数。</p>
+<p>由于光电式脉冲编码盘每转过一个分辨角就发出一个脉冲信号，因此，根据脉冲数目可得出工作轴的回转角度，由传动比换算出直线位移距离；根据脉冲频率可得工作轴的转速；根据光栏板上两条狭缝中信号的相位先后，可判断光电码盘的正、反转。</p>
+<p>绝对编码器通过与位数相对应的发光二极管和光敏二极管对输出的二进制码来检测旋转角度。</p>
+<p>与增量编码器原理相同，用于测量直线位移的传感器是光栅尺。</p>
+<p>由于光电编码器输出的检测信号是数字信号，因此可以直接进入计算机进行处理，不需放大和转换等过程，使用非常方便，因此应用越来越广泛。</p>
+<h3 id="角度换算">角度换算</h3>
+<p>对于线数为<span class="math inline">\(n\)</span>的编码器，设信号采集卡倍频数为<span class="math inline">\(m\)</span>，则有角度换算关系为： <span class="math display">\[
+\phi=\frac{2\pi}{nm}N(rad) \ or \ \phi=\frac{360^\circ}{nm}N(degree)
+\]</span> 式中<span class="math inline">\(\phi\)</span>为编码器轴转角，<span class="math inline">\(N\)</span>为编码器读数。</p>
+<p>对于电机编码器，在倒立摆使用中需要把编码器读数转化为小车的水平位置，以下转换关系：
 <span class="math display">\[
-H=\frac{1}{2}[x(t)^TQ(t)x(t)+u^T(t)R(t)u(t)]+\lambda^T(t)[A(t)x(t)+B(t)u(t)]
-\]</span> 最优解的必要条件如下：</p>
-<ul>
-<li>协态方程为：</li>
-</ul>
-<p><span class="math display">\[
-\dot \lambda=-\frac{\partial H}{\partial x}=-[Q(t)x(t)+A^T(t)\lambda(t)]
-\]</span></p>
-<ul>
-<li>控制方程为：</li>
-</ul>
-<p><span class="math display">\[
-\frac{\partial H}{\partial u}=R(t)u(t)+B^T(t)\lambda(t)=0 \\
-u=-R^{-1}(t)B^T(t)\lambda(t)
-\]</span></p>
-<p>因<span class="math inline">\(R(t)\)</span>正定，故<span class="math inline">\(R^{-1}(t)\)</span>存在，由上式可确定最优控制<span class="math inline">\(u(t)\)</span>。为寻求最优反馈控制律还需把<span class="math inline">\(u(t)\)</span>与状态<span class="math inline">\(x(t)\)</span>联系起来。</p>
-<ul>
-<li>横截条件为：</li>
-</ul>
-<p><span class="math display">\[
-\lambda(t_f)=\frac{\partial\phi}{\partial
-x(t_f)}=\frac{\partial}{\partial
-x(t_f)}[\frac{1}{2}x^T(t_f)Px(t_f)]=Px(t_f)
-\]</span></p>
-<p>再一次遇到了两点边值问题（已知<span class="math inline">\(x(t_0)\)</span>和<span class="math inline">\(\lambda(t_f)\)</span>），如前所述，一般要试凑<span class="math inline">\(\lambda(t_0)\)</span>再积分协态方程使<span class="math inline">\(\lambda(t_f)\)</span>满足要求。</p>
-<p>但这里处理的是线性微分方程，可找到更简单的解法。从可见，协态<span class="math inline">\(\lambda(t)\)</span>和状态<span class="math inline">\(x(t)\)</span>在终端<span class="math inline">\(t_f\)</span>时刻成线性关系。记<span class="math inline">\(\lambda(t)=K(t)x(t)\)</span>。</p>
-<p>将线性关系代入横截条件方程得： <span class="math display">\[
-[\dot K(t)+K(t)A(t)-K(t)B(t)R^{-1}(t)B^T(t)K(t)+A^T(t)K(t)+Q(t)]x(t)=0
-\]</span> 上式对任意<span class="math inline">\(x(t)\)</span>都应成立，故方括号内的项应为零，这就得出：
-<span class="math display">\[
-\dot K(t)=-K(t)A(t)-A^T(t)K(t)+K(t)B(t)R^{-1}(t)B^T(t)K(t)-Q(t)
-\]</span> 再根据线性关系： <span class="math display">\[
-\lambda(t)=K(t)x(t) \\
-\dot x(t)=A(t)x(t)-B(t)R^{-1}(t)B^T(t)K(t)x(t)\\
-\dot\lambda(t)=\dot K(t)x(t)+K(t)\dot x(t)=-Q(t)x(t)-A^T(t)K(t)x(t)\\
-K(t_f)=P
-\]</span> 得到K满足含上述终值条件的如下<span class="math inline">\(Riccati\)</span>方程： <span class="math display">\[
-\dot K(t)=-K(t)-A^T(t)K(t)+K(t)B(t)R^{-1}(t)B^T(t)K(t)-Q(t)
-\]</span> 上式是<span class="math inline">\(K(t)\)</span>的非线性矩阵微分方程，称为黎卡提（<span class="math inline">\(Riccati\)</span>）矩阵微分方程。一般来说得不出<span class="math inline">\(K(t)\)</span>的解析表达式，但可用计算机程序算出<span class="math inline">\(K(t)\)</span>的数值解。为了求解，要知道它的边界条件<span class="math inline">\(K(t_f)=P\)</span>。</p>
-<p>因此可从<span class="math inline">\(t_f\)</span>到<span class="math inline">\(t_0\)</span>逆时间积分黎卡提微分方程，求出<span class="math inline">\(K(t)\)</span>。可构成最优反馈控制： <span class="math display">\[
-u(t)=-R^{-1}(t)B^T(t)K(t)X(t)=-G(t)x(t)
-\]</span> 其中，<span class="math inline">\(G(t)=R^{-1}(t)B^T(t)K(t)\)</span>，又称为最优反馈增益矩阵。</p>
-<p>即使系统是定常的，即系统矩阵<span class="math inline">\(A\)</span>，输入矩阵<span class="math inline">\(B\)</span>为常数阵，加权阵<span class="math inline">\(R\)</span>和<span class="math inline">\(Q\)</span>也是常数阵，但<span class="math inline">\(K(t)\)</span>仍为时变阵。</p>
-<p>这从<span class="math inline">\(K(t)\)</span>是黎卡提微分方程的解可看出。K(t)$时变时，反馈控制增益也时变，在实现时总是不太方便。</p>
-<p>对线性定常系统，若终端时间<span class="math inline">\(t_f\rightarrow\infty\)</span>，且系统满足一些附加条件时，<span class="math inline">\(K(t)\)</span>将变为常数阵<span class="math inline">\(K\)</span>。</p>
-<p>线性定常系统： <span class="math display">\[
-\dot x(t)=Ax(t)+Bu(t)
-\]</span> <span class="math inline">\(x\)</span>为<span class="math inline">\(n\)</span>维，<span class="math inline">\(u\)</span>为<span class="math inline">\(m\)</span>维，系统是可控的或至少是可稳的（可稳指不可控的状态是渐近稳定的）。性能指标为：
-<span class="math display">\[
-J=\frac{1}{2}\int_{0}^{\infty}[x(t)^TQx(t)+u(t)^TRu(t)]dt
-\]</span> 其中<span class="math inline">\(u(t)\)</span>不受约束，<span class="math inline">\(Q\)</span>和<span class="math inline">\(R\)</span>为常数对称正定阵。或者可将对<span class="math inline">\(Q\)</span>的要求改为对称半正定，<span class="math inline">\((A,Q_1)\)</span>可观测，或至少可检测（可检测指不可观测的状态是渐近稳定的），<span class="math inline">\(Q_1\)</span>是<span class="math inline">\(Q\)</span>的矩阵平方根。</p>
-<p>已经证明了：使<span class="math inline">\(J\)</span>为极小的最优控制是存在和唯一的，且可表示为：
-<span class="math display">\[
-u(t)=-R^{-1}B^TKx(t)=-Gx(t)
-\]</span></p>
-<h3 id="lqr控制参数调节及仿真">LQR控制参数调节及仿真</h3>
-<p>前面已经得到了直线一级倒立摆系统的系统状态方程： <span class="math display">\[
-\begin{bmatrix}
-    \dot x \\
-    \ddot x \\
-    \dot\phi \\
-    \ddot\phi \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 0 &amp; 1\\
-    0 &amp; 0 &amp; 29.4 &amp; 0\\
-\end{bmatrix}
-\begin{bmatrix}
-    x \\
-    \dot x \\
-    \phi \\
-    \dot\phi \\
-\end{bmatrix}
-+
-\begin{bmatrix}
-    0 \\
-    1 \\
-    0 \\
-    3 \\
-\end{bmatrix}
-u
-\]</span></p>
-<p><span class="math display">\[
-y=
-\begin{bmatrix}
-    x \\
-    \phi
-\end{bmatrix}
-=
-\begin{bmatrix}
-    1 &amp; 0 &amp; 0 &amp; 0 \\
-    0 &amp; 0 &amp; 1 &amp; 0
-\end{bmatrix}
-\begin{bmatrix}
-    x \\
-    \dot x \\
-    \phi \\
-    \dot\phi \\
-\end{bmatrix}
-\]</span></p>
-<p>假设全状态反馈可以实现（四个状态量都可测），找出确定反馈控制规律的向量<span class="math inline">\(K\)</span>。在<span class="math inline">\(MATLAB\)</span>中得到最优控制器对应的<span class="math inline">\(K\)</span>。<span class="math inline">\(LQR\)</span>函数允许你选择两个参数——<span class="math inline">\(R\)</span>和<span class="math inline">\(Q\)</span>，这两个参数用来平衡输入量和状态量的权重。最简单的情况是假设<span class="math inline">\(R=1\)</span>，<span class="math inline">\(Q=C^′C\)</span>。当然，也可以通过改变<span class="math inline">\(Q\)</span>矩阵中的非零元素来调节控制器以得到期望的响应。</p>
-<p>取： <span class="math display">\[
-Q=
-\begin{bmatrix}
-1 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 0
-\end{bmatrix}
-,
-R=1
-\]</span> 其中，<span class="math inline">\(Q_{1,1}\)</span>代表小车位置的权重，而<span class="math inline">\(Q_{3,3}\)</span>是摆杆角度的权重。使用<span class="math inline">\(Matlab\)</span>语句如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">29.4</span> <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">3</span>]&#x27;;</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>; </span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=[<span class="number">0</span> <span class="number">0</span>]&#x27;;</span><br><span class="line">Q=[<span class="number">1000</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">200</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>];</span><br><span class="line">R=<span class="number">1</span>;</span><br><span class="line">K=lqr(A,B,Q,R)</span><br></pre></td></tr></table></figure>
-<p>得到控制矩阵： <span class="math display">\[
-K=
-\begin{bmatrix}
--31.6228 &amp; -20.1507 &amp; 72.7181 &amp; 13.1552
-\end{bmatrix}
-\]</span></p>
+l=\frac{\pi\Phi}{nm}N
+\]</span> 式中<span class="math inline">\(l\)</span>为小车位移，<span class="math inline">\(\Phi\)</span>为同步带轮直径。</p>
+<h3 id="matlab-simulink-环境下的实验">Matlab Simulink 环境下的实验</h3>
+<h4 id="仿真设置">仿真设置</h4>
+<ol type="1">
+<li>仿真模式由Normal改为External模式。</li>
+<li>仿真结束时间(Stop time)改为inf(无限长)。</li>
+<li>求解器(Solver)选择为定步长(Fixed-step)，仿真间隔(Fixed step
+size)改为0.005s。</li>
+<li>在Real-Time Workshop中的配置(Configuration)选择系统目标文件(System
+target file)为rtwin.tlc。</li>
+</ol>
+<h4 id="实验一-摆杆角度检测实验">实验一 摆杆角度检测实验</h4>
+<ol type="1">
+<li><p>新建<span class="math inline">\(Simulink\)</span>项目，按照<a href="#仿真设置">仿真设置</a>当中将对各项参数进行设置。</p></li>
+<li><p>打开“Googol Education Products-SV Block Library”。</p></li>
+<li><p>在“Get Current Axis’s
+Position”上点击鼠标左键并将模块拉到（以下简称为“拉”）刚才新建的窗口中。</p></li>
+<li><p>双击“GetPos”模块，打开设置窗口，并选择轴号为“2”，即第一级摆杆连接的编码器，此编码器固定于小车上。</p></li>
+<li><p>从“Simulink”中拉一个“Scope”到窗口中。</p></li>
+<li><p>连接两个模块（移动鼠标到“&lt;“上，鼠标箭头变成“＋”，按下鼠标
+左键并移动到“&gt;”上，松开鼠标）。</p></li>
+<li><p>在“Googol Education Products-SV Block Library”中拉一个“GT400-SV
+Initialization”模块到窗口中。</p></li>
+<li><p>编译程序。</p></li>
+<li><p>打开电控箱电源。</p></li>
+<li><p>连接程序。</p></li>
+<li><p>运行程序。</p></li>
+<li><p>双击“Scope”模块观察数据.</p></li>
+<li><p>手动转动摆杆，观察显示结果，在数据超出显示范围时，点击缩放按键进行缩放。</p></li>
+<li><p>记录实验结果。</p></li>
+</ol>
+<p>记录Scope的结果如下图所示</p>
+<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/boxing.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/boxing.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom: 50%;"></p>
+<h4 id="实验二-电机控制实现">实验二 电机控制实现</h4>
+<p>将运动控制器当前轴设定成速度控制模式，用户需要设定最大速度和加速度两个参数。在该模式下，开始运动时将以设定的加速度连续加速到设定的最大速度，运动方向由速度的符号确定，即正速度产生正向运动，而负速度产生负向运动。</p>
+<ol type="1">
+<li><p>新建<span class="math inline">\(Simulink\)</span>项目，按照<a href="#仿真设置">仿真设置</a>当中将对各项参数进行设置。</p></li>
+<li><p>打开“Googol Education Products-SV Block Library”。</p></li>
+<li><p>拉“Set Current Axis’s Acc and
+Vel”模块到刚才新建的窗口中。</p></li>
+<li><p>双击“SetAccVel”模块，打开如下窗口，参数设置如下：</p>
+<p>“Axis number”：选择轴号为“1”，即小车电机所使用的轴。</p>
+<p>“Back
+velocity”：此参数设定小车限位后反方向运动的速度，单位为米/秒。</p>
+<p>“Back
+position”：此参数设定小车限位后反方向运动，单位为脉冲数。</p></li>
+<li><p>从“Simulink”中拉两个“Constant”到窗口中。</p></li>
+<li><p>连接三个模块。</p></li>
+<li><p>设置连接“Vel”的“Constant”模块值为0.2，连接“Vel”的“Constant”模块值为0.1。</p></li>
+<li><p>在“Googol Education Products-SV Block Library”中拉一个“GT400-SV
+Initialization”模块到窗口中。</p></li>
+<li><p>编译程序。</p></li>
+<li><p>打开电控箱电源。</p></li>
+<li><p>连接程序。</p></li>
+<li><p>运行程序。</p></li>
+<li><p>观察小车的运动情况。</p></li>
+</ol>
+<p>小车运动情况如下</p>
+<div class="video"><video controls preload><source src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/7dc938505bf2b9fc5aecc42cefe8d57a.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<h3 id="实验结论">实验结论</h3>
+<p>通过使用编码器，可以实现对摆杆角度的测量，可以将旋转角度这一模拟量转化为数字量并作为输入，进而参与控制器的实现。</p>
+<p>通过使用电机，可以将数字控制量转化为模拟运动量，作为系统的输出，参与最终倒立摆的实现。</p>
 
   </div>
   
@@ -2834,7 +2775,7 @@ K=
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-09T21:45:44+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-09T22:29:08+08:00">
   <a class="notlink">
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年11月9日</p>
@@ -2858,7 +2799,7 @@ K=
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/posts/6b2f65a4/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站&summary=本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2866,7 +2807,7 @@ K=
       
     
       
-        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/posts/6b2f65a4/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站&summary=本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2874,7 +2815,7 @@ K=
       
     
       
-        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/posts/6b2f65a4/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站&summary=本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2886,13 +2827,13 @@ K=
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjgAAAI4CAAAAABCHswqAAALxElEQVR42u3aUXLDOA4E0Nz/0jMHmEqZ6AYtZffxz44skcBTPrrw849lBetHCSxwLHAscCxwLAscCxzrMTg/4frPDX/5/re/f7r+9Pen3/92v0/3Of3dref+LK2tfoMDDjjggAMOOOCAAw444IADDjjPw0kbeNrI08JNAaRQp5CnUNNzTQFM+1i/sOCAAw444IADDjjggAMOOOCAA85r4LTBWFqo9sDpPlvAaf224bZ1Or4/OOCAAw444IADDjjggAMOOOCA8+fhbMNqB6KmQWLauC3o2w2eBp/ggAMOOOCAAw444IADDjjggAPO/w+cdJArDeK2AsV2pQHj1uBbO/AFDjjggAMOOOCAAw444IADDjjg/F0402CrhbIVgKX73gr+UnBTmOkLtdZvcMABBxxwwAEHHHDAAQcccMAB53E47cF9/luf436DAw44PoPjMzg+gwMOOOD4DI7Pj8HZWmnQtxVUnRZuKwDcCj7b+2zV+7i+4IADDjjggAMOOOCAAw444IADzmNwPhU2LcTpfU+Dqe39pYHYFtR08Cp9EdZeaHDAAQcccMABBxxwwAEHHHDAAec1cG4FUOl1W4FhWrjt6566fvr51+vAAQcccMABBxxwwAEHHHDAAQecx+GkDW8Hik6DsTYITMFOg8CtOrSgtvYNDjjggAMOOOCAAw444IADDjjgvAdOC2g6mNQGgGmQVQdf4UBYGmS2gd324Bk44IADDjjggAMOOOCAAw444IDzPJytYK0Npk4b/m0405XeZ/u5p6DHgSM44IADDjjggAMOOOCAAw444IDzOJyt4Oq00d8K+raCvHZgbHtQq+0POOCAAw444IADDjjggAMOOOCA8/fgpAW83fg2QGsbMb1/O3g1DSTbgDMFDg444IADDjjggAMOOOCAAw444DwPJy30VrDVBlTtPqcNmw5ytfv59vmOA0BwwAEHHHDAAQcccMABBxxwwAHnNXC2Gnm68a3Bq61gMh1Q2zpPe/8poI/1AgcccMABBxxwwAEHHHDAAQcccB6DsxUsTQvVDnLdBp0GgbeCvq0Br7SP4IADDjjggAMOOOCAAw444IADznvgbAVY04ZMAW6t0+ffrs800NyCHwem4IADDjjggAMOOOCAAw444IADzmNwth6QBoppQLi1n1uApwHk1gu5FTT+ui9wwAEHHHDAAQcccMABBxxwwAHnMThtwHVakNMga7qPaUCWwk7334LbDgLbfxTggAMOOOCAAw444IADDjjggAPOe+A8NTA0DbKmAdm08W1QljawDe62A9LjABAccMABBxxwwAEHHHDAAQcccMC5DqcNitKGPzXw1O7jFPDW79MXIA0Gjwe5wAEHHHDAAQcccMABBxxwwAEHnK/DaRuxHXBN4aRBVhqAtoNeLYxbgexxH8ABBxxwwAEHHHDAAQcccMABB5zXwJkWbrrx7UJO77sN9dY6DuSW9n3cN3DAAQcccMABBxxwwAEHHHDAAecxOG3DWmDtwdP9pUHZrcBzG/rWiw0OOOCAAw444IADDjjggAMOOOC8B87WxtINt8FaGyhO4aTfbwWY20Hn+LnggAMOOOCAAw444IADDjjggAPOY3CmMNKA8PTvW8FWW+jT69tzpJC2zlMnx+CAAw444IADDjjggAMOOOCAA87X4EwHrqYbaIO9Kcw2OGyDxnRQK63/dJ/1gBc44IADDjjggAMOOOCAAw444IDzGjhbG0thpPtIC9cGY1vP2Q400xf7437BAQcccMABBxxwwAEHHHDAAQecx+HcAtEOMn2r0NOAMIWbBpvp79dBgQMOOOCAAw444IADDjjggAMOOI/BaRu8PbjVDnxNz5EW8PTvt87XvgB1AAgOOOCAAw444IADDjjggAMOOOB8Hc7P8mqDuDaYbIO/FFy6z/T+6fd1/8ABBxxwwAEHHHDAAQcccMABB5zXwJkOBG0HWKf33xpsmp7vWwNm7Qt5a9/ggAMOOOCAAw444IADDjjggAPOc3BODzD9vD34NQ3U2sBsWpdvgTsN+NJ+fbwfOOCAAw444IADDjjggAMOOOCA8zicNnC7VeBvFyYN1ragbMFNn/dxP+CAAw444IADDjjggAMOOOCAA87r4aQB3RTk7cL/lOtWgHh6v7TOa30EBxxwwAEHHHDAAQcccMABBxxwHoPTNngahLVB37RhafB3ulLobfDZBqVpv8ABBxxwwAEHHHDAAQcccMABB5zn4GwNELVBWTqolAZt7XO2zzUFPYXUXgcOOOCAAw444IADDjjggAMOOOC8D07b+HQgavr7W4NULaB2wK0N6Fpw4IADDjjggAMOOOCAAw444IADznvhbA9qbTUmhZDuawtYev2twbQ2WDyeAAQHHHDAAQcccMABBxxwwAEHHHCuwzn+wVLB0uDuFPJ2kHYaOKb33Qr0ptDiPoEDDjjggAMOOOCAAw444IADDjivgTMFkm40fU4bVLYDabchp79PA77xucEBBxxwwAEHHHDAAQcccMABB5zXwJkGfG2glh50CjBdKeTtYHMaCG4HoOCAAw444IADDjjggAMOOOCAA8574EyDrzSQ2gq+0iCsvf9twCmAFv7xiwEOOOCAAw444IADDjjggAMOOOA8BicNoNJGp41srzst9K0AsA1YtwLaNoAFBxxwwAEHHHDAAQcccMABBxxw3gNnGjBNf3cr4DotQAoifc5W3doXJr0POOCAAw444IADDjjggAMOOOCA8144W4NBKZB28CrdT3vdaeFPg7vbdY73Bw444IADDjjggAMOOOCAAw444LwGzlZQNC1Mer9pwacvxLSw7YvRBq/b5wYHHHDAAQcccMABBxxwwAEHHHDeB+d2ADWFsl3I6XO/BWTa8C1QaT3AAQcccMABBxxwwAEHHHDAAQec98BJD3ra+DT4aoO+aaB3KwDdAvktOP95LjjggAMOOOCAAw444IADDjjggPMYnGlgNz1YO8C01fA0mEuvT8G09W2D2ONBLnDAAQcccMABBxxwwAEHHHDAAefrcKYFTx84vU9bqK1AMIWcvnhbgeC0zsfgwAEHHHDAAQcccMABBxxwwAEHnNfD2R5UalcKtg0A2xckDVpbyFt9AAcccMABBxxwwAEHHHDAAQcccJ6DM21IGuylhUsL0Q5otfucBqW3B+VO6/Lx/OCAAw444IADDjjggAMOOOCAA85jcLYCprYBW4NhbUDZDjrdepHSfaX1/fW+4IADDjjggAMOOOCAAw444IADzuvgpAFgCjKFdTyANGzYNrw2qGtf9DS4BAcccMABBxxwwAEHHHDAAQcccN4Dp13tAFI6cBUf/NKLMn2B0sa3v08Hy8ABBxxwwAEHHHDAAQcccMABB5zn4bQDV1vB3TTwSgO2rX21geD0RUkHwNYDUXDAAQcccMABBxxwwAEHHHDAAec1cLaDrvagbeOn92kbmQJq4aVB63h/4IADDjjggAMOOOCAAw444IADzuvgpAM/aWC4VfAtiFuB5+2A79b+fv0eHHDAAQcccMABBxxwwAEHHHDAeQzOVvDXAmwDti246SBXe5/p9+0gWRwUggMOOOCAAw444IADDjjggAMOOI/BaQOw9KBt0Nc2pA0gtwat0mBwa2BrDBMccMABBxxwwAEHHHDAAQcccMB5HE4bME2BpcHiFPBWcNcGodvnTF/Q6fPBAQcccMABBxxwwAEHHHDAAQec98LZHnyaDmx9a5ArfX57njYITYGtnRMccMABBxxwwAEHHHDAAQcccMD5s3CmG78dxJ02IL3u9j6mz9mCDA444IADDjjggAMOOOCAAw444Pzvw9kOnNpBozQgTAfTpvtIX7AU2joocMABBxxwwAEHHHDAAQcccMAB5zVw0kAr/X0KMQ0a2wAtfV4KMoWxHdCCAw444IADDjjggAMOOOCAAw4474HTBndpUNZCSoOutsG3vk/33QaMx/cBBxxwwAEHHHDAAQcccMABBxxwHoNjWaMAVwkscCxwLHAscCwLHAsc69vrX4Sswj99GNnuAAAAAElFTkSuQmCC">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC8klEQVR42u3aQXICMQwEQP7/6eQBCbXWSCQraN+AtbF7LyqNH1/Gr+OBAAwYMGDAgFkD8wjHjwWffF/9/fR/T78vrwsGDBgwYMCAWQdzXAAVYbrAp0BT5wEDBgwYMGDA7IVJN1ItxLqF3vT+wIABAwYMGDCfC3MKMX3w8QIRDBgwYMCAAfNxMOmGuw2tNZUvGDBgwIABA+blMOWAarigO51/+yQSDBgwYMCAAfNnMNMB139/js8DBgwYMGDAgFkD0x1XhVl3XrUgbJ8HDBgwYMCAAbMGJi2Qrg6cFoop6Nj+wYABAwYMGDBrYK4Wngq2piC7F4riRhUYMGDAgAEDZg1M2mDqFoKnB+2+0Kf/BwYMGDBgwIBZC9OFSi/2VOGnCrv44hAYMGDAgAED5t9h0oN1YV/dCEsDPjBgwIABAwbM+8JUC6qpYO1VgRwYMGDAgAEDZi9MuvFug6v7fNr4KgduYMCAAQMGDJi1MGnQNt2wqjaeqiBgwIABAwYMmL0waUHVfb5bOLYhrhpVYMCAAQMGDJjbwqQNqbGNhA2yqQIPDBgwYMCAAbMXptqoSoO07vrdi0rHDTUwYMCAAQMGzBqYaqOoG9SlAVz6fLlwBAMGDBgwYMCsg5laeDpIe1WgBwYMGDBgwIB5H5j0IN0CLF0/bXS1Lw6BAQMGDBgwYG4HUw28xhtEzUZZtWB8Og8MGDBgwIABsxamunC1UTQ9r9vQOi7wwIABAwYMGDBrYdJgrNqY6l4sSl8AGDBgwIABA2YfTHekB58uHFNwMGDAgAEDBsxemG5QVoWYCtiOG0/Fi0tgwIABAwYMmH0w1Y2dBlmnv3cbUVVIMGDAgAEDBsz7wUwVUN3g7nZJJBgwYMCAAQPm7WG6BeLpweKDX60LBgwYMGDAgPk4mKngqxyQhes+fXFgwIABAwYMmLUw6YWg6cKsemFoah4YMGDAgAEDZh9Mt2HULRing7o40AMDBgwYMGDArIExwIABAwYMGDDLxjfvgufh6pJxbgAAAABJRU5ErkJggg==">
           </div>
         </div>
       
     
       
-        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&text=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站">
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/posts/6b2f65a4/&text=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2919,12 +2860,16 @@ K=
   
     <div class="prev-next">
       
+        <a class="prev" href="/posts/b092f074/">
+          <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>倒立摆的建模仿真与控制（三）根轨迹和频率响应实验</p>
+          <p class="content">根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
+频率特性法是通过系统的开环频率特性的频域性能指标间...</p>
+        </a>
       
-        <a class="next" href="/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/">
-          <p class="title">倒立摆的建模仿真与控制（四）PID和极点配置实验<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class="content">经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
-控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。
-经典控制...</p>
+      
+        <a class="next" href="/posts/af245e93/">
+          <p class="title">倒立摆的建模仿真与控制（一）倒立摆系统的建模<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。...</p>
         </a>
       
     </div>
@@ -2940,7 +2885,7 @@ K=
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/index.html#comments">
+      <meta itemprop="discussionUrl" content="/posts/6b2f65a4/index.html#comments">
     </span>
     <p ct><i class="fa-solid fa-comments"></i> 评论</p>
     
@@ -2982,7 +2927,7 @@ K=
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6lqr%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-text">线性二次最优控制LQR控制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-text">线性二次最优控制理论分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lqr%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0%E8%B0%83%E8%8A%82%E5%8F%8A%E4%BB%BF%E7%9C%9F"><span class="toc-text">LQR控制参数调节及仿真</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%AE%9E%E9%AA%8C"><span class="toc-text">编码器原理及使用实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E5%8E%9F%E7%90%86"><span class="toc-text">编码器原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E5%BA%A6%E6%8D%A2%E7%AE%97"><span class="toc-text">角度换算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#matlab-simulink-%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%AA%8C"><span class="toc-text">Matlab Simulink 环境下的实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%BE%E7%BD%AE"><span class="toc-text">仿真设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-%E6%91%86%E6%9D%86%E8%A7%92%E5%BA%A6%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C"><span class="toc-text">实验一 摆杆角度检测实验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6%E5%AE%9E%E7%8E%B0"><span class="toc-text">实验二 电机控制实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E8%AE%BA"><span class="toc-text">实验结论</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -4319,7 +4264,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/2022/10/27/倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验/","name":"倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验","description":"LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/","wordCount":132,"datePublished":"2022-10-27T14:48:00.000Z","dateModified":"2022-11-09T13:45:44.227Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/posts/6b2f65a4/","name":"倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制","description":"本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/posts/6b2f65a4/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/posts/6b2f65a4/","wordCount":117,"datePublished":"2022-10-13T06:19:00.000Z","dateModified":"2022-11-09T14:29:08.866Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
