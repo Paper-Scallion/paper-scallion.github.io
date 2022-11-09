@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-CN,en,zh-TW,default">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.7.6'>
+    <head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/#5.7.6">
   <meta name="generator" content="Hexo 5.4.2">
   <meta name="Volantis" content="5.7.6">
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/27/倒立摆的建模仿真与控制（五）线性二次最优控制lqr控制实验/"/>
+  <link rel="canonical" href="https://paper-scallion.github.io/2022/10/27/倒立摆的建模仿真与控制（五）线性二次最优控制lqr控制实验/">
   <!-- 渲染优化 -->
-    <meta http-equiv='x-dns-prefetch-control' content='on' />
-      <link rel='dns-prefetch' href='https://unpkg.com'>
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+      <link rel="dns-prefetch" href="https://unpkg.com">
       <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta http-equiv="Content-Security-Policy" content=" default-src 'self' https:; block-all-mixed-content; base-uri 'self' https:; form-action 'self' https:; worker-src 'self' https:; connect-src 'self' https: *; img-src 'self' data: https: *; media-src 'self' https: *; font-src 'self' data: https: *; frame-src 'self' https: *; manifest-src 'self' https: *; child-src https:; script-src 'self' https: 'unsafe-inline' *; style-src 'self' https: 'unsafe-inline' *; ">
-  <meta name="HandheldFriendly" content="True" >
+  <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
@@ -1892,9 +1892,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 		}
 	</style>
     <div class="kill-noscript">
-        <span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>
-        <span class="kill-c">本页面需要浏览器支持（启用）JavaScript</span><br/>
-        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+        <span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br>
+        <span class="kill-c">本页面需要浏览器支持（启用）JavaScript</span><br>
+        <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
     </div>
 </noscript>
 
@@ -1909,7 +1909,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1668003222420),
+    lastupdate: new Date(1668003752656),
     sidebar: {
       for_page: ["blogger","category","tagcloud"],
       for_post: ["toc"],
@@ -2339,25 +2339,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin begin-->
     
     <!-- Custom Files bodyBegin end-->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
-  <div class='container'>
-  <div id='wrapper'>
-    <div class='nav-sub'>
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style="opacity: 0">
+  <div class="container">
+  <div id="wrapper">
+    <div class="nav-sub">
       <p class="title"></p>
-      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
+      <ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self" href="/" onclick="return false;" title="comment"></a></li>
         
-          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self" href="/" onclick="return false;" title="toc"></a></li>
         
       </ul>
     </div>
 		<div class="nav-main">
       
         
-        <a class="title flat-box" target="_self" href='/'>
+        <a class="title flat-box" target="_self" href="/">
           
           
-            <i class='fa-solid fa-earth-asia'></i>
+            <i class="fa-solid fa-earth-asia"></i>
           
           
             纸葱de小站
@@ -2365,22 +2365,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         </a>
       
 
-			<div class='menu navigation'>
-				<ul class='nav-list-h m-pc'>
+			<div class="menu navigation">
+				<ul class="nav-list-h m-pc">
           
           
           
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="博客"
-                  
-                  
-                  
-                    active-action="action-home"
-                  >
-                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" title="博客" active-action="action-home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
                 </a>
                 
               </li>
@@ -2390,14 +2384,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="分类"
-                  
-                  
-                  
-                    active-action="action-categories"
-                  >
-                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" title="分类" active-action="action-categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
                 </a>
                 
               </li>
@@ -2407,14 +2395,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/tags/" title="标签"
-                  
-                  
-                  
-                    active-action="action-tags"
-                  >
-                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" title="标签" active-action="action-tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>标签
                 </a>
                 
               </li>
@@ -2424,14 +2406,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/archives/" title="归档"
-                  
-                  
-                  
-                    active-action="action-archives"
-                  >
-                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" title="归档" active-action="action-archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
                 </a>
                 
               </li>
@@ -2441,14 +2417,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
-                  
-                  
-                  
-                    active-action="action-friends"
-                  >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" title="友链" active-action="action-friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
                 </a>
                 
               </li>
@@ -2458,14 +2428,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/about/" title="关于"
-                  
-                  
-                  
-                    active-action="action-about"
-                  >
-                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" title="关于" active-action="action-about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
                 </a>
                 
               </li>
@@ -2478,12 +2442,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div class="m_search">
         <form name="searchform" class="form u-search-form">
           <i class="icon fa-solid fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="Search..." />
+          <input type="text" class="input u-search-input" placeholder="Search...">
         </form>
       </div>
       
 
-			<ul class='switcher nav-list-h m-phone'>
+			<ul class="switcher nav-list-h m-phone">
 				
 					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
 				
@@ -2494,14 +2458,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/" title="博客"
-                  
-                  
-                  
-                    active-action="action-home"
-                  >
-                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                <a class="menuitem flat-box faa-parent animated-hover" href="/" title="博客" active-action="action-home">
+                  <i class="fa-solid fa-rss fa-fw"></i>博客
                 </a>
                 
               </li>
@@ -2511,14 +2469,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/categories/" title="分类"
-                  
-                  
-                  
-                    active-action="action-categories"
-                  >
-                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                <a class="menuitem flat-box faa-parent animated-hover" href="/categories/" title="分类" active-action="action-categories">
+                  <i class="fa-solid fa-folder-open fa-fw"></i>分类
                 </a>
                 
               </li>
@@ -2528,14 +2480,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/tags/" title="标签"
-                  
-                  
-                  
-                    active-action="action-tags"
-                  >
-                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                <a class="menuitem flat-box faa-parent animated-hover" href="/tags/" title="标签" active-action="action-tags">
+                  <i class="fa-solid fa-tags fa-fw"></i>标签
                 </a>
                 
               </li>
@@ -2545,14 +2491,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/archives/" title="归档"
-                  
-                  
-                  
-                    active-action="action-archives"
-                  >
-                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                <a class="menuitem flat-box faa-parent animated-hover" href="/archives/" title="归档" active-action="action-archives">
+                  <i class="fa-solid fa-archive fa-fw"></i>归档
                 </a>
                 
               </li>
@@ -2562,14 +2502,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
-                  
-                  
-                  
-                    active-action="action-friends"
-                  >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
+                <a class="menuitem flat-box faa-parent animated-hover" href="/friends/" title="友链" active-action="action-friends">
+                  <i class="fa-solid fa-link fa-fw"></i>友链
                 </a>
                 
               </li>
@@ -2579,14 +2513,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/about/" title="关于"
-                  
-                  
-                  
-                    active-action="action-about"
-                  >
-                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                <a class="menuitem flat-box faa-parent animated-hover" href="/about/" title="关于" active-action="action-about">
+                  <i class="fa-solid fa-info-circle fa-fw"></i>关于
                 </a>
                 
               </li>
@@ -2610,63 +2538,45 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper post dock' style="display: none;">
+      <div id="none" class="cover-wrapper post dock" style="display: none;">
         
-  <div class='cover-bg lazyload placeholder' data-bg="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/海風_70042542_1080p.jpg"></div>
+  <div class="cover-bg lazyload placeholder" data-bg="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/海風_70042542_1080p.jpg"></div>
 
-<div class='cover-body'>
-  <div class='top'>
+<div class="cover-body">
+  <div class="top">
     
     
       <p class="title">纸葱de小站</p>
     
     
   </div>
-  <div class='bottom'>
-    <div class='menu navigation'>
-      <div class='list-h'>
+  <div class="bottom">
+    <div class="menu navigation">
+      <div class="list-h">
         
           
-            <a href="/"
-              
-              
-              active-action="action-home">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg'><p>文档</p>
+            <a href="/" active-action="action-home">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>文档</p>
             </a>
           
-            <a href="/faqs/"
-              
-              
-              active-action="action-faqs">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg'><p>帮助</p>
+            <a href="/faqs/" active-action="action-faqs">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>帮助</p>
             </a>
           
-            <a href="/examples/"
-              
-              
-              active-action="action-examples">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg'><p>示例</p>
+            <a href="/examples/" active-action="action-examples">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>示例</p>
             </a>
           
-            <a href="/contributors/"
-              
-              
-              active-action="action-contributors">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg'><p>社区</p>
+            <a href="/contributors/" active-action="action-contributors">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>社区</p>
             </a>
           
-            <a href="/archives/"
-              
-              
-              active-action="action-archives">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg'><p>归档</p>
+            <a href="/archives/" active-action="action-archives">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>归档</p>
             </a>
           
-            <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/"
-              
-              
-              active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
-              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg'><p>源码</p>
+            <a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/volantis-x/hexo-theme-volantis/" active-action="action-https:githubcomvolantis-xhexo-theme-volantis">
+              <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><p>源码</p>
             </a>
           
         
@@ -2684,8 +2594,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-<div id="l_main" class=''>
-  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+<div id="l_main" class>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemprop="blogPost">
   <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/2022/10/27/倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="纸葱de小站">
@@ -2709,12 +2619,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <h1 class="title" itemprop="name headline">
         倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验
       </h1>
-      <div class='new-meta-box'>
+      <div class="new-meta-box">
         
           
             
-<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <a itemprop="url" class='author' href="/" rel="nofollow">
+<div class="new-meta-item author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class="author" href="/" rel="nofollow">
     <img itemprop="image" src="fa-solid fa-face-grin-squint#volantis-static/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="fa-solid fa-face-grin-squint#volantis-static/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
     <p itemprop="name">纸葱</p>
   </a>
@@ -2724,7 +2634,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             
-  <div class='new-meta-item category'>
+  <div class="new-meta-item category">
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
     <a class="category-link" href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/">课程实验</a>
     
@@ -2739,7 +2649,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-27T22:48:00+08:00">
-  <a class='notlink'>
+  <a class="notlink">
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
     <p>发布于：2022年10月27日</p>
   </a>
@@ -2757,38 +2667,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p><a
-target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/LQR控制器">LQR控制器</a>，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。</p>
+    <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/wiki/LQR控制器">LQR控制器</a>，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。</p>
 <span id="more"></span>
 <h2 id="线性二次最优控制lqr控制实验">线性二次最优控制LQR控制实验</h2>
 <h3 id="线性二次最优控制理论分析">线性二次最优控制理论分析</h3>
-<p>线性二次最优控制<span
-class="math inline">\(LQR\)</span>基本原理为，对于线性时不变系统，由系统方程：
+<p>线性二次最优控制<span class="math inline">\(LQR\)</span>基本原理为，对于线性时不变系统，由系统方程：
 <span class="math display">\[
 \dot x(t)=A(t)x(t)+B(t)u(t) \\
 y(t)=C(t)x(t)+D(t)u(t) \\
 x(t_0)=x_0
-\]</span> 确定下列最佳控制向量的矩阵<span
-class="math inline">\(K\)</span>： <span class="math display">\[
+\]</span> 确定下列最佳控制向量的矩阵<span class="math inline">\(K\)</span>： <span class="math display">\[
 u(t)=-K(t)x(t)
 \]</span> 使得性能指标达到最小值，即： <span class="math display">\[
 J=\frac{1}{2}x^T(t_f)Px(t_f)+\frac{1}{2}\int_{t_0}^{t_f}[x^T(t)Q(t)x(t)+u^T(t)R(t)u(t)]dt
 \]</span> 式中：</p>
 <ul>
-<li><span
-class="math inline">\(Q\)</span>：正定(或正半定)厄米特或实对称阵</li>
+<li><span class="math inline">\(Q\)</span>：正定(或正半定)厄米特或实对称阵</li>
 <li>R：为正定厄米特或实对称阵</li>
 </ul>
-<p>终端时间有限时连续系统的状态调节器问题，要求寻找最优控制<span
-class="math inline">\(u(t)\)</span>，使<span
-class="math inline">\(J\)</span>最小。这里<span
-class="math inline">\(u(t)\)</span>无约束。<span
-class="math inline">\(P\)</span>、<span
-class="math inline">\(Q(t)\)</span>为对称半正定阵，<span
-class="math inline">\(R(t)\)</span>为对称正定阵。终端时间<span
-class="math inline">\(t_f\)</span>为有限值。</p>
-<p>因<span
-class="math inline">\(u(t)\)</span>无约束，故等同于用经典变分法求解。取哈密顿函数为：
+<p>终端时间有限时连续系统的状态调节器问题，要求寻找最优控制<span class="math inline">\(u(t)\)</span>，使<span class="math inline">\(J\)</span>最小。这里<span class="math inline">\(u(t)\)</span>无约束。<span class="math inline">\(P\)</span>、<span class="math inline">\(Q(t)\)</span>为对称半正定阵，<span class="math inline">\(R(t)\)</span>为对称正定阵。终端时间<span class="math inline">\(t_f\)</span>为有限值。</p>
+<p>因<span class="math inline">\(u(t)\)</span>无约束，故等同于用经典变分法求解。取哈密顿函数为：
 <span class="math display">\[
 H=\frac{1}{2}[x(t)^TQ(t)x(t)+u^T(t)R(t)u(t)]+\lambda^T(t)[A(t)x(t)+B(t)u(t)]
 \]</span> 最优解的必要条件如下：</p>
@@ -2805,11 +2703,7 @@ H=\frac{1}{2}[x(t)^TQ(t)x(t)+u^T(t)R(t)u(t)]+\lambda^T(t)[A(t)x(t)+B(t)u(t)]
 \frac{\partial H}{\partial u}=R(t)u(t)+B^T(t)\lambda(t)=0 \\
 u=-R^{-1}(t)B^T(t)\lambda(t)
 \]</span></p>
-<p>因<span class="math inline">\(R(t)\)</span>正定，故<span
-class="math inline">\(R^{-1}(t)\)</span>存在，由上式可确定最优控制<span
-class="math inline">\(u(t)\)</span>。为寻求最优反馈控制律还需把<span
-class="math inline">\(u(t)\)</span>与状态<span
-class="math inline">\(x(t)\)</span>联系起来。</p>
+<p>因<span class="math inline">\(R(t)\)</span>正定，故<span class="math inline">\(R^{-1}(t)\)</span>存在，由上式可确定最优控制<span class="math inline">\(u(t)\)</span>。为寻求最优反馈控制律还需把<span class="math inline">\(u(t)\)</span>与状态<span class="math inline">\(x(t)\)</span>联系起来。</p>
 <ul>
 <li>横截条件为：</li>
 </ul>
@@ -2818,20 +2712,11 @@ class="math inline">\(x(t)\)</span>联系起来。</p>
 x(t_f)}=\frac{\partial}{\partial
 x(t_f)}[\frac{1}{2}x^T(t_f)Px(t_f)]=Px(t_f)
 \]</span></p>
-<p>再一次遇到了两点边值问题（已知<span
-class="math inline">\(x(t_0)\)</span>和<span
-class="math inline">\(\lambda(t_f)\)</span>），如前所述，一般要试凑<span
-class="math inline">\(\lambda(t_0)\)</span>再积分协态方程使<span
-class="math inline">\(\lambda(t_f)\)</span>满足要求。</p>
-<p>但这里处理的是线性微分方程，可找到更简单的解法。从可见，协态<span
-class="math inline">\(\lambda(t)\)</span>和状态<span
-class="math inline">\(x(t)\)</span>在终端<span
-class="math inline">\(t_f\)</span>时刻成线性关系。记<span
-class="math inline">\(\lambda(t)=K(t)x(t)\)</span>。</p>
+<p>再一次遇到了两点边值问题（已知<span class="math inline">\(x(t_0)\)</span>和<span class="math inline">\(\lambda(t_f)\)</span>），如前所述，一般要试凑<span class="math inline">\(\lambda(t_0)\)</span>再积分协态方程使<span class="math inline">\(\lambda(t_f)\)</span>满足要求。</p>
+<p>但这里处理的是线性微分方程，可找到更简单的解法。从可见，协态<span class="math inline">\(\lambda(t)\)</span>和状态<span class="math inline">\(x(t)\)</span>在终端<span class="math inline">\(t_f\)</span>时刻成线性关系。记<span class="math inline">\(\lambda(t)=K(t)x(t)\)</span>。</p>
 <p>将线性关系代入横截条件方程得： <span class="math display">\[
 [\dot K(t)+K(t)A(t)-K(t)B(t)R^{-1}(t)B^T(t)K(t)+A^T(t)K(t)+Q(t)]x(t)=0
-\]</span> 上式对任意<span
-class="math inline">\(x(t)\)</span>都应成立，故方括号内的项应为零，这就得出：
+\]</span> 上式对任意<span class="math inline">\(x(t)\)</span>都应成立，故方括号内的项应为零，这就得出：
 <span class="math display">\[
 \dot K(t)=-K(t)A(t)-A^T(t)K(t)+K(t)B(t)R^{-1}(t)B^T(t)K(t)-Q(t)
 \]</span> 再根据线性关系： <span class="math display">\[
@@ -2839,58 +2724,27 @@ class="math inline">\(x(t)\)</span>都应成立，故方括号内的项应为零
 \dot x(t)=A(t)x(t)-B(t)R^{-1}(t)B^T(t)K(t)x(t)\\
 \dot\lambda(t)=\dot K(t)x(t)+K(t)\dot x(t)=-Q(t)x(t)-A^T(t)K(t)x(t)\\
 K(t_f)=P
-\]</span> 得到K满足含上述终值条件的如下<span
-class="math inline">\(Riccati\)</span>方程： <span
-class="math display">\[
+\]</span> 得到K满足含上述终值条件的如下<span class="math inline">\(Riccati\)</span>方程： <span class="math display">\[
 \dot K(t)=-K(t)-A^T(t)K(t)+K(t)B(t)R^{-1}(t)B^T(t)K(t)-Q(t)
-\]</span> 上式是<span
-class="math inline">\(K(t)\)</span>的非线性矩阵微分方程，称为黎卡提（<span
-class="math inline">\(Riccati\)</span>）矩阵微分方程。一般来说得不出<span
-class="math inline">\(K(t)\)</span>的解析表达式，但可用计算机程序算出<span
-class="math inline">\(K(t)\)</span>的数值解。为了求解，要知道它的边界条件<span
-class="math inline">\(K(t_f)=P\)</span>。</p>
-<p>因此可从<span class="math inline">\(t_f\)</span>到<span
-class="math inline">\(t_0\)</span>逆时间积分黎卡提微分方程，求出<span
-class="math inline">\(K(t)\)</span>。可构成最优反馈控制： <span
-class="math display">\[
+\]</span> 上式是<span class="math inline">\(K(t)\)</span>的非线性矩阵微分方程，称为黎卡提（<span class="math inline">\(Riccati\)</span>）矩阵微分方程。一般来说得不出<span class="math inline">\(K(t)\)</span>的解析表达式，但可用计算机程序算出<span class="math inline">\(K(t)\)</span>的数值解。为了求解，要知道它的边界条件<span class="math inline">\(K(t_f)=P\)</span>。</p>
+<p>因此可从<span class="math inline">\(t_f\)</span>到<span class="math inline">\(t_0\)</span>逆时间积分黎卡提微分方程，求出<span class="math inline">\(K(t)\)</span>。可构成最优反馈控制： <span class="math display">\[
 u(t)=-R^{-1}(t)B^T(t)K(t)X(t)=-G(t)x(t)
-\]</span> 其中，<span
-class="math inline">\(G(t)=R^{-1}(t)B^T(t)K(t)\)</span>，又称为最优反馈增益矩阵。</p>
-<p>即使系统是定常的，即系统矩阵<span
-class="math inline">\(A\)</span>，输入矩阵<span
-class="math inline">\(B\)</span>为常数阵，加权阵<span
-class="math inline">\(R\)</span>和<span
-class="math inline">\(Q\)</span>也是常数阵，但<span
-class="math inline">\(K(t)\)</span>仍为时变阵。</p>
-<p>这从<span
-class="math inline">\(K(t)\)</span>是黎卡提微分方程的解可看出。K(t)$时变时，反馈控制增益也时变，在实现时总是不太方便。</p>
-<p>对线性定常系统，若终端时间<span
-class="math inline">\(t_f\rightarrow\infty\)</span>，且系统满足一些附加条件时，<span
-class="math inline">\(K(t)\)</span>将变为常数阵<span
-class="math inline">\(K\)</span>。</p>
+\]</span> 其中，<span class="math inline">\(G(t)=R^{-1}(t)B^T(t)K(t)\)</span>，又称为最优反馈增益矩阵。</p>
+<p>即使系统是定常的，即系统矩阵<span class="math inline">\(A\)</span>，输入矩阵<span class="math inline">\(B\)</span>为常数阵，加权阵<span class="math inline">\(R\)</span>和<span class="math inline">\(Q\)</span>也是常数阵，但<span class="math inline">\(K(t)\)</span>仍为时变阵。</p>
+<p>这从<span class="math inline">\(K(t)\)</span>是黎卡提微分方程的解可看出。K(t)$时变时，反馈控制增益也时变，在实现时总是不太方便。</p>
+<p>对线性定常系统，若终端时间<span class="math inline">\(t_f\rightarrow\infty\)</span>，且系统满足一些附加条件时，<span class="math inline">\(K(t)\)</span>将变为常数阵<span class="math inline">\(K\)</span>。</p>
 <p>线性定常系统： <span class="math display">\[
 \dot x(t)=Ax(t)+Bu(t)
-\]</span> <span class="math inline">\(x\)</span>为<span
-class="math inline">\(n\)</span>维，<span
-class="math inline">\(u\)</span>为<span
-class="math inline">\(m\)</span>维，系统是可控的或至少是可稳的（可稳指不可控的状态是渐近稳定的）。性能指标为：
+\]</span> <span class="math inline">\(x\)</span>为<span class="math inline">\(n\)</span>维，<span class="math inline">\(u\)</span>为<span class="math inline">\(m\)</span>维，系统是可控的或至少是可稳的（可稳指不可控的状态是渐近稳定的）。性能指标为：
 <span class="math display">\[
 J=\frac{1}{2}\int_{0}^{\infty}[x(t)^TQx(t)+u(t)^TRu(t)]dt
-\]</span> 其中<span class="math inline">\(u(t)\)</span>不受约束，<span
-class="math inline">\(Q\)</span>和<span
-class="math inline">\(R\)</span>为常数对称正定阵。或者可将对<span
-class="math inline">\(Q\)</span>的要求改为对称半正定，<span
-class="math inline">\((A,Q_1)\)</span>可观测，或至少可检测（可检测指不可观测的状态是渐近稳定的），<span
-class="math inline">\(Q_1\)</span>是<span
-class="math inline">\(Q\)</span>的矩阵平方根。</p>
-<p>已经证明了：使<span
-class="math inline">\(J\)</span>为极小的最优控制是存在和唯一的，且可表示为：
+\]</span> 其中<span class="math inline">\(u(t)\)</span>不受约束，<span class="math inline">\(Q\)</span>和<span class="math inline">\(R\)</span>为常数对称正定阵。或者可将对<span class="math inline">\(Q\)</span>的要求改为对称半正定，<span class="math inline">\((A,Q_1)\)</span>可观测，或至少可检测（可检测指不可观测的状态是渐近稳定的），<span class="math inline">\(Q_1\)</span>是<span class="math inline">\(Q\)</span>的矩阵平方根。</p>
+<p>已经证明了：使<span class="math inline">\(J\)</span>为极小的最优控制是存在和唯一的，且可表示为：
 <span class="math display">\[
 u(t)=-R^{-1}B^TKx(t)=-Gx(t)
 \]</span></p>
 <h3 id="lqr控制参数调节及仿真">LQR控制参数调节及仿真</h3>
-<p>前面已经得到了直线一级倒立摆系统的系统状态方程： <span
-class="math display">\[
+<p>前面已经得到了直线一级倒立摆系统的系统状态方程： <span class="math display">\[
 \begin{bmatrix}
     \dot x \\
     \ddot x \\
@@ -2937,16 +2791,7 @@ y=
     \dot\phi \\
 \end{bmatrix}
 \]</span></p>
-<p>假设全状态反馈可以实现（四个状态量都可测），找出确定反馈控制规律的向量<span
-class="math inline">\(K\)</span>。在<span
-class="math inline">\(MATLAB\)</span>中得到最优控制器对应的<span
-class="math inline">\(K\)</span>。<span
-class="math inline">\(LQR\)</span>函数允许你选择两个参数——<span
-class="math inline">\(R\)</span>和<span
-class="math inline">\(Q\)</span>，这两个参数用来平衡输入量和状态量的权重。最简单的情况是假设<span
-class="math inline">\(R=1\)</span>，<span
-class="math inline">\(Q=C^′C\)</span>。当然，也可以通过改变<span
-class="math inline">\(Q\)</span>矩阵中的非零元素来调节控制器以得到期望的响应。</p>
+<p>假设全状态反馈可以实现（四个状态量都可测），找出确定反馈控制规律的向量<span class="math inline">\(K\)</span>。在<span class="math inline">\(MATLAB\)</span>中得到最优控制器对应的<span class="math inline">\(K\)</span>。<span class="math inline">\(LQR\)</span>函数允许你选择两个参数——<span class="math inline">\(R\)</span>和<span class="math inline">\(Q\)</span>，这两个参数用来平衡输入量和状态量的权重。最简单的情况是假设<span class="math inline">\(R=1\)</span>，<span class="math inline">\(Q=C^′C\)</span>。当然，也可以通过改变<span class="math inline">\(Q\)</span>矩阵中的非零元素来调节控制器以得到期望的响应。</p>
 <p>取： <span class="math display">\[
 Q=
 \begin{bmatrix}
@@ -2957,10 +2802,7 @@ Q=
 \end{bmatrix}
 ,
 R=1
-\]</span> 其中，<span
-class="math inline">\(Q_{1,1}\)</span>代表小车位置的权重，而<span
-class="math inline">\(Q_{3,3}\)</span>是摆杆角度的权重。使用<span
-class="math inline">\(Matlab\)</span>语句如下：</p>
+\]</span> 其中，<span class="math inline">\(Q_{1,1}\)</span>代表小车位置的权重，而<span class="math inline">\(Q_{3,3}\)</span>是摆杆角度的权重。使用<span class="math inline">\(Matlab\)</span>语句如下：</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">A=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">29.4</span> <span class="number">0</span>];</span><br><span class="line">B=[<span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">3</span>]&#x27;;</span><br><span class="line">C=[<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>; </span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span>];</span><br><span class="line">D=[<span class="number">0</span> <span class="number">0</span>]&#x27;;</span><br><span class="line">Q=[<span class="number">1000</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">200</span> <span class="number">0</span>;</span><br><span class="line">   <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>];</span><br><span class="line">R=<span class="number">1</span>;</span><br><span class="line">K=lqr(A,B,Q,R)</span><br></pre></td></tr></table></figure>
 <p>得到控制矩阵： <span class="math display">\[
 K=
@@ -2973,7 +2815,7 @@ K=
   
   
     
-    <div class='footer'>
+    <div class="footer">
        <!-- 参考资料、相关资料等 -->
       
        <!-- 相关文章 -->
@@ -2988,12 +2830,12 @@ K=
     
 
 
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
+  <div class="article-meta" id="bottom">
+    <div class="new-meta-box">
       
         
           <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-09T21:45:44+08:00">
-  <a class='notlink'>
+  <a class="notlink">
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年11月9日</p>
   </a>
@@ -3016,11 +2858,7 @@ K=
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。"
-          
-          >
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3028,11 +2866,7 @@ K=
       
     
       
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。"
-          
-          >
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3040,11 +2874,7 @@ K=
       
     
       
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。"
-          
-          >
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&title=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站&summary=LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让这些不希望出现的偏差降到最小。而控制量的大小本身也会包括在成本函数中。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3053,20 +2883,16 @@ K=
     
       
         
-        <div class='hoverbox'>
-          <a class='share'><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
-          <div class='target'>
+        <div class="hoverbox">
+          <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
+          <div class="target">
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjgAAAI4CAAAAABCHswqAAALxElEQVR42u3aUXLDOA4E0Nz/0jMHmEqZ6AYtZffxz44skcBTPrrw849lBetHCSxwLHAscCxwLAscCxzrMTg/4frPDX/5/re/f7r+9Pen3/92v0/3Of3dref+LK2tfoMDDjjggAMOOOCAAw444IADDjjPw0kbeNrI08JNAaRQp5CnUNNzTQFM+1i/sOCAAw444IADDjjggAMOOOCAA85r4LTBWFqo9sDpPlvAaf224bZ1Or4/OOCAAw444IADDjjggAMOOOCA8+fhbMNqB6KmQWLauC3o2w2eBp/ggAMOOOCAAw444IADDjjggAPO/w+cdJArDeK2AsV2pQHj1uBbO/AFDjjggAMOOOCAAw444IADDjjg/F0402CrhbIVgKX73gr+UnBTmOkLtdZvcMABBxxwwAEHHHDAAQcccMAB53E47cF9/luf436DAw44PoPjMzg+gwMOOOD4DI7Pj8HZWmnQtxVUnRZuKwDcCj7b+2zV+7i+4IADDjjggAMOOOCAAw444IADzmNwPhU2LcTpfU+Dqe39pYHYFtR08Cp9EdZeaHDAAQcccMABBxxwwAEHHHDAAec1cG4FUOl1W4FhWrjt6566fvr51+vAAQcccMABBxxwwAEHHHDAAQecx+GkDW8Hik6DsTYITMFOg8CtOrSgtvYNDjjggAMOOOCAAw444IADDjjgvAdOC2g6mNQGgGmQVQdf4UBYGmS2gd324Bk44IADDjjggAMOOOCAAw444IDzPJytYK0Npk4b/m0405XeZ/u5p6DHgSM44IADDjjggAMOOOCAAw444IDzOJyt4Oq00d8K+raCvHZgbHtQq+0POOCAAw444IADDjjggAMOOOCA8/fgpAW83fg2QGsbMb1/O3g1DSTbgDMFDg444IADDjjggAMOOOCAAw444DwPJy30VrDVBlTtPqcNmw5ytfv59vmOA0BwwAEHHHDAAQcccMABBxxwwAHnNXC2Gnm68a3Bq61gMh1Q2zpPe/8poI/1AgcccMABBxxwwAEHHHDAAQcccB6DsxUsTQvVDnLdBp0GgbeCvq0Br7SP4IADDjjggAMOOOCAAw444IADznvgbAVY04ZMAW6t0+ffrs800NyCHwem4IADDjjggAMOOOCAAw444IADzmNwth6QBoppQLi1n1uApwHk1gu5FTT+ui9wwAEHHHDAAQcccMABBxxwwAHnMThtwHVakNMga7qPaUCWwk7334LbDgLbfxTggAMOOOCAAw444IADDjjggAPOe+A8NTA0DbKmAdm08W1QljawDe62A9LjABAccMABBxxwwAEHHHDAAQcccMC5DqcNitKGPzXw1O7jFPDW79MXIA0Gjwe5wAEHHHDAAQcccMABBxxwwAEHnK/DaRuxHXBN4aRBVhqAtoNeLYxbgexxH8ABBxxwwAEHHHDAAQcccMABB5zXwJkWbrrx7UJO77sN9dY6DuSW9n3cN3DAAQcccMABBxxwwAEHHHDAAecxOG3DWmDtwdP9pUHZrcBzG/rWiw0OOOCAAw444IADDjjggAMOOOC8B87WxtINt8FaGyhO4aTfbwWY20Hn+LnggAMOOOCAAw444IADDjjggAPOY3CmMNKA8PTvW8FWW+jT69tzpJC2zlMnx+CAAw444IADDjjggAMOOOCAA87X4EwHrqYbaIO9Kcw2OGyDxnRQK63/dJ/1gBc44IADDjjggAMOOOCAAw444IDzGjhbG0thpPtIC9cGY1vP2Q400xf7437BAQcccMABBxxwwAEHHHDAAQecx+HcAtEOMn2r0NOAMIWbBpvp79dBgQMOOOCAAw444IADDjjggAMOOI/BaRu8PbjVDnxNz5EW8PTvt87XvgB1AAgOOOCAAw444IADDjjggAMOOOB8Hc7P8mqDuDaYbIO/FFy6z/T+6fd1/8ABBxxwwAEHHHDAAQcccMABB5zXwJkOBG0HWKf33xpsmp7vWwNm7Qt5a9/ggAMOOOCAAw444IADDjjggAPOc3BODzD9vD34NQ3U2sBsWpdvgTsN+NJ+fbwfOOCAAw444IADDjjggAMOOOCA8zicNnC7VeBvFyYN1ragbMFNn/dxP+CAAw444IADDjjggAMOOOCAA87r4aQB3RTk7cL/lOtWgHh6v7TOa30EBxxwwAEHHHDAAQcccMABBxxwHoPTNngahLVB37RhafB3ulLobfDZBqVpv8ABBxxwwAEHHHDAAQcccMABB5zn4GwNELVBWTqolAZt7XO2zzUFPYXUXgcOOOCAAw444IADDjjggAMOOOC8D07b+HQgavr7W4NULaB2wK0N6Fpw4IADDjjggAMOOOCAAw444IADznvhbA9qbTUmhZDuawtYev2twbQ2WDyeAAQHHHDAAQcccMABBxxwwAEHHHCuwzn+wVLB0uDuFPJ2kHYaOKb33Qr0ptDiPoEDDjjggAMOOOCAAw444IADDjivgTMFkm40fU4bVLYDabchp79PA77xucEBBxxwwAEHHHDAAQcccMABB5zXwJkGfG2glh50CjBdKeTtYHMaCG4HoOCAAw444IADDjjggAMOOOCAA8574EyDrzSQ2gq+0iCsvf9twCmAFv7xiwEOOOCAAw444IADDjjggAMOOOA8BicNoNJGp41srzst9K0AsA1YtwLaNoAFBxxwwAEHHHDAAQcccMABBxxw3gNnGjBNf3cr4DotQAoifc5W3doXJr0POOCAAw444IADDjjggAMOOOCA8144W4NBKZB28CrdT3vdaeFPg7vbdY73Bw444IADDjjggAMOOOCAAw444LwGzlZQNC1Mer9pwacvxLSw7YvRBq/b5wYHHHDAAQcccMABBxxwwAEHHHDeB+d2ADWFsl3I6XO/BWTa8C1QaT3AAQcccMABBxxwwAEHHHDAAQec98BJD3ra+DT4aoO+aaB3KwDdAvktOP95LjjggAMOOOCAAw444IADDjjggPMYnGlgNz1YO8C01fA0mEuvT8G09W2D2ONBLnDAAQcccMABBxxwwAEHHHDAAefrcKYFTx84vU9bqK1AMIWcvnhbgeC0zsfgwAEHHHDAAQcccMABBxxwwAEHnNfD2R5UalcKtg0A2xckDVpbyFt9AAcccMABBxxwwAEHHHDAAQcccJ6DM21IGuylhUsL0Q5otfucBqW3B+VO6/Lx/OCAAw444IADDjjggAMOOOCAA85jcLYCprYBW4NhbUDZDjrdepHSfaX1/fW+4IADDjjggAMOOOCAAw444IADzuvgpAFgCjKFdTyANGzYNrw2qGtf9DS4BAcccMABBxxwwAEHHHDAAQcccN4Dp13tAFI6cBUf/NKLMn2B0sa3v08Hy8ABBxxwwAEHHHDAAQcccMABB5zn4bQDV1vB3TTwSgO2rX21geD0RUkHwNYDUXDAAQcccMABBxxwwAEHHHDAAec1cLaDrvagbeOn92kbmQJq4aVB63h/4IADDjjggAMOOOCAAw444IADzuvgpAM/aWC4VfAtiFuB5+2A79b+fv0eHHDAAQcccMABBxxwwAEHHHDAeQzOVvDXAmwDti246SBXe5/p9+0gWRwUggMOOOCAAw444IADDjjggAMOOI/BaQOw9KBt0Nc2pA0gtwat0mBwa2BrDBMccMABBxxwwAEHHHDAAQcccMB5HE4bME2BpcHiFPBWcNcGodvnTF/Q6fPBAQcccMABBxxwwAEHHHDAAQec98LZHnyaDmx9a5ArfX57njYITYGtnRMccMABBxxwwAEHHHDAAQcccMD5s3CmG78dxJ02IL3u9j6mz9mCDA444IADDjjggAMOOOCAAw444Pzvw9kOnNpBozQgTAfTpvtIX7AU2joocMABBxxwwAEHHHDAAQcccMAB5zVw0kAr/X0KMQ0a2wAtfV4KMoWxHdCCAw444IADDjjggAMOOOCAAw4474HTBndpUNZCSoOutsG3vk/33QaMx/cBBxxwwAEHHHDAAQcccMABBxxwHoNjWaMAVwkscCxwLHAscCwLHAsc69vrX4Sswj99GNnuAAAAAElFTkSuQmCC">
           </div>
         </div>
       
     
       
-        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
-          
-            target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&text=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站"
-          
-          >
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/&text=倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验 - 纸葱de小站">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -3094,9 +2920,9 @@ K=
     <div class="prev-next">
       
       
-        <a class='next' href='/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/'>
-          <p class='title'>倒立摆的建模仿真与控制（四）PID和极点配置实验<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
+        <a class="next" href="/2022/10/25/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E5%9B%9B%EF%BC%89PID%E5%92%8C%E6%9E%81%E7%82%B9%E9%85%8D%E7%BD%AE%E5%AE%9E%E9%AA%8C/">
+          <p class="title">倒立摆的建模仿真与控制（四）PID和极点配置实验<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">经典控制理论的研究对象主要是单输入单输出的系统，控制器设计时一般需要有关被控对象的较精确模型。PID
 控制器因其结构简单，容易调节，且不需要对系统建立精确的模型，在控制上应用较广。
 经典控制...</p>
         </a>
@@ -3116,7 +2942,7 @@ K=
     <span hidden>
       <meta itemprop="discussionUrl" content="/2022/10/27/%E5%80%92%E7%AB%8B%E6%91%86%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%BB%BF%E7%9C%9F%E4%B8%8E%E6%8E%A7%E5%88%B6%EF%BC%88%E4%BA%94%EF%BC%89%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6LQR%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C/index.html#comments">
     </span>
-    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    <p ct><i class="fa-solid fa-comments"></i> 评论</p>
     
 
     <div id="layoutHelper-comments"></div>
@@ -3129,7 +2955,7 @@ K=
 
 
 </div>
-<aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
+<aside id="l_side" itemscope itemtype="http://schema.org/WPSideBar">
   
 
   
@@ -3146,16 +2972,16 @@ K=
   
 
 
-  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
+  <section class="widget toc-wrapper desktop mobile " id="toc-div">
     
   <header>
     
-      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span>
     
   </header>
 
 
-    <div class='content'>
+    <div class="content">
         <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6lqr%E6%8E%A7%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-text">线性二次最优控制LQR控制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BA%8C%E6%AC%A1%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-text">线性二次最优控制理论分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lqr%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0%E8%B0%83%E8%8A%82%E5%8F%8A%E4%BB%BF%E7%9C%9F"><span class="toc-text">LQR控制参数调节及仿真</span></a></li></ol></li></ol>
     </div>
   </section>
@@ -3237,7 +3063,7 @@ K=
         </div>
         
   
-  <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
+  <footer class="footer clearfix" itemscope itemtype="http://schema.org/WPFooter">
     <br><br>
     
       
@@ -3245,18 +3071,7 @@ K=
           
 
   
-    <meting-js
-      theme='#1BCDFC'
-      autoplay='false'
-      volume='0.7'
-      loop='all'
-      order='random'
-      fixed='false'
-      list-max-height='320px'
-      server='netease'
-      type='playlist'
-      id='2481925967'
-      list-folded='true'>
+    <meting-js theme="#1BCDFC" autoplay="false" volume="0.7" loop="all" order="random" fixed="false" list-max-height="320px" server="netease" type="playlist" id="2481925967" list-folded="true">
     </meting-js>
   
 
@@ -3278,25 +3093,22 @@ K=
       
     
       
-        <div><p>博客内容遵循 <a
-target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享
+        <div><p>博客内容遵循 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享
 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
       
     
       
         
-          <div><p><span id="lc-sv">本站总访问量为 <span
-id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
-次</span> <span id="lc-uv">访客数为 <span
-id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+          <div><p><span id="lc-sv">本站总访问量为 <span id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
+次</span> <span id="lc-uv">访客数为 <span id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i></span>
 人</span></p>
 </div>
         
       
     
       
-        <div class='copyright'>
+        <div class="copyright">
         <p><a href="/">Copyright © since 2022</a></p>
 
         </div>
@@ -3361,7 +3173,7 @@ id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i><
 <div id="rightmenu-wrapper">
   <ul class="list-v rightmenu" id="rightmenu-content">
     
-  <li class='navigation menuNavigation-Content'>
+  <li class="navigation menuNavigation-Content">
 
 
     <a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa-solid fa-arrow-left fa-fw"></i></a>
@@ -3382,7 +3194,7 @@ id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i><
   </li>
 
 
-    <hr class="menuLoad-Content" >
+    <hr class="menuLoad-Content">
 
 
 
@@ -3485,7 +3297,7 @@ id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i><
 
 
 
-    <hr class="menuLoad-Content" >
+    <hr class="menuLoad-Content">
 
 
 
@@ -3516,27 +3328,27 @@ id="number"><i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i><
 
 
 <div id="menuMusic">
-  <li class='music name menuOption-Content'>
-    <p class='nav music-title fix-cursor-default'></p>
+  <li class="music name menuOption-Content">
+    <p class="nav music-title fix-cursor-default"></p>
   </li>
-  <li class='music ctrl'>
-    <a class='nav icon-only backward fix-cursor-default' href="/" onclick="return false;" title="backward">
-      <i class='fa-solid fa-step-backward fa-fw'></i>
+  <li class="music ctrl">
+    <a class="nav icon-only backward fix-cursor-default" href="/" onclick="return false;" title="backward">
+      <i class="fa-solid fa-step-backward fa-fw"></i>
     </a>
-    <a class='nav icon-only toggle fix-cursor-default' href="/" onclick="return false;" title="toggle">
-      <i class='fa-solid fa-play fa-fw'></i>
+    <a class="nav icon-only toggle fix-cursor-default" href="/" onclick="return false;" title="toggle">
+      <i class="fa-solid fa-play fa-fw"></i>
     </a>
-    <a class='nav icon-only forward fix-cursor-default' href="/" onclick="return false;" title="forward">
-      <i class='fa-solid fa-step-forward fa-fw'></i>
+    <a class="nav icon-only forward fix-cursor-default" href="/" onclick="return false;" title="forward">
+      <i class="fa-solid fa-step-forward fa-fw"></i>
     </a>
   </li>
-  <li class='music volume'>
-    <div class='nav volume'>
+  <li class="music volume">
+    <div class="nav volume">
       <div class="aplayer-volume-bar-wrap">
         <div class="aplayer-volume-bar fix-cursor-pointer">
           <div class="aplayer-volume"></div>
-          <i class='left fa-solid fa-volume-off fa-fw'></i>
-          <i class='right fa-solid fa-volume-up fa-fw'></i>
+          <i class="left fa-solid fa-volume-off fa-fw"></i>
+          <i class="right fa-solid fa-volume-up fa-fw"></i>
         </div>
       </div>
     </div>
