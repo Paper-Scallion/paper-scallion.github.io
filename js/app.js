@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   volantis.requestAnimationFrame(() => {
-    // VolantisApp.init();
+    VolantisApp.init();
     VolantisApp.subscribe();
     VolantisFancyBox.init();
     highlightKeyWords.startFromURL();
@@ -51,18 +51,18 @@ const VolantisApp = (() => {
       scrollCorrection = volantis.dom.header.clientHeight + 16;
     }
 
-    window.onresize = () => {
-      if (document.documentElement.clientWidth < 500) {
-        volantis.isMobile = 1;
-      } else {
-        volantis.isMobile = 0;
-      }
-      if (volantis.isMobile != volantis.isMobileOld) {
-        fn.setGlobalHeaderMenuEvent();
-        fn.setHeader();
-        fn.setHeaderSearch();
-      }
-    }
+    // window.onresize = () => {
+    //   if (document.documentElement.clientWidth < 500) {
+    //     volantis.isMobile = 1;
+    //   } else {
+    //     volantis.isMobile = 0;
+    //   }
+    //   if (volantis.isMobile != volantis.isMobileOld) {
+    //     fn.setGlobalHeaderMenuEvent();
+    //     fn.setHeader();
+    //     fn.setHeaderSearch();
+    //   }
+    // }
     volantis.scroll.push(fn.scrollEventCallBack, "scrollEventCallBack")
   }
 
