@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://paper-scallion.github.io/posts/6b2f65a4/">
+  <link rel="canonical" href="https://paper-scallion.github.io/posts/f84d373/">
   <!-- 渲染优化 -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
       <link rel="dns-prefetch" href="https://unpkg.com">
@@ -34,21 +34,21 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站</title>
-  <meta name="keywords" content="自动控制原理,null">
-  <meta desc name="description" content="本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。 - Paper_Scallion - 纸葱de小站">
+  <title>统计模式识别实验（一）感知器实现线性二分类 - 纸葱de小站</title>
+  <meta name="keywords" content="模式识别,null">
+  <meta desc name="description" content="线性感知器是二类分类器最简单的学习算法之一。给定一组\(d\)维数据点，属于两个类\(\omega_1\)和\(\omega_2\)，该算法可以在两个类的样本之间找到一个线性分离超平面。如果样本是一维、二维或三维，则分离超平面将分别是点、线或平面。我们研究的特定算法是一类算法的特例，该算法在定义的目标函数上使用梯... - Paper_Scallion - 纸葱de小站">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制">
-<meta property="og:url" content="https://paper-scallion.github.io/posts/6b2f65a4/index.html">
+<meta property="og:title" content="统计模式识别实验（一）感知器实现线性二分类">
+<meta property="og:url" content="https://paper-scallion.github.io/posts/f84d373/index.html">
 <meta property="og:site_name" content="纸葱de小站">
-<meta property="og:description" content="本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。">
+<meta property="og:description" content="线性感知器是二类分类器最简单的学习算法之一。给定一组\(d\)维数据点，属于两个类\(\omega_1\)和\(\omega_2\)，该算法可以在两个类的样本之间找到一个线性分离超平面。如果样本是一维、二维或三维，则分离超平面将分别是点、线或平面。我们研究的特定算法是一类算法的特例，该算法在定义的目标函数上使用梯度下降来得出满足要求的分离超平面。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-10-13T06:19:00.000Z">
-<meta property="article:modified_time" content="2022-11-20T16:07:57.454Z">
+<meta property="article:published_time" content="2022-11-24T05:22:00.000Z">
+<meta property="article:modified_time" content="2022-11-24T05:34:22.918Z">
 <meta property="article:author" content="Paper_Scallion">
-<meta property="article:tag" content="自动控制原理">
+<meta property="article:tag" content="模式识别">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2564,7 +2564,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/posts/6b2f65a4/">
+  <link itemprop="mainEntityOfPage" href="https://paper-scallion.github.io/posts/f84d373/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="纸葱de小站">
   </span>
@@ -2585,7 +2585,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制
+        统计模式识别实验（一）感知器实现线性二分类
       </h1>
       <div class="new-meta-box">
         
@@ -2616,10 +2616,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-10-13T14:19:00+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-11-24T13:22:00+08:00">
   <a class="notlink">
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年10月13日</p>
+    <p>发布于：2022年11月24日</p>
   </a>
 </div>
 
@@ -2635,90 +2635,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>本实验的目的是让实验者熟悉<a target="_blank" rel="external nofollow noopener noreferrer" href="https://zh.wikipedia.org/wiki/%E6%97%8B%E8%BD%89%E7%B7%A8%E7%A2%BC%E5%99%A8">角度编码器</a>的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。</p>
+    <p>线性感知器是二类分类器最简单的学习算法之一。给定一组<span class="math inline">\(d\)</span>维数据点，属于两个类<span class="math inline">\(\omega_1\)</span>和<span class="math inline">\(\omega_2\)</span>，该算法可以在两个类的样本之间找到一个线性分离超平面。如果样本是一维、二维或三维，则分离超平面将分别是点、线或平面。我们研究的特定算法是一类算法的特例，该算法在定义的目标函数上使用梯度下降来得出满足要求的分离超平面。</p>
 <span id="more"></span>
-<h2 id="编码器原理及使用实验">编码器原理及使用实验</h2>
-<h3 id="编码器原理">编码器原理</h3>
-<p>旋转编码器是一种角位移传感器，它分为光电式、接触式和电磁感应式三种，其中光电式脉冲编码器是闭环控制系统中最常用的位置传感器。</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/屏幕截图%202022-10-13%20163943.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/屏幕截图%202022-10-13%20163943.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></p>
-<p>旋转编码器有增量编码器和绝对编码器两种，上图为光电式增量编码器示意图，它由发光元件、光电码盘、光敏元件和信号处理电路组成。当码盘随工作轴一起转动时，光源透过光电码盘上的光栏板形成忽明忽暗的光信号，光敏元件把光信号转换成电信号，然后通过信号处理电路的整形、放大、分频、记数、译码后输出。为了测量出转向，使光栏板的两个狭缝比码盘两个狭缝距离小<span class="math inline">\(\frac{1}{4}\)</span>节距，这样两个光敏元件的输出信号就相差<span class="math inline">\(\frac{\pi}{2}\)</span>相位，将输出信号送入鉴向电路，即可判断码盘的旋转方向。</p>
-<p>光电式增量编码器的测量精度取决于它所能分辨的最小角度<span class="math inline">\(\alpha\)</span>(分辨角、分辨率)，而这与码盘圆周内所分狭缝的线数有关。
-<span class="math display">\[
-\alpha=\frac{360^\circ}{n}
-\]</span> 其中<span class="math inline">\(n\)</span>为编码器线数。</p>
-<p>由于光电式脉冲编码盘每转过一个分辨角就发出一个脉冲信号，因此，根据脉冲数目可得出工作轴的回转角度，由传动比换算出直线位移距离；根据脉冲频率可得工作轴的转速；根据光栏板上两条狭缝中信号的相位先后，可判断光电码盘的正、反转。</p>
-<p>绝对编码器通过与位数相对应的发光二极管和光敏二极管对输出的二进制码来检测旋转角度。</p>
-<p>与增量编码器原理相同，用于测量直线位移的传感器是光栅尺。</p>
-<p>由于光电编码器输出的检测信号是数字信号，因此可以直接进入计算机进行处理，不需放大和转换等过程，使用非常方便，因此应用越来越广泛。</p>
-<h3 id="角度换算">角度换算</h3>
-<p>对于线数为<span class="math inline">\(n\)</span>的编码器，设信号采集卡倍频数为<span class="math inline">\(m\)</span>，则有角度换算关系为： <span class="math display">\[
-\phi=\frac{2\pi}{nm}N(rad) \ or \ \phi=\frac{360^\circ}{nm}N(degree)
-\]</span> 式中<span class="math inline">\(\phi\)</span>为编码器轴转角，<span class="math inline">\(N\)</span>为编码器读数。</p>
-<p>对于电机编码器，在倒立摆使用中需要把编码器读数转化为小车的水平位置，以下转换关系：
-<span class="math display">\[
-l=\frac{\pi\Phi}{nm}N
-\]</span> 式中<span class="math inline">\(l\)</span>为小车位移，<span class="math inline">\(\Phi\)</span>为同步带轮直径。</p>
-<h3 id="matlab-simulink-环境下的实验">Matlab Simulink 环境下的实验</h3>
-<h4 id="仿真设置">仿真设置</h4>
-<ol type="1">
-<li>仿真模式由Normal改为External模式。</li>
-<li>仿真结束时间(Stop time)改为inf(无限长)。</li>
-<li>求解器(Solver)选择为定步长(Fixed-step)，仿真间隔(Fixed step
-size)改为0.005s。</li>
-<li>在Real-Time Workshop中的配置(Configuration)选择系统目标文件(System
-target file)为rtwin.tlc。</li>
-</ol>
-<h4 id="实验一-摆杆角度检测实验">实验一 摆杆角度检测实验</h4>
-<ol type="1">
-<li><p>新建<span class="math inline">\(Simulink\)</span>项目，按照<a href="#仿真设置">仿真设置</a>当中将对各项参数进行设置。</p></li>
-<li><p>打开“Googol Education Products-SV Block Library”。</p></li>
-<li><p>在“Get Current Axis’s
-Position”上点击鼠标左键并将模块拉到（以下简称为“拉”）刚才新建的窗口中。</p></li>
-<li><p>双击“GetPos”模块，打开设置窗口，并选择轴号为“2”，即第一级摆杆连接的编码器，此编码器固定于小车上。</p></li>
-<li><p>从“Simulink”中拉一个“Scope”到窗口中。</p></li>
-<li><p>连接两个模块（移动鼠标到“&lt;“上，鼠标箭头变成“＋”，按下鼠标
-左键并移动到“&gt;”上，松开鼠标）。</p></li>
-<li><p>在“Googol Education Products-SV Block Library”中拉一个“GT400-SV
-Initialization”模块到窗口中。</p></li>
-<li><p>编译程序。</p></li>
-<li><p>打开电控箱电源。</p></li>
-<li><p>连接程序。</p></li>
-<li><p>运行程序。</p></li>
-<li><p>双击“Scope”模块观察数据.</p></li>
-<li><p>手动转动摆杆，观察显示结果，在数据超出显示范围时，点击缩放按键进行缩放。</p></li>
-<li><p>记录实验结果。</p></li>
-</ol>
-<p>记录Scope的结果如下图所示</p>
-<p><img src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/boxing.png" class="lazyload" data-srcset="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/boxing.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="zoom: 50%;"></p>
-<h4 id="实验二-电机控制实现">实验二 电机控制实现</h4>
-<p>将运动控制器当前轴设定成速度控制模式，用户需要设定最大速度和加速度两个参数。在该模式下，开始运动时将以设定的加速度连续加速到设定的最大速度，运动方向由速度的符号确定，即正速度产生正向运动，而负速度产生负向运动。</p>
-<ol type="1">
-<li><p>新建<span class="math inline">\(Simulink\)</span>项目，按照<a href="#仿真设置">仿真设置</a>当中将对各项参数进行设置。</p></li>
-<li><p>打开“Googol Education Products-SV Block Library”。</p></li>
-<li><p>拉“Set Current Axis’s Acc and
-Vel”模块到刚才新建的窗口中。</p></li>
-<li><p>双击“SetAccVel”模块，打开如下窗口，参数设置如下：</p>
-<p>“Axis number”：选择轴号为“1”，即小车电机所使用的轴。</p>
-<p>“Back
-velocity”：此参数设定小车限位后反方向运动的速度，单位为米/秒。</p>
-<p>“Back
-position”：此参数设定小车限位后反方向运动，单位为脉冲数。</p></li>
-<li><p>从“Simulink”中拉两个“Constant”到窗口中。</p></li>
-<li><p>连接三个模块。</p></li>
-<li><p>设置连接“Vel”的“Constant”模块值为0.2，连接“Vel”的“Constant”模块值为0.1。</p></li>
-<li><p>在“Googol Education Products-SV Block Library”中拉一个“GT400-SV
-Initialization”模块到窗口中。</p></li>
-<li><p>编译程序。</p></li>
-<li><p>打开电控箱电源。</p></li>
-<li><p>连接程序。</p></li>
-<li><p>运行程序。</p></li>
-<li><p>观察小车的运动情况。</p></li>
-</ol>
-<p>小车运动情况如下</p>
-<div class="video"><video controls preload><source src="https://gcore.jsdelivr.net/gh/Paper-Scallion/img/7dc938505bf2b9fc5aecc42cefe8d57a.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
-<h3 id="实验结论">实验结论</h3>
-<p>通过使用编码器，可以实现对摆杆角度的测量，可以将旋转角度这一模拟量转化为数字量并作为输入，进而参与控制器的实现。</p>
-<p>通过使用电机，可以将数字控制量转化为模拟运动量，作为系统的输出，参与最终倒立摆的实现。</p>
+<h2 id="感知器实现线性二分类">感知器实现线性二分类</h2>
 
   </div>
   
@@ -2743,10 +2662,10 @@ Initialization”模块到窗口中。</p></li>
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-21T00:07:57+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-24T13:34:22+08:00">
   <a class="notlink">
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年11月21日</p>
+    <p>更新于：2022年11月24日</p>
   </a>
 </div>
 
@@ -2755,8 +2674,8 @@ Initialization”模块到窗口中。</p></li>
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>自动控制原理</p></a></div>
-  <span hidden itemprop="keywords">自动控制原理</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>模式识别</p></a></div>
+  <span hidden itemprop="keywords">模式识别</span>
 
 
         
@@ -2767,7 +2686,7 @@ Initialization”模块到窗口中。</p></li>
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/posts/6b2f65a4/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站&summary=本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。">
+        <a class="-mob-share-qq" title rel="external nofollow noopener noreferrer" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://paper-scallion.github.io/posts/f84d373/&title=统计模式识别实验（一）感知器实现线性二分类 - 纸葱de小站&summary=线性感知器是二类分类器最简单的学习算法之一。给定一组\(d\)维数据点，属于两个类\(\omega_1\)和\(\omega_2\)，该算法可以在两个类的样本之间找到一个线性分离超平面。如果样本是一维、二维或三维，则分离超平面将分别是点、线或平面。我们研究的特定算法是一类算法的特例，该算法在定义的目标函数上使用梯度下降来得出满足要求的分离超平面。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2775,7 +2694,7 @@ Initialization”模块到窗口中。</p></li>
       
     
       
-        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/posts/6b2f65a4/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站&summary=本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。">
+        <a class="-mob-share-qzone" title rel="external nofollow noopener noreferrer" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://paper-scallion.github.io/posts/f84d373/&title=统计模式识别实验（一）感知器实现线性二分类 - 纸葱de小站&summary=线性感知器是二类分类器最简单的学习算法之一。给定一组\(d\)维数据点，属于两个类\(\omega_1\)和\(\omega_2\)，该算法可以在两个类的样本之间找到一个线性分离超平面。如果样本是一维、二维或三维，则分离超平面将分别是点、线或平面。我们研究的特定算法是一类算法的特例，该算法在定义的目标函数上使用梯度下降来得出满足要求的分离超平面。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2783,7 +2702,7 @@ Initialization”模块到窗口中。</p></li>
       
     
       
-        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/posts/6b2f65a4/&title=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站&summary=本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。">
+        <a class="-mob-share-weibo" title rel="external nofollow noopener noreferrer" target="_blank" href="http://service.weibo.com/share/share.php?url=https://paper-scallion.github.io/posts/f84d373/&title=统计模式识别实验（一）感知器实现线性二分类 - 纸葱de小站&summary=线性感知器是二类分类器最简单的学习算法之一。给定一组\(d\)维数据点，属于两个类\(\omega_1\)和\(\omega_2\)，该算法可以在两个类的样本之间找到一个线性分离超平面。如果样本是一维、二维或三维，则分离超平面将分别是点、线或平面。我们研究的特定算法是一类算法的特例，该算法在定义的目标函数上使用梯度下降来得出满足要求的分离超平面。">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2795,13 +2714,13 @@ Initialization”模块到窗口中。</p></li>
         <div class="hoverbox">
           <a class="share"><img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qrcode.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></a>
           <div class="target">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAAC8klEQVR42u3aQXICMQwEQP7/6eQBCbXWSCQraN+AtbF7LyqNH1/Gr+OBAAwYMGDAgFkD8wjHjwWffF/9/fR/T78vrwsGDBgwYMCAWQdzXAAVYbrAp0BT5wEDBgwYMGDA7IVJN1ItxLqF3vT+wIABAwYMGDCfC3MKMX3w8QIRDBgwYMCAAfNxMOmGuw2tNZUvGDBgwIABA+blMOWAarigO51/+yQSDBgwYMCAAfNnMNMB139/js8DBgwYMGDAgFkD0x1XhVl3XrUgbJ8HDBgwYMCAAbMGJi2Qrg6cFoop6Nj+wYABAwYMGDBrYK4Wngq2piC7F4riRhUYMGDAgAEDZg1M2mDqFoKnB+2+0Kf/BwYMGDBgwIBZC9OFSi/2VOGnCrv44hAYMGDAgAED5t9h0oN1YV/dCEsDPjBgwIABAwbM+8JUC6qpYO1VgRwYMGDAgAEDZi9MuvFug6v7fNr4KgduYMCAAQMGDJi1MGnQNt2wqjaeqiBgwIABAwYMmL0waUHVfb5bOLYhrhpVYMCAAQMGDJjbwqQNqbGNhA2yqQIPDBgwYMCAAbMXptqoSoO07vrdi0rHDTUwYMCAAQMGzBqYaqOoG9SlAVz6fLlwBAMGDBgwYMCsg5laeDpIe1WgBwYMGDBgwIB5H5j0IN0CLF0/bXS1Lw6BAQMGDBgwYG4HUw28xhtEzUZZtWB8Og8MGDBgwIABsxamunC1UTQ9r9vQOi7wwIABAwYMGDBrYdJgrNqY6l4sSl8AGDBgwIABA2YfTHekB58uHFNwMGDAgAEDBsxemG5QVoWYCtiOG0/Fi0tgwIABAwYMmH0w1Y2dBlmnv3cbUVVIMGDAgAEDBsz7wUwVUN3g7nZJJBgwYMCAAQPm7WG6BeLpweKDX60LBgwYMGDAgPk4mKngqxyQhes+fXFgwIABAwYMmLUw6YWg6cKsemFoah4YMGDAgAEDZh9Mt2HULRing7o40AMDBgwYMGDArIExwIABAwYMGDDLxjfvgufh6pJxbgAAAABJRU5ErkJggg==">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAAAAACi5bZQAAADBElEQVR42u3aQW7DMAwEwPz/0+29qGFxKSemM7oFtQtpdFlw/fqx/l0vBGDAgAEDBswYmFe4Dv/xn7+fPV/dx9Hzu84DBgwYMGDAgJkHsxyADp4/22gKePZcehGH74MBAwYMGDBgxsKsBqszkHTj7YDWPQ8YMGDAgAED5utgVoPgVUENDBgwYMCAAQPmqgC1q9gbm3zBgAEDBgwYMJfDpAGqGrTSQFgNjh9rIsGAAQMGDBgwb4PZXXB9+nd8HjBgwIABAwbMGJjuqg6GuoGx+v/L5wEDBgwYMGDAjIFJA1IKlBZp6UCrfFFgwIABAwYMmDEwqwHuqg1d/WFR9aLAgAEDBgwYMHNgqkEqLeB2FXjVCzzbz3LyBQMGDBgwYMDcDiYtzqoHWN1gNbh1g91p8gUDBgwYMGDA3BamG4x2BcRqENt1sWDAgAEDBgyY58B0B0O7AmJ8sO6+wIABAwYMGDBjYNLg1A2CqxeyOgC7rHADAwYMGDBgwNweJt14t/jatY9dgy8wYMCAAQMGzByY9MBXFW/dYq0McTbBAwMGDBgwYMDcFiYd6KSB7qoBVregAwMGDBgwYMDMhdkV8FKQbgGYQsRNJBgwYMCAAQPm4zDpQGf5Q5zmYGtXQFy+MDBgwIABAwbMOJhdQW31vVWQ9Lk4AIIBAwYMGDBgxsLs2vini7pqQAUDBgwYMGDAPBem/AFOMejtKuBWL/LwPTBgwIABAwbM42DSQi0t8lYLt/RCwYABAwYMGDDPhVmFqH7okwJ1C8JtgyowYMCAAQMGzG1guqtakHU/VOoGyNPfYMCAAQMGDJgxMK9wpUVct+hLi79VUDBgwIABAwbMPJhdG0w/KEoDZPd9MGDAgAEDBsxzYLoHTQ+UBsO3NZFgwIABAwYMmMfC7CrC0gKvCwkGDBgwYMCA+V6Y1YFX9SDdwFcdyIEBAwYMGDBg5sJUC7ddg6VdRVu74AMDBgwYMGDAjINJi6tqwFsNfNWDV587fA8MGDBgwIABMwbGAgMGDBgwYMAMW79A7GhhDiwMVgAAAABJRU5ErkJggg==">
           </div>
         </div>
       
     
       
-        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/posts/6b2f65a4/&text=倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制 - 纸葱de小站">
+        <a class="-mob-share-telegram" title rel="external nofollow noopener noreferrer" target="_blank" href="https://t.me/share/url?url=https://paper-scallion.github.io/posts/f84d373/&text=统计模式识别实验（一）感知器实现线性二分类 - 纸葱de小站">
           
             <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/telegram.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
           
@@ -2828,16 +2747,10 @@ Initialization”模块到窗口中。</p></li>
   
     <div class="prev-next">
       
-        <a class="prev" href="/posts/b092f074/">
-          <p class="title"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>倒立摆的建模仿真与控制（三）根轨迹和频率响应实验</p>
-          <p class="content">根轨迹图反映了闭环特征根随\(K_r\)变化的规律，而闭环特征方程的根与系统的性能关系密切。通过根轨迹来分析系统的性能具有直观、方便的特点。
-频率特性法是通过系统的开环频率特性的频域性能指标间...</p>
-        </a>
       
-      
-        <a class="next" href="/posts/af245e93/">
-          <p class="title">倒立摆的建模仿真与控制（一）倒立摆系统的建模<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class="content">对于倒立摆系统，由于其本身是自不稳定的系统，实验建模存在一定的困难。但是忽略掉一些次要的因素后，倒立摆系统就是一个典型的运动的刚体系统，可以在惯性坐标系内应用经典力学理论建立系统的动力学方程。...</p>
+        <a class="next" href="/posts/3d573b2a/">
+          <p class="title">倒立摆的建模仿真与控制（五）线性二次最优控制LQR控制实验<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class="content">LQR控制器，先设定成本函数，再由工程师设定加权，利用数学算法来找到使成本函数最小化的设定值。成本函数一般会定义为主要量测量（例如飞行高度或是制程温度）和理想值的偏差的和。算法会设法调整参数，让...</p>
         </a>
       
     </div>
@@ -2853,7 +2766,7 @@ Initialization”模块到窗口中。</p></li>
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/posts/6b2f65a4/index.html#comments">
+      <meta itemprop="discussionUrl" content="/posts/f84d373/index.html#comments">
     </span>
     <p ct><i class="fa-solid fa-comments"></i> 评论</p>
     
@@ -2895,7 +2808,7 @@ Initialization”模块到窗口中。</p></li>
 
 
     <div class="content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%AE%9E%E9%AA%8C"><span class="toc-text">编码器原理及使用实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8%E5%8E%9F%E7%90%86"><span class="toc-text">编码器原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%92%E5%BA%A6%E6%8D%A2%E7%AE%97"><span class="toc-text">角度换算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#matlab-simulink-%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%AE%9E%E9%AA%8C"><span class="toc-text">Matlab Simulink 环境下的实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%BE%E7%BD%AE"><span class="toc-text">仿真设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-%E6%91%86%E6%9D%86%E8%A7%92%E5%BA%A6%E6%A3%80%E6%B5%8B%E5%AE%9E%E9%AA%8C"><span class="toc-text">实验一 摆杆角度检测实验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6%E5%AE%9E%E7%8E%B0"><span class="toc-text">实验二 电机控制实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E8%AE%BA"><span class="toc-text">实验结论</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E5%99%A8%E5%AE%9E%E7%8E%B0%E7%BA%BF%E6%80%A7%E4%BA%8C%E5%88%86%E7%B1%BB"><span class="toc-text">感知器实现线性二分类</span></a></li></ol>
     </div>
   </section>
 
@@ -4285,7 +4198,7 @@ window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListener
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/posts/6b2f65a4/","name":"倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"倒立摆的建模仿真与控制（二）编码器的原理及使用以及电机控制","description":"本实验的目的是让实验者熟悉角度编码器的基本原理，掌握利用计算机和运动控制卡对编码器进行数据采集的方法，以及利用计算机对电机进行控制的基本原理和方法，了解机电一体化的两个重要内容：传感技术和运动控制技术。以便顺利的完成倒立摆的各项实验。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/posts/6b2f65a4/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/posts/6b2f65a4/","wordCount":117,"datePublished":"2022-10-13T06:19:00.000Z","dateModified":"2022-11-20T16:07:57.454Z","articleSection":"课程实验","keywords":"自动控制原理","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","sameAs":["https://github.com/volantis-x"],"description":"基于Hexo构建的博客"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://paper-scallion.github.io/","name":"纸葱de小站"}},{"@type":"ListItem","position":2,"item":{"@id":"https://paper-scallion.github.io/categories/课程实验/","name":"课程实验"}},{"@type":"ListItem","position":3,"item":{"@id":"https://paper-scallion.github.io/posts/f84d373/","name":"统计模式识别实验（一）感知器实现线性二分类"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"纸葱de小站","url":"https://paper-scallion.github.io/","keywords":null,"description":"基于Hexo构建的博客","author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/","description":"基于Hexo构建的博客"},"publisher":{"@type":"Organization","name":"纸葱de小站","url":"https://paper-scallion.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://paper-scallion.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"统计模式识别实验（一）感知器实现线性二分类","description":"线性感知器是二类分类器最简单的学习算法之一。给定一组\\(d\\)维数据点，属于两个类\\(\\omega_1\\)和\\(\\omega_2\\)，该算法可以在两个类的样本之间找到一个线性分离超平面。如果样本是一维、二维或三维，则分离超平面将分别是点、线或平面。我们研究的特定算法是一类算法的特例，该算法在定义的目标函数上使用梯度下降来得出满足要求的分离超平面。","inLanguage":["zh-CN","en","zh-TW","default"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://paper-scallion.github.io/posts/f84d373/"},"author":{"@type":"Person","name":"Paper_Scallion","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://paper-scallion.github.io/"},"publisher":{"@type":"Organization","name":"纸葱de小站","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://paper-scallion.github.io/posts/f84d373/","wordCount":174,"datePublished":"2022-11-24T05:22:00.000Z","dateModified":"2022-11-24T05:34:22.918Z","articleSection":"课程实验","keywords":"模式识别","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
